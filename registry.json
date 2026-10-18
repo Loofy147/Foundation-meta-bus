@@ -1,0 +1,1230 @@
+{
+ "generated": "2026-10-18",
+ "grades": [
+  "PROVEN",
+  "SUPPORTED",
+  "OPEN",
+  "CONTRADICTED"
+ ],
+ "capabilities": [
+  {
+   "id": "A1",
+   "name": "Advantage+ Shopping",
+   "code": "ASC",
+   "layer": "acquisition",
+   "group": "A",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "campaign_type=ASC",
+   "desc": "End-to-end automation for commerce. Auto audience + placement + creative.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [
+    "D3",
+    "F1"
+   ],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "A2",
+   "name": "Advantage+ Audience",
+   "code": "A+AUD",
+   "layer": "acquisition",
+   "group": "A",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "audience_expansion=1",
+   "desc": "Broad targeting with AI expansion. Removes manual interest stacking.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "A3",
+   "name": "Advantage+ Placements",
+   "code": "A+PLC",
+   "layer": "acquisition",
+   "group": "A",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 2,
+   "meta_ref": "placements=[AUTO,THREADS]",
+   "desc": "Includes Threads, Reels, Search. Unified bidding across surfaces.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [
+    "F1"
+   ],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "A4",
+   "name": "Andromeda Ranking",
+   "code": "ANDRM",
+   "layer": "acquisition",
+   "group": "A",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 3,
+   "meta_ref": "ranking_model=v2",
+   "desc": "Next-gen retrieval. Personalization for product discovery.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "A5",
+   "name": "Campaign Budget Optimization",
+   "code": "CBO",
+   "layer": "acquisition",
+   "group": "A",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "cbo=enabled",
+   "desc": "AI-driven budget fluidity. Minimum ROAS guardrails.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "B1",
+   "name": "AI Studio Custom Agents",
+   "code": "AISTD",
+   "layer": "conversation",
+   "group": "B",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 2,
+   "meta_ref": "ai_studio_sdk",
+   "desc": "Build domain-specific agents. Product expert, size advisor, etc.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "B2",
+   "name": "Business Agent",
+   "code": "BIZ-AG",
+   "layer": "conversation",
+   "group": "B",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 3,
+   "meta_ref": "business_agent_beta",
+   "desc": "Unified agent for WhatsApp / Messenger / IG DM. Handoff to human.",
+   "checked": true,
+   "notes": "A labelled this 'business_agent_beta'. Reported global launch 2026-06-03 plus a 'Business Agent Platform' for connecting external systems. Algeria-specific availability and Darja quality are NOT confirmed. Pricing: free to activate initially, paid tiers announced -> budget risk.",
+   "depends_on": [
+    "K2"
+   ],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "Meta Business Agent announced as globally available (2026-06-03) on WhatsApp, Messenger, Instagram; handoff to human supported.",
+     "sources": [
+      "https://www.techwyse.com/news/platform-updates/meta-business-agent-global-launch-whatsapp-instagram",
+      "https://itdaily.com/news/software/meta-business-agent-available-worldwide/"
+     ],
+     "note": "Several outlets repeating Meta/TechCrunch; Meta newsroom page itself not retrieved."
+    },
+    {
+     "grade": "SUPPORTED",
+     "claim": "Business Agent Platform lets businesses link agents to external systems (e.g. Shopify, Zendesk).",
+     "sources": [
+      "https://itdaily.com/news/software/meta-business-agent-available-worldwide/",
+      "https://www.fonearena.com/blog/484218/meta-business-agent-platform-features.html/amp"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "SUPPORTED",
+     "claim": "Free to activate initially; later bundled into WhatsApp Business Premium tiers, token-based pricing for large businesses.",
+     "sources": [
+      "https://www.techwyse.com/news/platform-updates/meta-business-agent-global-launch-whatsapp-instagram",
+      "https://www.fonearena.com/blog/484218/meta-business-agent-platform-features.html/amp"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "OPEN",
+     "claim": "Algeria eligibility and Darja/Arabizi quality: 'local languages' is the only statement found; no dialect-specific evidence.",
+     "sources": [],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "B3",
+   "name": "Muse Integration",
+   "code": "AICAT",
+   "layer": "conversation",
+   "group": "B",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 2,
+   "meta_ref": "ai_catalog_connect",
+   "desc": "Catalog-aware product recommendations in chat.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "B4",
+   "name": "Darja NLU layer (provider-neutral)",
+   "code": "LLM-DZ",
+   "layer": "conversation",
+   "group": "B",
+   "artefact_origin": "A",
+   "a_status": "BLOCKED",
+   "status": "CONFIG",
+   "complexity": 3,
+   "meta_ref": "NONE (not a Meta product) -- own router: encoder classifier + LLM API",
+   "desc": "A framed this as 'Llama for Darja = BLOCKED'. The block is specific to a Meta-supplied fine-tune; Algerian-dialect NLP assets exist outside Meta. Re-scoped as a routable NLU capability to be benchmarked, not assumed.",
+   "checked": true,
+   "notes": "Accuracy on our intents is OPEN until benchmarked on our own labelled conversations. This sandbox cannot reach Hugging Face, so no model was executed in this study.",
+   "depends_on": [
+    "K1"
+   ],
+   "evidence": [
+    {
+     "grade": "PROVEN",
+     "claim": "DziriBERT: peer-reviewed pretrained model for Algerian dialect, outperforming multilingual baselines on classification, esp. Roman script.",
+     "sources": [
+      "https://arxiv.org/abs/2109.12346v3"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "SUPPORTED",
+     "claim": "Newer encoders for Darja/Arabizi/French code-switching exist (DZAIR).",
+     "sources": [
+      "https://huggingface.co/algerian-nlp/DZAIR"
+     ],
+     "note": "Model card claims; not independently reproduced."
+    },
+    {
+     "grade": "OPEN",
+     "claim": "No evidence on how general-purpose LLMs perform on Algerian Darja intent parsing for our domain.",
+     "sources": [],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "C1",
+   "name": "Advantage+ Creative",
+   "code": "A+CR",
+   "layer": "creative",
+   "group": "C",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "dynamic_creative=ON",
+   "desc": "Auto variations: crop, brightness, text overlay optimization.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "C2",
+   "name": "Image-to-Video",
+   "code": "I2V",
+   "layer": "creative",
+   "group": "C",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 2,
+   "meta_ref": "gen_video_model",
+   "desc": "Animate static product. 6s Reels from single SKU image.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "C3",
+   "name": "Background Generation",
+   "code": "BG-GEN",
+   "layer": "creative",
+   "group": "C",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "bg_gen_api",
+   "desc": "Scene expansion. Lifestyle context without photoshoot.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "C4",
+   "name": "AI Dubbing",
+   "code": "DUB",
+   "layer": "creative",
+   "group": "C",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 2,
+   "meta_ref": "seamless_m4t",
+   "desc": "Darja / French / English voice cloning. Lip-sync for UGC.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "C5",
+   "name": "Text Generation",
+   "code": "TXT-G",
+   "layer": "creative",
+   "group": "C",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "llama_text_gen",
+   "desc": "Ad copy in 3 languages. Hook + angle variations.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "D1",
+   "name": "Click-to-WhatsApp Ads",
+   "code": "CTWA",
+   "layer": "commerce",
+   "group": "D",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "cta=WHATSAPP",
+   "desc": "Primary conversion path. Deep link with pre-filled intent.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [
+    "F1"
+   ],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "D2",
+   "name": "WhatsApp Flows",
+   "code": "WA-FLO",
+   "layer": "commerce",
+   "group": "D",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 2,
+   "meta_ref": "flows_endpoint",
+   "desc": "Wilaya selector, size, color, address capture. No code builder.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [
+    "L1"
+   ],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "D3",
+   "name": "Catalogs",
+   "code": "WCAT",
+   "layer": "commerce",
+   "group": "D",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "wa_catalog_id",
+   "desc": "In-chat product carousel. Sync from Commerce Manager.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [
+    "F4"
+   ],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "D4",
+   "name": "Payments",
+   "code": "WAPAY",
+   "layer": "commerce",
+   "group": "D",
+   "artefact_origin": "A",
+   "a_status": "BLOCKED",
+   "status": "BLOCKED",
+   "complexity": 3,
+   "meta_ref": "payments_api_dz",
+   "desc": "In-chat payment link / COD confirmation flow.",
+   "checked": true,
+   "notes": "Native in-chat payments reported only for India, Brazil, Singapore (one source adds Mexico). Algeria not listed; no cross-border P2P. Payment must run on external rails (see P2) or COD.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "Native WhatsApp in-chat payments: India, Brazil, Singapore only; experience varies by market and partner.",
+     "sources": [
+      "https://infobip.com/blog/whatsapp-payments",
+      "https://sleekflow.io/en-gb/blog/whatsapp-pay",
+      "https://pickyassist.com/blog/?p=9698"
+     ],
+     "note": "All secondary; Meta help-centre list not retrieved."
+    },
+    {
+     "grade": "SUPPORTED",
+     "claim": "WhatsApp does not support cross-border P2P transfers.",
+     "sources": [
+      "https://pickyassist.com/blog/?p=9698"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "D5",
+   "name": "Broadcast & Automations",
+   "code": "WA-AUT",
+   "layer": "commerce",
+   "group": "D",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 2,
+   "meta_ref": "wa_automation",
+   "desc": "Abandoned cart, order updates, re-engagement sequences.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [
+    "K2"
+   ],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "E1",
+   "name": "Reels Engine",
+   "code": "REELS",
+   "layer": "community",
+   "group": "E",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "reels_api",
+   "desc": "Discovery-first format. Hook rate >3s = distribution.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "E2",
+   "name": "Broadcast Channels",
+   "code": "BC",
+   "layer": "community",
+   "group": "E",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 1,
+   "meta_ref": "ig_broadcast",
+   "desc": "One-to-many. Early access, drops, polls.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "E3",
+   "name": "Groups API",
+   "code": "GRP",
+   "layer": "community",
+   "group": "E",
+   "artefact_origin": "A",
+   "a_status": "BLOCKED",
+   "status": "BLOCKED",
+   "complexity": 2,
+   "meta_ref": "groups_graph",
+   "desc": "Private community for repeat buyers. UGC sourcing.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "E4",
+   "name": "Collaborative Ads",
+   "code": "CPAS",
+   "layer": "community",
+   "group": "E",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 2,
+   "meta_ref": "collab_ads",
+   "desc": "Brand x Retailer. Shared catalog + audience.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "E5",
+   "name": "Shops",
+   "code": "SHOPS",
+   "layer": "community",
+   "group": "E",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "UNVERIFIED",
+   "complexity": 1,
+   "meta_ref": "fb_shops",
+   "desc": "Native checkout fallback. IG + FB storefront.",
+   "checked": true,
+   "notes": "A says READY. Meta's own help page makes a supported-country Page a requirement; no list found that includes Algeria. Treat as unavailable until confirmed in Commerce Manager for the actual Page.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "PROVEN",
+     "claim": "Facebook/Instagram commerce surfaces require the Page/account to be located in a supported country; native checkout was US-only on that page.",
+     "sources": [
+      "https://help.instagram.com/ipad-app/1627591223954487"
+     ],
+     "note": "Page is older than 2026; re-check current list."
+    },
+    {
+     "grade": "OPEN",
+     "claim": "Algeria's presence/absence in the current supported-country list was not confirmed either way.",
+     "sources": [],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "F1",
+   "name": "Conversions API (CAPI)",
+   "code": "CAPI",
+   "layer": "signal",
+   "group": "F",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 3,
+   "meta_ref": "capi_gateway",
+   "desc": "Server events. WA conversation, lead, purchase.",
+   "checked": true,
+   "notes": "For click-to-WhatsApp, attribution key is ctwa_clid delivered on the FIRST inbound message. If it is not persisted at that moment it is lost. Event set reported: LeadSubmitted (not Lead), Purchase, AddToCart, InitiateCheckout, ViewContent; action_source=business_messaging. Reported 7-day attribution window.",
+   "depends_on": [
+    "S1",
+    "K2"
+   ],
+   "evidence": [
+    {
+     "grade": "PROVEN",
+     "claim": "CAPI for Business Messaging exists; needs dataset + WABA id + ctwa_clid; ctwa_clid is per-click and exposed when the user arrives from a CTWA ad.",
+     "sources": [
+      "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "SUPPORTED",
+     "claim": "Accepted event names and the 7-day attribution caveat.",
+     "sources": [
+      "https://docs.zernio.com/whatsapp/send-whatsapp-conversion"
+     ],
+     "note": "Third-party API docs claiming live verification against Graph v25.0."
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "F2",
+   "name": "Advanced Matching",
+   "code": "AM",
+   "layer": "signal",
+   "group": "F",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 2,
+   "meta_ref": "adv_match=SHA256",
+   "desc": "Email, phone hash. Lift match rate +15-25%.",
+   "checked": true,
+   "notes": "A's '+15-25% match lift' is unsourced and describes the web Pixel/CAPI path. The messaging path attributes by ctwa_clid, so hashing PII adds little there and creates transfer exposure (see K1).",
+   "depends_on": [
+    "K1"
+   ],
+   "evidence": [
+    {
+     "grade": "PROVEN",
+     "claim": "Messaging-path attribution is keyed on ctwa_clid.",
+     "sources": [
+      "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "OPEN",
+     "claim": "'+15-25%' lift: no source in the artefact, none found.",
+     "sources": [],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "F3",
+   "name": "Delivery-outcome -> CAPI purchase pipeline",
+   "code": "OFF-C",
+   "layer": "signal",
+   "group": "F",
+   "artefact_origin": "A",
+   "a_status": "BLOCKED",
+   "status": "CONFIG",
+   "complexity": 3,
+   "meta_ref": "CAPI business_messaging / system_generated (replaces offline_dataset)",
+   "desc": "A's 'Offline Conversions' product was discontinued May 2025; offline events now go through the unified Conversions API. Re-scoped: courier delivery/COD-collected status -> Purchase event carrying the original ctwa_clid.",
+   "checked": true,
+   "notes": "Feasibility of the API leg is documented; whether Meta optimisation benefits from late (post-delivery) COD signals is OPEN. Window limits: post-delivery events may exceed the reported 7-day attribution window -> measure lag from our own data.",
+   "depends_on": [
+    "S1",
+    "L1",
+    "K2"
+   ],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "Offline Conversions API discontinued May 2025; replaced by Conversions API (action_source physical_store / system_generated).",
+     "sources": [
+      "https://adadvisor.ai/docs/learn/offline-conversions",
+      "https://dev.to/simul_sarker_51af2d373b1b/the-ghost-in-the-machine-why-your-offline-conversion-uploads-are-failing-and-what-to-do-about-it-b47"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "PROVEN",
+     "claim": "CAPI business-messaging Purchase event with ctwa_clid is the supported path for chat-originated sales.",
+     "sources": [
+      "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "OPEN",
+     "claim": "Optimisation uplift from COD-delivered purchase signals; courier-lag vs attribution window.",
+     "sources": [],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "F4",
+   "name": "Verification Badges",
+   "code": "V-BADGE",
+   "layer": "signal",
+   "group": "F",
+   "artefact_origin": "A",
+   "a_status": "READY",
+   "status": "READY",
+   "complexity": 1,
+   "meta_ref": "verified_badge",
+   "desc": "Meta Verified business. Trust signal in chat.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "F5",
+   "name": "Review System",
+   "code": "REV",
+   "layer": "signal",
+   "group": "F",
+   "artefact_origin": "A",
+   "a_status": "CONFIG",
+   "status": "CONFIG",
+   "complexity": 1,
+   "meta_ref": "ratings_api",
+   "desc": "On-site + IG comments aggregation. Social proof loop.",
+   "checked": false,
+   "notes": "Inherited from artefact A; not examined in this study.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Taken from artefact A without independent verification.",
+     "sources": [
+      "uploaded:dz_meta_foundation_blueprint.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "P1",
+   "name": "Ad billing instrument",
+   "layer": "payments",
+   "artefact_origin": "new",
+   "status": "CONFIG",
+   "checked": true,
+   "desc": "A payment method Meta Ads Manager will accept for an Algerian advertiser.",
+   "notes": "Algerian CIB/Edahabia cards are reported as generally rejected for Meta billing; virtual USD cards are the common workaround. FX/regulatory treatment of paying a foreign platform is OPEN -> counsel/bank.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "CIB/Edahabia cards generally rejected by Meta/Google/TikTok billing; convertible-currency cards required.",
+     "sources": [
+      "https://algeriatech.news/?p=2915",
+      "https://grey.co/blog/acheter-en-ligne-algerie"
+     ],
+     "note": "Trade site + a virtual-card vendor (commercial interest)."
+    },
+    {
+     "grade": "OPEN",
+     "claim": "Legal/FX position on funding a foreign ad account from Algeria.",
+     "sources": [],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "P2",
+   "name": "Local payment rails (CIB/Edahabia via PSP link)",
+   "layer": "payments",
+   "artefact_origin": "new",
+   "status": "CONFIG",
+   "checked": true,
+   "desc": "External checkout for DOMESTIC cards (SlickPay-class PSPs, SATIM network) triggered from chat as a link; COD remains default. Serves Algerian cardholders only -- NOT a replacement for diaspora payments (see P3).",
+   "notes": "Vendor doc claims ~30-50% lower conversion than COD-only on cold traffic -- single commercial source, treat as hypothesis to measure.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "PSP gateways for CIB/Edahabia exist with API credentials and webhooks.",
+     "sources": [
+      "https://dzbuild.com/docs/payments/cib-edahabia"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "OPEN",
+     "claim": "Conversion trade-off vs COD.",
+     "sources": [],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "L1",
+   "name": "Courier adapter layer",
+   "layer": "logistics",
+   "artefact_origin": "new",
+   "status": "CONFIG",
+   "checked": true,
+   "desc": "Provider-neutral shipping port: fees by wilaya/commune, parcel create, status, return fee. Adapters: Yalidine family (API ID+token), Ecotrack family, Maystro, ZR Express (UUID territories), Noest.",
+   "notes": "Yalidine API needs a verified business account; commune name mismatch (Arabic vs French spelling) is a known create-time failure. Couriers differ in COD semantics (Yalidine bills delivery fee separately).",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "Yalidine Express API (api.yalidine.app/v1): localities, fees, parcel creation, stop-desks; access via API ID+token.",
+     "sources": [
+      "https://dzbuild.com/docs/couriers/yalidine",
+      "https://wordpress.org/plugins/?p=347054"
+     ],
+     "note": ""
+    },
+    {
+     "grade": "SUPPORTED",
+     "claim": "Many Algerian courier APIs are inconsistent or undocumented; unified wrappers exist.",
+     "sources": [
+      "https://freeship.dzbuild.com/"
+     ],
+     "note": "Vendor of such a wrapper."
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "K1",
+   "name": "Data-transfer & residency gate",
+   "layer": "compliance",
+   "artefact_origin": "new",
+   "status": "CONFIG",
+   "checked": true,
+   "desc": "Design-time and run-time check that personal data only reaches providers/regions permitted by a policy table owned by counsel.",
+   "notes": "Law 18-07 as amended by Law 25-11 (2025): express consent; transfers abroad subject to ANPDP rules/authorization. Trade sources disagree on specifics (default local hosting, processing times) -> OPEN; needs Algerian counsel. This is a gate in the architecture, not a legal conclusion.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "Law 18-07 (amended by 25-11, July 2025): consent principle; cross-border transfers regulated and tied to ANPDP authorization.",
+     "sources": [
+      "https://www.gide.com/en/news-insights/protection-of-personal-data-focus-on-algerian-regulations/"
+     ],
+     "note": "Law-firm summary; statute text not retrieved."
+    },
+    {
+     "grade": "OPEN",
+     "claim": "Local-hosting default and authorization timelines (single trade-site claims, conflicting wording).",
+     "sources": [
+      "https://algeriatech.news/?p=21081"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "K2",
+   "name": "Consent & purpose ledger",
+   "layer": "compliance",
+   "artefact_origin": "new",
+   "status": "CONFIG",
+   "checked": true,
+   "desc": "Per-contact record of consent, purpose and channel, consulted before any outbound event (CAPI, courier, LLM).",
+   "notes": "Follows from the consent principle; implementation is ours.",
+   "depends_on": [
+    "K1"
+   ],
+   "evidence": [
+    {
+     "grade": "SUPPORTED",
+     "claim": "Express prior consent is the core principle of the Algerian regime.",
+     "sources": [
+      "https://www.gide.com/en/news-insights/protection-of-personal-data-focus-on-algerian-regulations/"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "S1",
+   "name": "Canonical event backbone",
+   "layer": "signal",
+   "artefact_origin": "new",
+   "status": "CONFIG",
+   "checked": true,
+   "desc": "Provider-neutral event model (conversation_started[ctwa_clid], lead_qualified, order_created, confirmed, shipped, delivered, returned, paid). CAPI/analytics/CRM are subscribers.",
+   "notes": "Invariant: persist ctwa_clid at the first inbound webhook, idempotently. Everything in the signal layer depends on this.",
+   "depends_on": [
+    "K2"
+   ],
+   "evidence": [
+    {
+     "grade": "PROVEN",
+     "claim": "ctwa_clid is delivered with the first inbound message and is required for attribution.",
+     "sources": [
+      "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": "2026-10-18"
+  },
+  {
+   "id": "P3",
+   "name": "Cross-border collection rail",
+   "layer": "payments",
+   "artefact_origin": "new",
+   "status": "UNVERIFIED",
+   "checked": false,
+   "desc": "Accepting payment from buyers abroad (e.g. diaspora with EU cards) and settling to an Algerian business. Needed by artefact B's Diaspora Bridge once native WhatsApp payments (D4) are ruled out.",
+   "notes": "NOT examined. Settlement, FX and foreign-currency regulation for an Algerian merchant are OPEN and potentially restrictive; may require a foreign merchant-of-record structure. Counsel/bank question before any design work.",
+   "depends_on": [
+    "K1"
+   ],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "No source examined for foreign-card acceptance and settlement into Algeria.",
+     "sources": [
+      "uploaded:meta_advanced_stack_algerian.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  },
+  {
+   "id": "D6",
+   "name": "Order confirmation / OTP step",
+   "layer": "commerce",
+   "artefact_origin": "B",
+   "status": "CONFIG",
+   "checked": false,
+   "desc": "B's 'OTP confirm' inside the COD flow. Not examined: which Meta/BSP feature provides it and its per-message cost in Algeria are unknown.",
+   "notes": "Inherited from B, unverified.",
+   "depends_on": [],
+   "evidence": [
+    {
+     "grade": "OPEN",
+     "claim": "Mechanism, availability and cost not examined.",
+     "sources": [
+      "uploaded:meta_advanced_stack_algerian.html"
+     ],
+     "note": ""
+    }
+   ],
+   "verified_on": null
+  }
+ ],
+ "shapes": [
+  {
+   "id": "A",
+   "title": "Darja AI Sales Factory",
+   "source": "B",
+   "requires": [
+    "B2",
+    "B4",
+    "A1",
+    "D3",
+    "D2",
+    "C2",
+    "D1",
+    "L1",
+    "F1",
+    "D6",
+    "P1"
+   ],
+   "workarounds": {}
+  },
+  {
+   "id": "B",
+   "title": "Community-to-Cash Flywheel",
+   "source": "B",
+   "requires": [
+    "E3",
+    "E2",
+    "B2",
+    "A2",
+    "F5",
+    "F1",
+    "P1"
+   ],
+   "workarounds": {}
+  },
+  {
+   "id": "C",
+   "title": "Diaspora Bridge",
+   "source": "B",
+   "requires": [
+    "C4",
+    "D4",
+    "A3",
+    "L1",
+    "P1"
+   ],
+   "workarounds": {
+    "D4": "P3"
+   }
+  }
+ ],
+ "rows": [
+  {
+   "id": "R1",
+   "title": "Boost post -> Advantage+ incl. Threads + WA as conversion",
+   "requires": [
+    "A3",
+    "D1",
+    "F1",
+    "P1"
+   ]
+  },
+  {
+   "id": "R2",
+   "title": "Night replies -> AI Business Agent 24/7",
+   "requires": [
+    "B2",
+    "B4"
+   ]
+  },
+  {
+   "id": "R3",
+   "title": "Product photo -> generative video",
+   "requires": [
+    "C1",
+    "C2",
+    "C4"
+   ]
+  },
+  {
+   "id": "R4",
+   "title": "COD chaos -> Flow with wilaya + live courier estimate + OTP",
+   "requires": [
+    "D2",
+    "L1",
+    "D6"
+   ]
+  }
+ ],
+ "sources": {
+  "meta_capi_bm": "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging",
+  "zernio_capi": "https://docs.zernio.com/whatsapp/send-whatsapp-conversion",
+  "infobip_pay": "https://infobip.com/blog/whatsapp-payments",
+  "sleekflow_pay": "https://sleekflow.io/en-gb/blog/whatsapp-pay",
+  "pickyassist_pay": "https://pickyassist.com/blog/?p=9698",
+  "ba_techwyse": "https://www.techwyse.com/news/platform-updates/meta-business-agent-global-launch-whatsapp-instagram",
+  "ba_itdaily": "https://itdaily.com/news/software/meta-business-agent-available-worldwide/",
+  "ba_fonearena": "https://www.fonearena.com/blog/484218/meta-business-agent-platform-features.html/amp",
+  "offline_adadvisor": "https://adadvisor.ai/docs/learn/offline-conversions",
+  "offline_devto": "https://dev.to/simul_sarker_51af2d373b1b/the-ghost-in-the-machine-why-your-offline-conversion-uploads-are-failing-and-what-to-do-about-it-b47",
+  "adbilling_algtech": "https://algeriatech.news/?p=2915",
+  "adbilling_grey": "https://grey.co/blog/acheter-en-ligne-algerie",
+  "law_gide": "https://www.gide.com/en/news-insights/protection-of-personal-data-focus-on-algerian-regulations/",
+  "law_algtech": "https://algeriatech.news/?p=21081",
+  "yalidine_dzbuild": "https://dzbuild.com/docs/couriers/yalidine",
+  "yalidine_wp": "https://wordpress.org/plugins/?p=347054",
+  "couriers_unified": "https://freeship.dzbuild.com/",
+  "slickpay_dzbuild": "https://dzbuild.com/docs/payments/cib-edahabia",
+  "shops_help": "https://help.instagram.com/ipad-app/1627591223954487",
+  "dziribert": "https://arxiv.org/abs/2109.12346v3",
+  "dzair_hf": "https://huggingface.co/algerian-nlp/DZAIR",
+  "artefact_A": "uploaded:dz_meta_foundation_blueprint.html",
+  "artefact_B": "uploaded:meta_advanced_stack_algerian.html"
+ }
+}

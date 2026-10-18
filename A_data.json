@@ -1,0 +1,355 @@
+{
+ "Tl": [
+  {
+   "id": "A",
+   "letter": "A",
+   "title": "ADVANTAGE+ BRAIN",
+   "color": "#00ff88",
+   "capabilities": [
+    {
+     "id": "A1",
+     "name": "Advantage+ Shopping",
+     "code": "ASC",
+     "desc": "End-to-end automation for commerce. Auto audience + placement + creative.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "campaign_type=ASC"
+    },
+    {
+     "id": "A2",
+     "name": "Advantage+ Audience",
+     "code": "A+AUD",
+     "desc": "Broad targeting with AI expansion. Removes manual interest stacking.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "audience_expansion=1"
+    },
+    {
+     "id": "A3",
+     "name": "Advantage+ Placements",
+     "code": "A+PLC",
+     "desc": "Includes Threads, Reels, Search. Unified bidding across surfaces.",
+     "status": "CONFIG",
+     "complexity": 2,
+     "meta_ref": "placements=[AUTO,THREADS]"
+    },
+    {
+     "id": "A4",
+     "name": "Andromeda Ranking",
+     "code": "ANDRM",
+     "desc": "Next-gen retrieval. Personalization for product discovery.",
+     "status": "READY",
+     "complexity": 3,
+     "meta_ref": "ranking_model=v2"
+    },
+    {
+     "id": "A5",
+     "name": "Campaign Budget Optimization",
+     "code": "CBO",
+     "desc": "AI-driven budget fluidity. Minimum ROAS guardrails.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "cbo=enabled"
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "letter": "B",
+   "title": "AI AGENTS",
+   "color": "#00ff88",
+   "capabilities": [
+    {
+     "id": "B1",
+     "name": "AI Studio Custom Agents",
+     "code": "AISTD",
+     "desc": "Build domain-specific agents. Product expert, size advisor, etc.",
+     "status": "CONFIG",
+     "complexity": 2,
+     "meta_ref": "ai_studio_sdk"
+    },
+    {
+     "id": "B2",
+     "name": "Business Agent",
+     "code": "BIZ-AG",
+     "desc": "Unified agent for WhatsApp / Messenger / IG DM. Handoff to human.",
+     "status": "CONFIG",
+     "complexity": 3,
+     "meta_ref": "business_agent_beta"
+    },
+    {
+     "id": "B3",
+     "name": "Muse Integration",
+     "code": "AICAT",
+     "desc": "Catalog-aware product recommendations in chat.",
+     "status": "READY",
+     "complexity": 2,
+     "meta_ref": "ai_catalog_connect"
+    },
+    {
+     "id": "B4",
+     "name": "Llama for Darja",
+     "code": "LLM-DZ",
+     "desc": "Custom fine-tune for Algerian dialect. Intent parsing.",
+     "status": "BLOCKED",
+     "complexity": 3,
+     "meta_ref": "llama_3_darja_ft"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "letter": "C",
+   "title": "GENERATIVE CREATIVE",
+   "color": "#ffbf00",
+   "capabilities": [
+    {
+     "id": "C1",
+     "name": "Advantage+ Creative",
+     "code": "A+CR",
+     "desc": "Auto variations: crop, brightness, text overlay optimization.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "dynamic_creative=ON"
+    },
+    {
+     "id": "C2",
+     "name": "Image-to-Video",
+     "code": "I2V",
+     "desc": "Animate static product. 6s Reels from single SKU image.",
+     "status": "READY",
+     "complexity": 2,
+     "meta_ref": "gen_video_model"
+    },
+    {
+     "id": "C3",
+     "name": "Background Generation",
+     "code": "BG-GEN",
+     "desc": "Scene expansion. Lifestyle context without photoshoot.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "bg_gen_api"
+    },
+    {
+     "id": "C4",
+     "name": "AI Dubbing",
+     "code": "DUB",
+     "desc": "Darja / French / English voice cloning. Lip-sync for UGC.",
+     "status": "CONFIG",
+     "complexity": 2,
+     "meta_ref": "seamless_m4t"
+    },
+    {
+     "id": "C5",
+     "name": "Text Generation",
+     "code": "TXT-G",
+     "desc": "Ad copy in 3 languages. Hook + angle variations.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "llama_text_gen"
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "letter": "D",
+   "title": "WHATSAPP COMMERCE OS",
+   "color": "#00ff88",
+   "capabilities": [
+    {
+     "id": "D1",
+     "name": "Click-to-WhatsApp Ads",
+     "code": "CTWA",
+     "desc": "Primary conversion path. Deep link with pre-filled intent.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "cta=WHATSAPP"
+    },
+    {
+     "id": "D2",
+     "name": "WhatsApp Flows",
+     "code": "WA-FLO",
+     "desc": "Wilaya selector, size, color, address capture. No code builder.",
+     "status": "CONFIG",
+     "complexity": 2,
+     "meta_ref": "flows_endpoint"
+    },
+    {
+     "id": "D3",
+     "name": "Catalogs",
+     "code": "WCAT",
+     "desc": "In-chat product carousel. Sync from Commerce Manager.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "wa_catalog_id"
+    },
+    {
+     "id": "D4",
+     "name": "Payments",
+     "code": "WAPAY",
+     "desc": "In-chat payment link / COD confirmation flow.",
+     "status": "BLOCKED",
+     "complexity": 3,
+     "meta_ref": "payments_api_dz"
+    },
+    {
+     "id": "D5",
+     "name": "Broadcast & Automations",
+     "code": "WA-AUT",
+     "desc": "Abandoned cart, order updates, re-engagement sequences.",
+     "status": "CONFIG",
+     "complexity": 2,
+     "meta_ref": "wa_automation"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "letter": "E",
+   "title": "COMMUNITY & DISTRIBUTION",
+   "color": "#ffbf00",
+   "capabilities": [
+    {
+     "id": "E1",
+     "name": "Reels Engine",
+     "code": "REELS",
+     "desc": "Discovery-first format. Hook rate >3s = distribution.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "reels_api"
+    },
+    {
+     "id": "E2",
+     "name": "Broadcast Channels",
+     "code": "BC",
+     "desc": "One-to-many. Early access, drops, polls.",
+     "status": "CONFIG",
+     "complexity": 1,
+     "meta_ref": "ig_broadcast"
+    },
+    {
+     "id": "E3",
+     "name": "Groups API",
+     "code": "GRP",
+     "desc": "Private community for repeat buyers. UGC sourcing.",
+     "status": "BLOCKED",
+     "complexity": 2,
+     "meta_ref": "groups_graph"
+    },
+    {
+     "id": "E4",
+     "name": "Collaborative Ads",
+     "code": "CPAS",
+     "desc": "Brand x Retailer. Shared catalog + audience.",
+     "status": "READY",
+     "complexity": 2,
+     "meta_ref": "collab_ads"
+    },
+    {
+     "id": "E5",
+     "name": "Shops",
+     "code": "SHOPS",
+     "desc": "Native checkout fallback. IG + FB storefront.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "fb_shops"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "letter": "F",
+   "title": "DATA & TRUST",
+   "color": "#00ff88",
+   "capabilities": [
+    {
+     "id": "F1",
+     "name": "Conversions API (CAPI)",
+     "code": "CAPI",
+     "desc": "Server events. WA conversation, lead, purchase.",
+     "status": "CONFIG",
+     "complexity": 3,
+     "meta_ref": "capi_gateway"
+    },
+    {
+     "id": "F2",
+     "name": "Advanced Matching",
+     "code": "AM",
+     "desc": "Email, phone hash. Lift match rate +15-25%.",
+     "status": "CONFIG",
+     "complexity": 2,
+     "meta_ref": "adv_match=SHA256"
+    },
+    {
+     "id": "F3",
+     "name": "Offline Conversions",
+     "code": "OFF-C",
+     "desc": "Yalidine / ZR delivery sync. True ROAS.",
+     "status": "BLOCKED",
+     "complexity": 3,
+     "meta_ref": "offline_dataset"
+    },
+    {
+     "id": "F4",
+     "name": "Verification Badges",
+     "code": "V-BADGE",
+     "desc": "Meta Verified business. Trust signal in chat.",
+     "status": "READY",
+     "complexity": 1,
+     "meta_ref": "verified_badge"
+    },
+    {
+     "id": "F5",
+     "name": "Review System",
+     "code": "REV",
+     "desc": "On-site + IG comments aggregation. Social proof loop.",
+     "status": "CONFIG",
+     "complexity": 1,
+     "meta_ref": "ratings_api"
+    }
+   ]
+  }
+ ],
+ "wm": [
+  {
+   "id": "bm",
+   "label": "Business Manager Verified",
+   "sub": "Registre Commerce + NIF + RC",
+   "icon": "⧉",
+   "status": "PENDING",
+   "required": true
+  },
+  {
+   "id": "domain",
+   "label": "Domain + Business Verification",
+   "sub": "meta verified / DNS TXT + doc upload",
+   "icon": "⬢",
+   "status": "PENDING",
+   "required": true
+  },
+  {
+   "id": "assets",
+   "label": "Assets Matrix",
+   "sub": "FB Page, IG Pro, WhatsApp Business API, Threads Profile",
+   "icon": "◫",
+   "status": "IN_PROGRESS",
+   "required": true
+  },
+  {
+   "id": "pixel",
+   "label": "Pixel + CAPI + Offline Events",
+   "sub": "Pixel ID, CAPI token, event mapping",
+   "icon": "◈",
+   "status": "PENDING",
+   "required": true
+  },
+  {
+   "id": "catalog",
+   "label": "Product Catalog Structure",
+   "sub": "Data source, feed, wilaya availability",
+   "icon": "⬙",
+   "status": "PENDING",
+   "required": false
+  }
+ ]
+}

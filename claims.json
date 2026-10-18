@@ -1,0 +1,184 @@
+[
+ {
+  "artefact": "A",
+  "claim": "Adv. Matching lifts match rate +15-25%",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "Agents handle 80% of pre-sales in Darja",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "Event Match 98.2% (hardcoded in UI, no data source)",
+  "kind": "display",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "Hook rate >3s = distribution",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": ">50 unique asks/week -> validate",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "CTR >2.5% and WA conv >8% -> strong",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "HOT >15% of flows -> supplier call",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "Yalidine rate < 450DA (go criterion)",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "Kill in 72h on NO-GO",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "Validation cost $35-70 (ads only)",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "A",
+  "claim": "Next review T+7 days",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "ROAS +32%",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "Reply <4s",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "CAC -41%",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "COD -68% (returns)",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "Threads +19% reach, DZ <30",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "94% of inquiries solved without a human",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "Video completion 2.8x photo",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "Return rate 34% -> 11%",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "+240% night conversions",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "1 human = 3 stores",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "LTV +2.1x",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "Diaspora EUR 38 AOV",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "3M diaspora as TAM",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "Owner spends 6h/day replying",
+  "kind": "outcome",
+  "source": null,
+  "status": "UNSOURCED"
+ },
+ {
+  "artefact": "B",
+  "claim": "Ship in 7 days",
+  "kind": "threshold",
+  "source": null,
+  "status": "UNSOURCED"
+ }
+]
