@@ -152,7 +152,8 @@
    "Opt-in and opt-outs remain implementation requirements, but specific consent scope must be checked against the full current policy and Algerian law."
   ],
   "affects": [
-   "O1"
+   "O1",
+   "X1"
   ],
   "note": "Current page is indexed and the page date was retrieved; this does not replace counsel review."
  },
@@ -206,7 +207,7 @@
   "grade": "SECONDARY",
   "read_on": "2026-10-24",
   "facts": [
-   "Announced as global on 2026-06-03; reported US$2.00 per million tokens from 2026-08-01."
+   "Reported announcement and token pricing do not establish access for an Algerian business or phone number."
   ],
   "affects": [
    "B2"

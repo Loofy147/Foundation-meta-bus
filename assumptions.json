@@ -261,7 +261,8 @@
   "if_false": "Reduce notification count, favor necessary utility templates, compare provider fees and retain COD/first-party alternatives until the invoice-level model is acceptable.",
   "test": "Model delivered messages per order by category, service-message free allowance, eligible entry-point window, provider fee and billing currency; reconcile with the first actual invoice.",
   "needs": [
-   "none"
+   "none",
+   "account"
   ],
   "grade": "OPEN",
   "basis": "Multiple secondary sources report +213 at USD 0.0225 marketing and USD 0.0040 utility/authentication/service from 2026-10-01. Official card/account invoice, entry-point eligibility and realized cost per order are not yet verified.",
