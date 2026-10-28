@@ -15,7 +15,7 @@ MUTANTS=[
 ("core/store.py","if not isinstance(key, str) or not key.strip() or key == identifier:","if not isinstance(key, str) or not key.strip():","tests.test_core.StoreTests.test_plaintext_identifier_index_function_is_rejected"),
 ("core/webhook.py","if not isinstance(payload, bytes) or len(payload) > MAX_WEBHOOK_BYTES:","if False and (not isinstance(payload, bytes) or len(payload) > MAX_WEBHOOK_BYTES):","tests.test_core.WebhookTests.test_oversized_payload_is_rejected_before_normalization"),
 ("core/webhook.py",'if not hmac.compare_digest(verify_token.encode("utf-8"), expected_token.encode("utf-8")):','if False and not hmac.compare_digest(verify_token.encode("utf-8"), expected_token.encode("utf-8")):',"tests.test_core.SubscriptionHandshakeTests.test_subscription_handshake_denies_wrong_token_and_mode"),
-("core/webhook.py","for event in events:","for event in events[:1]:","tests.test_core.WebhookTests.test_batch_webhook_persists_every_event_and_retry_is_idempotent"),
+("core/webhook.py","stored.append(store.put_if_absent(event))","stored.append(store.put_if_absent(events[0]))","tests.test_core.WebhookTests.test_batch_webhook_persists_every_event_and_retry_is_idempotent"),
 ("core/conversions.py","if not isinstance(clid, str) or not clid.strip():","if False and (not isinstance(clid, str) or not clid.strip()):","tests.test_core.ConversionTests.test_missing_clid_is_rejected"),
 ]
 def execute(cwd,test_name):
