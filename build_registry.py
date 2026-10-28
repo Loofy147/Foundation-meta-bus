@@ -20,7 +20,7 @@ import json, sys, pathlib
 HERE = pathlib.Path(__file__).parent
 A = json.load(open(sys.argv[1] if len(sys.argv) > 1 else HERE / "A_data.json"))
 GENERATED_ON = "2026-10-28"
-VERIFIED_ON = "2026-10-24"
+VERIFIED_ON = "2026-10-18"
 
 LAYER = {"A": "acquisition", "B": "conversation", "C": "creative",
          "D": "commerce", "E": "community", "F": "signal"}
