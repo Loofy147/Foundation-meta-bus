@@ -238,8 +238,7 @@
    "It also warns that not all languages are supported and availability is linked to the business phone number."
   ],
   "affects": [
-   "B2",
-   "A-04"
+   "B2"
   ],
   "note": "This is the customer-facing Business App feature, not proof that the separate Business Agent Platform API is available to this account. The page search result was available, but full page text did not render in the browser."
  },
@@ -255,8 +254,7 @@
   ],
   "affects": [
    "X1",
-   "K1",
-   "A-05"
+   "K1"
   ],
   "note": "This is the current Platform Terms document, not the separate incorporated Meta Terms. The platform's own data practices do not itself decide our separate legal basis to transfer customer data."
  },
@@ -271,8 +269,7 @@
    "Reports 1,000 free service messages per business phone number per month and an eligible free Click-to-WhatsApp entry-point window up to 7 days."
   ],
   "affects": [
-   "C0",
-   "A-13"
+   "C0"
   ],
   "note": "Secondary rate aggregation, not an official invoice or direct successful retrieval of Meta's rate-card page. Provider surcharges and the account billing currency are separate."
  },
@@ -287,8 +284,7 @@
    "It describes the service-message price as newly billable from 2026-10-01."
   ],
   "affects": [
-   "C0",
-   "A-13"
+   "C0"
   ],
   "note": "Secondary cross-check. The current Meta pricing page could not be fetched successfully in this review, so the account-level bill remains OPEN."
  },
@@ -302,8 +298,7 @@
    "Describes 2026-10-01 changes: per-message service billing with 1,000 free service messages per business phone number/month and utility templates chargeable within the 24-hour service window."
   ],
   "affects": [
-   "C0",
-   "A-13"
+   "C0"
   ],
   "note": "Secondary implementation documentation; confirm the exact current Meta rate card and the selected provider/account terms before budgeting."
  },
@@ -318,8 +313,7 @@
    "Utility templates may be billed even inside the 24-hour customer-service window since 2026-10-01."
   ],
   "affects": [
-   "C0",
-   "A-13"
+   "C0"
   ],
   "note": "Secondary provider documentation; eligibility and the exact entry-point window must be confirmed against current Meta documentation/account settings."
  },
