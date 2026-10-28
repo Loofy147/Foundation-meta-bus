@@ -52,6 +52,13 @@ S = {
 }
 # Sources added by the 2026-10-24 documentation review. The source URLs are retained
 # separately from claims so the evidence ledger remains reviewable.
+# Keep artefact references last, matching the registry source-map ordering.
+_ARTIFACT_SOURCES = {
+ "artefact_A": "uploaded:dz_meta_foundation_blueprint.html",
+ "artefact_B": "uploaded:meta_advanced_stack_algerian.html",
+}
+S.pop("artefact_A", None)
+S.pop("artefact_B", None)
 S.update(json.loads(r'''{
  "meta_webhook_text": "https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/reference/messages/text",
  "hookdeck_wa": "https://hookdeck.com/webhooks/platforms/guide-to-whatsapp-webhooks-features-and-best-practices",
@@ -75,6 +82,7 @@ S.update(json.loads(r'''{
  "ai_terms_techcrunch": "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform",
  "testnumber_pypi": "https://pypi.org/project/whatsappcloud/0.0.4"
 }'''))
+S.update(_ARTIFACT_SOURCES)
 
 def ev(grade, claim, *srcs, note=""):
     return {"grade": grade, "claim": claim, "sources": [S[s] for s in srcs], "note": note}
