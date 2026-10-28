@@ -1,39 +1,47 @@
 # Contributing to Foundation-meta-bus
 
-## Current validation status
+## Required gate
 
-The ZIP snapshot in the repository describes a wider full gate, but its executable dependency closure is incomplete: `build_spec.py`, `check_spec.py`, `system.json`, and the core/mutation-test sources were not present in the ZIP and are not currently available at their expected root paths. Do not claim `gate.py --full` or `gate.py --verify-results` passed.
+Run `python3 gate.py --full` using Python 3.12 or later. It must pass before a change is proposed for merge. Do not treat a code gate as proof of live provider readiness.
 
-The currently integrated validation sequence is:
+## Authored vs generated files
 
-```bash
-python3 build_registry.py
-python3 check.py
-python3 build_plan.py
-python3 plan.py --check
-python3 plan.py --selftest
-python3 -m unittest discover -s tests -t .
+| Authored sources | Generated outputs |
+|---|---|
+| `A_data.json`, `build_registry.py`, `check.py` | `registry.json`, `claims.json` |
+| `build_spec.py`, `check_spec.py` | `system.json` |
+| `build_plan.py`, `plan.py` | `assumptions.json`, `roadmap.json`, `meta_docs_map.json` |
+| `core/`, `tests/`, `gate.py`, documentation | `results*.txt` |
+
+Change source and regenerate derived data. Do not hand-edit generated outputs as the sole fix.
+
+## Evidence rules
+
+- Evidence grades are PROVEN, SUPPORTED, OPEN and CONTRADICTED. Never promote a claim without a new source-backed record, final source URL and retrieval date.
+- An inherited READY label is not independent verification.
+- Keep evidence tied to the specific capability, integration path and conditions it actually supports.
+- Assumptions need falsification tests, roadmap items and accountable functions. A role assignment does not prove that a named individual accepted responsibility.
+- Counsel owns legal conclusions and policy-table decisions. Tests may use synthetic authorization objects; they must not change production policy to ALLOW.
+
+## Runtime and data rules
+
+- Never commit real credentials, API tokens, app secrets, phone numbers, names or customer message text.
+- No code or test calls Meta, a courier, payment provider, LLM API or other external service. All external transports are injected explicitly.
+- Missing or uncertain authorization means DENY. Do not add a default network transport.
+- Reject missing sender identity. Do not infer identity from a previous, first or nearby contact.
+- Persist webhook events before acknowledging. Duplicate delivery must remain idempotent.
+- A conversion requires its own `referral.ctwa_clid`; do not invent fallback identifiers. An ambiguous send must not be retried automatically.
+- `SQLiteStore` requires injected sealing/opening functions. The test codec is NOT encryption and must never process real data. Production requires reviewed authenticated encryption, key management, retention/deletion, access control, monitoring and recovery.
+
+## Reporting template
+
+```text
+What changed:
+Evidence and source URLs/dates:
+Assumptions tested or changed:
+Commands run and observed result:
+Still OPEN:
+Not run:
 ```
 
-A GitHub Actions workflow runs this sequence and checks that generated files remain reproducible. It is a **registry-and-planning validation gate**, not the missing full production gate.
-
-## Source-of-truth rules
-
-- Edit authored sources: `A_data.json`, `build_registry.py`, `build_plan.py`, `plan.py`, validation code, and tests.
-- Regenerate, do not hand-edit, `registry.json`, `claims.json`, `assumptions.json`, `roadmap.json`, and `meta_docs_map.json`.
-- Treat `results*.txt` as output artifacts. Do not report a test as run unless its command and result were observed.
-- Keep each claim's scope attached to its evidence. Repeated statements do not upgrade an evidence grade.
-- Evidence grades are PROVEN, SUPPORTED, OPEN, and CONTRADICTED. Never promote a grade without a new evidence entry, source URL, and retrieval date.
-- Unexamined inherited READY labels remain warnings; they are not facts.
-- Test fixtures must be synthetic. Do not put real names, phone numbers, credentials, API tokens, customer text, or app secrets in the repository.
-- Tests and scripts must not call Meta, couriers, payment providers, LLM APIs, or other external services. Use injected transports and mocks.
-
-## Before merging
-
-1. Review the source diff and the generated-data diff.
-2. Run the current validation sequence locally or rely on the corresponding successful GitHub Actions run.
-3. Report proven, supported, open and failed items separately.
-4. Keep the full gate blocked until the missing spec/check/core/mutation-test files are restored or implemented and the full gate itself passes.
-5. Do not change policy rows that require counsel's written decision; tests may exercise overrides, production policy may not.
-
-The original contribution/agent guidance from the Dropbox snapshot is preserved under `docs/reference/dropbox-archive/`.
+The partial Dropbox archive is reference material, not a complete original source tree. Reconstructed implementation is identified as new authored code rather than claimed recovered source.

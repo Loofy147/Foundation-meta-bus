@@ -1,26 +1,38 @@
 # Agent guidance
 
-Read `CONTRIBUTING.md` first. The rules here apply in addition to it.
+Read `CONTRIBUTING.md` first. The repository’s authored files and reproducible outputs outrank conversation summaries and archived snapshots.
 
-## Ground truth
+## Required loop
 
-Use the repository's authored sources and generated outputs. The Dropbox ZIP is a preserved source snapshot; it is not executable source for every component it describes. Do not assume a capability or policy is available because a generated file claims it.
+1. Inspect current source, branch head and source evidence.
+2. Separate proven implementation behavior from current provider, account, commercial and legal assumptions.
+3. Change authored code, then rebuild generated data.
+4. Run `python3 gate.py --full`; inspect the actual result.
+5. Report proven, supported, open, failed and not-run items separately.
 
-## Required operating loop
+## Non-negotiable controls
 
-1. Inspect the current source and the exact commit being changed.
-2. State the evidence and uncertainty for claims that affect design.
-3. Make a small, reviewable change in a branch.
-4. Regenerate every derived artifact from its authoring source.
-5. Run the current registry/planning checks and the unit tests; preserve the real output.
-6. Do not mark production ready until the full spec/core gate exists and passes.
+- Never invent sources, dates, owners, test outcomes, legal conclusions, prices or provider behavior.
+- No claim is promoted without a new source-backed record and a corresponding scope.
+- Missing policies, unknown states, absent approvals or absent transports deny by default.
+- No real credentials or personal/customer data in tests or logs. No network calls from code or tests.
+- Do not change counsel-owned policy decisions to ALLOW in order to pass a gate.
+- Never guess sender identity or synthesize an attribution/referral identifier.
+- Webhook persistence must finish before acknowledgement. Delivery must be idempotent.
+- An ambiguous external send is `UNKNOWN`, not safe to retry.
+- Test encryption callbacks are synthetic only. Real data processing remains blocked until an audited authenticated-encryption/key-management lifecycle and retention/deletion controls are deployed.
+- Function-level owner labels are not evidence of a named person accepting ownership.
 
-## Prohibited shortcuts
+## Reporting
 
-- Do not hand-edit generated outputs as the sole fix.
-- Do not fabricate sources, test outcomes, implementation status, prices, dates or legal conclusions.
-- Do not upgrade a claim from OPEN or SUPPORTED without a new source-backed evidence record.
-- Do not send network requests from application scripts or tests.
-- Do not store real user data or secrets in fixtures, logs, or commits.
-- Do not modify legal/policy decisions that require counsel.
-- Do not claim the full gate ran: `build_spec.py`, `check_spec.py`, `system.json`, and core/mutation-test components remain outside the currently verified dependency closure.
+```text
+Done:
+Proven (command or primary source):
+Supported:
+OPEN (assumption ids):
+Failed:
+Not run:
+Next action and required resource:
+```
+
+The original Dropbox guidance is preserved under `docs/reference/dropbox-archive/`.

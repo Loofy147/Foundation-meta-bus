@@ -1,4 +1,4 @@
-name: Foundation registry and planning validation
+name: Foundation full source gate
 
 on:
   push:
@@ -18,18 +18,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile authored Python
-        run: python -m compileall -q build_registry.py check.py build_plan.py plan.py tests
-      - name: Regenerate registry
-        run: python build_registry.py
-      - name: Validate registry and refresh claim ledger
-        run: python check.py
-      - name: Regenerate planning data
-        run: python build_plan.py
-      - name: Validate plan structure
-        run: python plan.py --check
-      - name: Run plan mutations and scenario contracts
-        run: python plan.py --selftest
-      - name: Run unit tests
-        run: python -m unittest discover -s tests -t .
-      - name: Require generated artifacts to be reproducible
-        run: git diff --exit-code -- registry.json claims.json assumptions.json roadmap.json meta_docs_map.json
+        run: python -m compileall -q build_registry.py check.py build_plan.py plan.py build_spec.py check_spec.py gate.py core tests
+      - name: Run complete source-level gate and mutation tests
+        run: python gate.py --full
+      - name: Require generated JSON to be reproducible
+        run: git diff --exit-code -- registry.json claims.json system.json assumptions.json roadmap.json meta_docs_map.json
