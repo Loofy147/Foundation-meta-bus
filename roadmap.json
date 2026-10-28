@@ -281,7 +281,11 @@
    ],
    "unlocks": "attribution proven",
    "scenario_only": [],
-   "moot_when": []
+   "moot_when": [
+    {
+     "A-03": "fails"
+    }
+   ]
   },
   {
    "id": "X-03",
@@ -309,6 +313,9 @@
     },
     {
      "A-05": "fails"
+    },
+    {
+     "A-03": "fails"
     }
    ]
   },
@@ -369,6 +376,9 @@
     },
     {
      "A-05": "fails"
+    },
+    {
+     "A-03": "fails"
     }
    ]
   },
@@ -396,6 +406,9 @@
     },
     {
      "A-04": "fails"
+    },
+    {
+     "A-10": "fails"
     }
    ]
   },
@@ -515,6 +528,57 @@
    "unlocks": "policy-safe agent",
    "scenario_only": [
     "S9"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-10",
+   "title": "Switch channel and repeat the attribution guard; otherwise stay first-party-only",
+   "kind": "decide",
+   "needs": [
+    "account"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-03"
+   ],
+   "unlocks": "referral-preserving channel",
+   "scenario_only": [
+    "S11"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-11",
+   "title": "Redesign external data flows as local-only or manual until provider status is cleared",
+   "kind": "build",
+   "needs": [
+    "counsel"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-10"
+   ],
+   "unlocks": "controlled provider data boundary",
+   "scenario_only": [
+    "S12"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-12",
+   "title": "Recalibrate policy re-verification interval from observed change history",
+   "kind": "verify",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-19"
+   ],
+   "unlocks": "evidence-based review cadence",
+   "scenario_only": [
+    "S10"
    ],
    "moot_when": []
   }
@@ -649,6 +713,52 @@
    "watch": [
     "A-04",
     "A-09"
+   ]
+  },
+  {
+   "id": "S10",
+   "title": "Observed policy-change cadence differs from the 30 to 90 day assumption",
+   "when": {
+    "A-19": "fails"
+   },
+   "consequences": [
+    "Treat the 30 to 90 day interval as uncalibrated; choose a new interval from the recorded diff history.",
+    "Keep change-triggered re-verification for any decision affected by a policy or API change."
+   ],
+   "watch": [
+    "A-12",
+    "A-19"
+   ]
+  },
+  {
+   "id": "S11",
+   "title": "Chosen channel does not preserve the referral identifier",
+   "when": {
+    "A-03": "fails"
+   },
+   "consequences": [
+    "Do not dispatch attribution-dependent conversion events on this channel.",
+    "Switch providers only after a real click-to-WhatsApp trace proves ctwa_clid preservation; otherwise use first-party measurement."
+   ],
+   "watch": [
+    "A-01",
+    "A-15"
+   ]
+  },
+  {
+   "id": "S12",
+   "title": "Couriers, PSP or LLM vendor cannot be treated as an approved third-party service provider",
+   "when": {
+    "A-10": "fails"
+   },
+   "consequences": [
+    "Keep customer-data sharing denied; use synthetic-only provider tests and design local/manual handling pending counsel review.",
+    "Do not send business-message data to hosted LLMs or provider APIs until the applicable terms and contract are cleared."
+   ],
+   "watch": [
+    "A-05",
+    "A-08",
+    "A-11"
    ]
   }
  ],

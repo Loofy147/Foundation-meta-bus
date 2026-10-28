@@ -97,7 +97,7 @@ def check(reg, ass, road, docs):
         else:
             if not d.get("url") or not d.get("read_on") or not d.get("facts"): f("P6", f"{d['id']} ({d['grade']}) lacks url, date or facts")
     # P8
-    unowned = [a["id"] for a in ass if not a["owner"]]
+    unowned = [a["id"] for a in ass if not isinstance(a.get("owner"), str) or not a["owner"].strip()]
     if unowned: w("P8", f"{len(unowned)} assumptions have no owner")
     return F, W
 
@@ -169,7 +169,7 @@ def mutations(reg, ass, road, docs):
      m("primary doc entry without facts", "P6", lambda r, a, ro, d: d[0].update(facts=[])),
      m("HIGH unread doc gates nothing", "P6", lambda r, a, ro, d: next(x for x in d if x["id"] == "N01").update(tests=[])),
      m("unknown resource on an item", "P7", lambda r, a, ro, d: item(ro, "V-01")["needs"].append("wallet")),
-     m("every assumption has an owner (P8 must go silent)", "P8", lambda r, a, ro, d: [x.update(owner="someone") for x in a], mode="silent"),
+     m("assumption loses its accountable owner", "P8", lambda r, a, ro, d: asm(a, "A-01").update(owner=None)),
     ]
 
 # Scenario contracts: expected behaviour of the plan under given outcomes. "active" means not INACTIVE or MOOT or DONE-skipped.
@@ -181,6 +181,9 @@ CONTRACTS = [
     ({"A-08": "fails"}, {"E-02": "MOOT", "SC-9": "active"}),
     ({"A-21": "fails"}, {"SC-7": "active"}),
     ({"A-06": "fails"}, {"SC-8": "active"}),
+    ({"A-03": "fails"}, {"X-02": "MOOT", "X-03": "MOOT", "E-01": "MOOT", "SC-10": "active"}),
+    ({"A-10": "fails"}, {"E-02": "MOOT", "SC-11": "active"}),
+    ({"A-19": "fails"}, {"SC-12": "active"}),
     ({"A-01": "holds", "A-05": "holds", "A-04": "holds"}, {"X-03": "active", "E-02": "active", "E-01": "active"}),
 ]
 

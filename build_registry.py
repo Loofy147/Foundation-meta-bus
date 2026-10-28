@@ -19,7 +19,8 @@ import json, sys, pathlib
 
 HERE = pathlib.Path(__file__).parent
 A = json.load(open(sys.argv[1] if len(sys.argv) > 1 else HERE / "A_data.json"))
-VERIFIED_ON = "2026-10-18"
+GENERATED_ON = "2026-10-28"
+VERIFIED_ON = "2026-10-24"
 
 LAYER = {"A": "acquisition", "B": "conversation", "C": "creative",
          "D": "commerce", "E": "community", "F": "signal"}
@@ -685,7 +686,7 @@ for c in caps:
     if c["id"] in REVISED_FIELDS:
         c.update(REVISED_FIELDS[c["id"]])
 
-out = {"generated": VERIFIED_ON, "grades": ["PROVEN", "SUPPORTED", "OPEN", "CONTRADICTED"],
+out = {"generated": GENERATED_ON, "grades": ["PROVEN", "SUPPORTED", "OPEN", "CONTRADICTED"],
        "capabilities": caps, "shapes": SHAPES, "rows": ROWS, "sources": S}
 json.dump(out, open(HERE / "registry.json", "w"), indent=1, ensure_ascii=False)
 print(f"registry.json written: {len(caps)} capabilities "

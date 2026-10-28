@@ -15,6 +15,14 @@ SECONDARY (third-party mirror or reporting), ATTEMPTED (tried, inconclusive), NO
 import json, pathlib
 HERE = pathlib.Path(__file__).parent
 READ_ON = "2026-10-24"
+OWNER_BY_CATEGORY = {
+    "platform": "role:platform-operations",
+    "legal": "role:algerian-counsel",
+    "economic": "role:business-owner",
+    "technical": "role:engineering",
+    "operational": "role:platform-operations",
+    "scope": "role:project-owner",
+}
 
 # ---------------------------------------------------------------- documentation coverage map
 def R(id, area, url, grade, facts, affects, note=""):
@@ -81,7 +89,9 @@ DOCS = [
 # ---------------------------------------------------------------- assumptions
 def A(id, statement, category, depends, if_false, test, needs, grade, basis, tested_by_note=""):
     return dict(id=id, statement=statement, category=category, depends=depends, if_false=if_false, test=test, needs=needs,
-                grade=grade, basis=basis, status="OPEN", owner=None, review_by=None)
+                grade=grade, basis=basis, status="OPEN",
+                owner=OWNER_BY_CATEGORY.get(category, "role:project-owner"),
+                owner_basis="Accountable role inferred from assumption category; named individual still unassigned.", review_by=None)
 
 ASSUMPTIONS = [
  A("A-01", "A direct developer can send business-messaging conversion events for its own WABA and dataset under Standard Access.", "platform", ["F1", "F3", "S1"],
@@ -157,15 +167,15 @@ ITEMS = [
  I("B-06", "Build the Yalidine and Ecotrack adapters against mocks", "build", ["none"], unlocks="courier sandbox test"),
  I("T-01", "Test number smoke test: webhook delivery, signature, statuses, message flow into the store", "test", ["dev"], depends=["B-05"], tests=["A-20"], unlocks="plumbing proven live"),
  I("X-01", "Complete account setup: business verification, WABA, ad account and payment methods", "test", ["entity", "account"], depends=["D-01", "V-03", "V-05"], tests=["A-06", "A-07"], unlocks="every live test"),
- I("X-02", "Run a real click-to-WhatsApp entry and confirm ctwa_clid reaches the webhook through the chosen channel", "test", ["account", "spend"], depends=["X-01", "T-01"], tests=["A-03"], unlocks="attribution proven"),
+ I("X-02", "Run a real click-to-WhatsApp entry and confirm ctwa_clid reaches the webhook through the chosen channel", "test", ["account", "spend"], depends=["X-01", "T-01"], tests=["A-03"], unlocks="attribution proven", moot_when=[{"A-03": "fails"}]),
  I("X-03", "Send a CAPI test event with DZD from the direct-developer path and audit clid selection", "test", ["account", "spend"], depends=["X-02", "B-04", "L-02"], tests=["A-01", "A-02", "A-15"], unlocks="conversion signal proven",
-   moot_when=[{"A-01": "fails"}, {"A-05": "fails"}]),
+   moot_when=[{"A-01": "fails"}, {"A-05": "fails"}, {"A-03": "fails"}]),
  I("X-04", "Open courier accounts and create sandbox parcels", "test", ["account"], depends=["B-06"], tests=["A-16"], unlocks="logistics proven"),
  I("X-05", "Domestic payment-link rail experiment", "test", ["account", "spend"], depends=["X-01"], tests=["A-17"], unlocks="payment decision"),
  I("E-01", "Experiment: purchase signal at confirmation versus delivery", "test", ["account", "spend"], depends=["X-03"], tests=["A-14"], unlocks="signal timing decision",
-   moot_when=[{"A-01": "fails"}, {"A-05": "fails"}]),
+   moot_when=[{"A-01": "fails"}, {"A-05": "fails"}, {"A-03": "fails"}]),
  I("E-02", "Trial Business Agent against our own runtime on a labelled set", "test", ["account", "data"], depends=["X-01", "V-02", "B-03"], tests=["A-04"], unlocks="agent decision",
-   moot_when=[{"A-08": "fails"}, {"A-04": "fails"}]),
+   moot_when=[{"A-08": "fails"}, {"A-04": "fails"}, {"A-10": "fails"}]),
  I("G-01", "Production gate review: G0 to G5 evidence present, no open HIGH assumption on the critical path", "decide", ["user"], depends=["X-01", "X-02", "X-03", "L-02", "B-02", "X-04"], unlocks="first production traffic"),
  # scenario-only items
  I("SC-2", "Select a Tech Provider or BSP route and verify it preserves the referral", "decide", ["account"], depends=["X-01"], tests=["A-03"], scenario_only=["S2"], unlocks="channel choice"),
@@ -174,6 +184,9 @@ ITEMS = [
  I("SC-7", "Tech Provider onboarding path: verification, App Review, Embedded Signup v4, per-customer billing", "build", ["entity", "account"], depends=["X-01"], scenario_only=["S7"], unlocks="multi-merchant capability"),
  I("SC-8", "Alternative ad funding route through an agency or partner account", "decide", ["entity"], scenario_only=["S8"], unlocks="ads without own billing"),
  I("SC-9", "Narrow to Meta's own agent and stop building a separate LLM conversation layer", "decide", ["counsel"], depends=["L-01"], scenario_only=["S9"], unlocks="policy-safe agent"),
+ I("SC-10", "Switch channel and repeat the attribution guard; otherwise stay first-party-only", "decide", ["account"], tests=["A-03"], scenario_only=["S11"], unlocks="referral-preserving channel"),
+ I("SC-11", "Redesign external data flows as local-only or manual until provider status is cleared", "build", ["counsel"], tests=["A-10"], scenario_only=["S12"], unlocks="controlled provider data boundary"),
+ I("SC-12", "Recalibrate policy re-verification interval from observed change history", "verify", ["none"], tests=["A-19"], scenario_only=["S10"], unlocks="evidence-based review cadence"),
 ]
 
 def S(id, title, when, consequences, watch):
@@ -188,6 +201,9 @@ SCENARIOS = [
  S("S7", "Multi-merchant platform", {"A-21": "fails"}, ["TP1 required: business verification, App Review, Embedded Signup v4, business tokens, per-customer payment methods.", "Our own positioning is scrutinised under the AI Providers clause (A-08).", "Each merchant becomes a data controller relationship to document."], ["A-08", "A-07"]),
  S("S8", "Ad funding blocked", {"A-06": "fails"}, ["No own ad billing; ads run through an agency or partner account, which changes who owns the dataset and the clid."], ["A-01", "A-07"]),
  S("S9", "Our agent counts as an AI Provider", {"A-08": "fails"}, ["Use Meta's own agent only; stop shipping a separate LLM conversation layer on WhatsApp."], ["A-04", "A-09"]),
+ S("S10", "Observed policy-change cadence differs from the 30 to 90 day assumption", {"A-19": "fails"}, ["Treat the 30 to 90 day interval as uncalibrated; choose a new interval from the recorded diff history.", "Keep change-triggered re-verification for any decision affected by a policy or API change."], ["A-12", "A-19"]),
+ S("S11", "Chosen channel does not preserve the referral identifier", {"A-03": "fails"}, ["Do not dispatch attribution-dependent conversion events on this channel.", "Switch providers only after a real click-to-WhatsApp trace proves ctwa_clid preservation; otherwise use first-party measurement."], ["A-01", "A-15"]),
+ S("S12", "Couriers, PSP or LLM vendor cannot be treated as an approved third-party service provider", {"A-10": "fails"}, ["Keep customer-data sharing denied; use synthetic-only provider tests and design local/manual handling pending counsel review.", "Do not send business-message data to hosted LLMs or provider APIs until the applicable terms and contract are cleared."], ["A-05", "A-08", "A-11"]),
 ]
 
 HERE.joinpath("meta_docs_map.json").write_text(json.dumps(DOCS, indent=1, ensure_ascii=False))

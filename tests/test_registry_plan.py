@@ -43,6 +43,14 @@ class RegistryAndPlanningTests(unittest.TestCase):
         self.assertTrue(outcomes, "the plan self-test must contain mutation cases")
         self.assertTrue(all(result[2] for result in outcomes), outcomes)
 
+    def test_all_assumptions_have_accountable_roles(self):
+        self.assertTrue(all(isinstance(item.get("owner"), str) and item["owner"].startswith("role:") for item in self.assumptions))
+        self.assertTrue(all("named individual still unassigned" in item.get("owner_basis", "") for item in self.assumptions))
+
+    def test_load_bearing_assumptions_have_failure_scenarios(self):
+        failing = {key for scenario in self.roadmap["scenarios"] for key, value in scenario["when"].items() if value == "fails"}
+        self.assertTrue({"A-03", "A-10", "A-19"}.issubset(failing))
+
     def test_scenario_contracts_hold(self):
         outcomes = contracts(self.assumptions, self.roadmap)
         self.assertTrue(outcomes, "the plan must declare scenario contracts")

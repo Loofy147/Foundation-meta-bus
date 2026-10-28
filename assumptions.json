@@ -17,7 +17,8 @@
   "grade": "SUPPORTED",
   "basis": "App Review page says direct developers need no Advanced access; neither CAPI guide says so for this endpoint.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -37,7 +38,8 @@
   "grade": "OPEN",
   "basis": "Not stated in the pages read.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -58,7 +60,8 @@
   "grade": "SUPPORTED",
   "basis": "Wrappers are reported to drop or relocate the referral.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -79,7 +82,8 @@
   "grade": "OPEN",
   "basis": "Overview requires an authorized country; press says global; no dialect evidence.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -100,7 +104,8 @@
   "grade": "OPEN",
   "basis": "Law summary read; specifics conflict across sources.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -119,7 +124,8 @@
   "grade": "OPEN",
   "basis": "Meta's country list was not retrievable; trade sources report CIB and Edahabia are generally rejected.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -138,7 +144,8 @@
   "grade": "OPEN",
   "basis": "Requirements not read.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -158,7 +165,8 @@
   "grade": "OPEN",
   "basis": "Clause text seen second-hand; the test is Meta's own discretion.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -177,7 +185,8 @@
   "grade": "SUPPORTED",
   "basis": "Exception text read on the terms page; its application to a classifier head is unreviewed.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -198,7 +207,8 @@
   "grade": "OPEN",
   "basis": "Definition not read.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -217,7 +227,8 @@
   "grade": "OPEN",
   "basis": "Clause read; application unreviewed.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -236,7 +247,8 @@
   "grade": "OPEN",
   "basis": "Opt-in may be general per policy; sufficiency unreviewed.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -254,7 +266,8 @@
   "grade": "OPEN",
   "basis": "Rate not retrieved.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -273,7 +286,8 @@
   "grade": "OPEN",
   "basis": "Meta says purchase optimisation exists; says nothing about COD timing.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -293,7 +307,8 @@
   "grade": "OPEN",
   "basis": "Judgment.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:engineering",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -311,7 +326,8 @@
   "grade": "SUPPORTED",
   "basis": "Vendor docs and plugin pages.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:engineering",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -330,7 +346,8 @@
   "grade": "OPEN",
   "basis": "Single vendor claim.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -348,7 +365,8 @@
   "grade": "OPEN",
   "basis": "Conservative default already treats them as personal.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -369,7 +387,8 @@
   "grade": "SUPPORTED",
   "basis": "Policy says changes may occur without notice; two CAPI guide versions coexist.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -388,7 +407,8 @@
   "grade": "SUPPORTED",
   "basis": "Get Started page; limits on referrals known.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:engineering",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  },
  {
@@ -407,7 +427,8 @@
   "grade": "OPEN",
   "basis": "Not stated by the owner; assumed from the single-business framing.",
   "status": "OPEN",
-  "owner": null,
+  "owner": "role:project-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
   "review_by": null
  }
 ]
