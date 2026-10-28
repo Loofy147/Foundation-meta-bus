@@ -40,3 +40,8 @@ Account eligibility, current Meta terms/pricing, Algeria-specific billing, busin
 The updated plan records the current Platform Terms effective 2026-09-23, the distinction between the customer-facing Business App agent and the developer platform API, and secondary October 2026 Algeria pricing. The current official rate card and actual Algerian account billing remain OPEN; the repository does not treat secondary rates as official proof. See `docs/research/meta-platform-check-2026-10-28.md` for sources and actions.
 
 Do not call this production-ready before the new commit's CI and all external legal, account, billing and cryptographic prerequisites are closed.
+
+
+## Additional defensive checks
+
+The storage review found the initial reconstruction sealed payloads but still used raw event and sender IDs in SQLite index columns. The runtime now requires keyed opaque identifiers and fails closed on legacy plaintext-ID schemas rather than silently treating them as safe. Webhook ingress enforces the documented 3,000,000-byte limit before parsing. Unit tests and core mutation tests cover both controls; the system spec has matching invariants and a size-limit mutation. The callbacks and key lifecycle remain deployment contracts: synthetic test codecs are not production cryptography.

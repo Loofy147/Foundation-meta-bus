@@ -66,6 +66,10 @@ def check(spec, registry):
                 fail("S4", f"ALLOW policy {policy.get('id')} has no decision date")
             if not isinstance(policy.get("evidence"), list) or not policy["evidence"]:
                 fail("S4", f"ALLOW policy {policy.get('id')} has no evidence")
+    limits = spec.get("limits", {})
+    limit = limits.get("max_webhook_payload_bytes")
+    if type(limit) is not int or limit != 3_000_000:
+        fail("S9", "max_webhook_payload_bytes must equal 3,000,000")
     if spec.get("default_authorization") != "DENY":
         fail("S5", "default_authorization must remain DENY")
     for required in CRITICAL_POLICIES:
@@ -107,7 +111,8 @@ def mutations(spec, registry):
         mutate("default authorization becomes ALLOW", "S5", lambda s, r: s.update(default_authorization="ALLOW")),
         mutate("ALLOW policy loses accountability/evidence", "S4", lambda s, r: policy(s, "P-WEBHOOK-INGEST").update(owner=None, decided_on=None, evidence=[])),
         mutate("critical conversion policy enabled", "S5", lambda s, r: policy(s, "P-CAPI-DISPATCH").update(state="ALLOW", owner="role:test", decided_on="2026-10-28", evidence=[{"kind":"test", "ref":"synthetic"}])),
-        mutate("acknowledgement moved before persistence", "S6", lambda s, r: workflow(s, "inbound_webhook").update(steps=["verify_signature", "normalize_payload", "require_sender_id", "acknowledge_200", "persist_idempotently"]))
+        mutate("acknowledgement moved before persistence", "S6", lambda s, r: workflow(s, "inbound_webhook").update(steps=["verify_signature", "normalize_payload", "require_sender_id", "acknowledge_200", "persist_idempotently"])),
+        mutate("remove webhook payload size limit", "S9", lambda s, r: s.update(limits={"max_webhook_payload_bytes": None}))
     ]
 
 def selftest(spec, registry):

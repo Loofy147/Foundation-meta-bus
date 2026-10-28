@@ -23,9 +23,9 @@ Generated files: `registry.json`, `claims.json`, `system.json`, `assumptions.jso
 - Unknown, missing or incomplete policy authorizations fail closed.
 - Conversion dispatch, external customer-data sharing, hosted LLM processing, contact profiling and training on business conversations are denied in the authored specification.
 - Outbound messages, courier parcel creation, payment links and commerce writes require explicit approval.
-- Webhook ingress verifies the raw-body signature, rejects missing identity, writes idempotently before acknowledging, and never guesses who sent a message.
+- Webhook ingress enforces a 3 MB body limit, verifies the raw-body signature, rejects missing identity, writes idempotently before acknowledging, and never guesses who sent a message. Database indexes require an injected keyed identifier function instead of plaintext event/sender IDs.
 - External effects need an injected transport. An ambiguous conversion send becomes `UNKNOWN` and cannot be automatically retried.
-- Payload storage requires injected sealing/opening callbacks. The test codec is synthetic and is not cryptographic.
+- Payload storage requires injected sealing/opening and keyed identifier-index callbacks. Test codecs are synthetic, not cryptographic. Legacy databases with the old plaintext-ID schema are rejected until explicitly migrated or securely retired.
 
 ## Still required before real production data
 

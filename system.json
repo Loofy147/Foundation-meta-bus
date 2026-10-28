@@ -429,7 +429,20 @@
     {
       "id": "INV-010",
       "name": "privacy-first",
-      "rule": "Business payload storage requires an injected sealing codec; production key management, deletion, retention and incident recovery remain deployment requirements."
+      "rule": "Payload storage requires an injected sealing/opening codec and keyed identifier indexing; production key management, retention/deletion, access controls and recovery remain deployment requirements."
+    },
+    {
+      "id": "INV-011",
+      "name": "bounded-ingress",
+      "rule": "Reject webhook payloads larger than 3,000,000 bytes before signature parsing, JSON decoding or normalization."
+    },
+    {
+      "id": "INV-012",
+      "name": "pseudonymous-indexes",
+      "rule": "Do not persist raw sender or event identifiers in database index columns; use opaque keyed identifiers and seal the payload."
     }
-  ]
+  ],
+  "limits": {
+    "max_webhook_payload_bytes": 3000000
+  }
 }
