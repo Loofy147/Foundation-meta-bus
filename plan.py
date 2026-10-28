@@ -23,7 +23,9 @@ Rules
 import json, sys, copy, collections, pathlib, argparse
 
 HERE = pathlib.Path(__file__).parent
-J = lambda n: json.load(open(HERE / n))
+def J(name):
+    with open(HERE / name, "r", encoding="utf-8") as handle:
+        return json.load(handle)
 OUTCOMES = ("holds", "fails")
 
 def load():
