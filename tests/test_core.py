@@ -152,7 +152,7 @@ class StoreTests(CoreTestCase):
 
     def test_database_persists_sealed_bytes_not_plain_json(self):
         event=self.sample_event(); self.assertTrue(self.store.put_if_absent(event))
-        with self.store._lock: stored=self.store._db.execute("SELECT payload FROM webhook_events WHERE event_id=?",(event["event_id"],)).fetchone()[0]
+        with self.store._lock: stored=self.store._db.execute("SELECT payload FROM webhook_events WHERE event_key=?",(self.index_identifier("event",event["event_id"]),)).fetchone()[0]
         self.assertTrue(bytes(stored).startswith(b"SYNTHETIC-TEST-CODEC:"))
         self.assertNotEqual(bytes(stored),json.dumps(event,ensure_ascii=False,separators=(",",":"),sort_keys=True).encode("utf-8"))
 
