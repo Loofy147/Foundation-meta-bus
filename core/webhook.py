@@ -1,12 +1,18 @@
-"""Raw-body signature verification and durable, idempotent webhook ingress."""
+"""Raw-body signature verification and bounded, durable, idempotent ingress."""
 import hashlib
 import hmac
 import json
 
+MAX_WEBHOOK_BYTES = 3_000_000
+
+
 class InvalidWebhook(ValueError):
     """Raised when a provider payload fails validation."""
+
+
 class PersistenceFailure(RuntimeError):
     """Raised when a webhook cannot be durably stored; no acknowledgement is returned."""
+
 
 def verify_signature(payload, signature_header, app_secret):
     if not isinstance(payload, bytes) or not isinstance(signature_header, str):
@@ -17,7 +23,10 @@ def verify_signature(payload, signature_header, app_secret):
     expected = "sha256=" + hmac.new(secret, payload, hashlib.sha256).hexdigest()
     return hmac.compare_digest(expected, signature_header)
 
+
 def ingest_signed_payload(payload, signature_header, app_secret, *, normalize, store):
+    if not isinstance(payload, bytes) or len(payload) > MAX_WEBHOOK_BYTES:
+        raise InvalidWebhook("webhook body is missing or exceeds the 3 MB ingress limit")
     if not verify_signature(payload, signature_header, app_secret):
         raise InvalidWebhook("invalid webhook signature")
     if not callable(normalize):

@@ -10,7 +10,7 @@ from core.consent import authorize_outbound_message
 from core.conversions import DispatchOutcomeUnknown, TransportNotConfigured, dispatch_conversion, prepare_conversion
 from core.policy import PolicyDenied, authorize
 from core.store import SQLiteStore
-from core.webhook import InvalidWebhook, PersistenceFailure, ingest_signed_payload
+from core.webhook import InvalidWebhook, PersistenceFailure, MAX_WEBHOOK_BYTES, ingest_signed_payload
 
 class FakeTransport:
     def __init__(self, error=None): self.calls, self.error = [], error
@@ -23,9 +23,12 @@ class CoreTestCase(unittest.TestCase):
     def setUp(self):
         self.tempdir = tempfile.TemporaryDirectory()
         self.db_path = Path(self.tempdir.name) / "foundation-test.sqlite3"
-        self.store = SQLiteStore(self.db_path, seal_payload=self.seal, open_payload=self.open_seal)
+        self.store = SQLiteStore(self.db_path, seal_payload=self.seal, open_payload=self.open_seal, index_identifier=self.index_identifier)
     def tearDown(self):
         self.store.close(); self.tempdir.cleanup()
+    @staticmethod
+    def index_identifier(namespace, identifier):
+        return hmac.new(b"synthetic-index-key", (namespace + "\\0" + identifier).encode("utf-8"), hashlib.sha256).hexdigest()
     @staticmethod
     def seal(raw): return b"SYNTHETIC-TEST-CODEC:" + raw
     @staticmethod
@@ -80,6 +83,15 @@ class WebhookTests(CoreTestCase):
         first = ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",normalize=lambda d:d,store=self.store)
         second = ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",normalize=lambda d:d,store=self.store)
         self.assertFalse(first["duplicate"]); self.assertTrue(second["duplicate"]); self.assertEqual(self.store.count_webhook_events(),1)
+    def test_oversized_payload_is_rejected_before_normalization(self):
+        payload = b" " * (MAX_WEBHOOK_BYTES + 1) + b'{"event_id":"evt-large","sender_id":"synthetic-sender"}'
+        called = []
+        with self.assertRaises(InvalidWebhook):
+            ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",
+                normalize=lambda document: called.append(document),store=self.store)
+        self.assertEqual(called, [])
+        self.assertEqual(self.store.count_webhook_events(), 0)
+
     def test_storage_failure_prevents_acknowledgement(self):
         payload = json.dumps(self.sample_event()).encode()
         class BrokenStore:
@@ -113,7 +125,31 @@ class ConversionTests(CoreTestCase):
 
 class StoreTests(CoreTestCase):
     def test_store_requires_an_injected_payload_codec(self):
-        with self.assertRaises(ValueError): SQLiteStore(self.db_path,seal_payload=None,open_payload=None)
+        with self.assertRaises(ValueError): SQLiteStore(self.db_path,seal_payload=None,open_payload=None,index_identifier=self.index_identifier)
+    def test_database_indexes_identifiers_without_storing_raw_ids(self):
+        event = self.sample_event()
+        self.assertTrue(self.store.put_if_absent(event))
+        with self.store._lock:
+            columns = {row[1] for row in self.store._db.execute("PRAGMA table_info(webhook_events)")}
+            row = self.store._db.execute("SELECT event_key,sender_key FROM webhook_events").fetchone()
+        self.assertIn("event_key", columns)
+        self.assertIn("sender_key", columns)
+        self.assertNotIn("event_id", columns)
+        self.assertNotIn("sender_id", columns)
+        self.assertNotEqual(row[0], event["event_id"])
+        self.assertNotEqual(row[1], event["sender_id"])
+
+    def test_plaintext_identifier_index_function_is_rejected(self):
+        weak_path = Path(self.tempdir.name) / "weak-index.sqlite3"
+        weak = SQLiteStore(weak_path, seal_payload=self.seal, open_payload=self.open_seal,
+                           index_identifier=lambda namespace, identifier: identifier)
+        try:
+            with self.assertRaises(Exception):
+                weak.put_if_absent(self.sample_event())
+            self.assertEqual(weak.count_webhook_events(), 0)
+        finally:
+            weak.close()
+
     def test_database_persists_sealed_bytes_not_plain_json(self):
         event=self.sample_event(); self.assertTrue(self.store.put_if_absent(event))
         with self.store._lock: stored=self.store._db.execute("SELECT payload FROM webhook_events WHERE event_id=?",(event["event_id"],)).fetchone()[0]

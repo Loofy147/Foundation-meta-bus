@@ -12,6 +12,8 @@ MUTANTS=[
 ("core/consent.py","if purpose not in granted:","if False and purpose not in granted:","tests.test_core.PolicyTests.test_marketing_requires_explicit_opt_in"),
 ("core/policy.py",'if state != "ALLOW":','if False and state != "ALLOW":',"tests.test_core.ConversionTests.test_default_deny_blocks_conversion_dispatch"),
 ("core/store.py","except sqlite3.IntegrityError:\n                return False","except sqlite3.IntegrityError:\n                return True","tests.test_core.WebhookTests.test_duplicate_webhooks_are_idempotent"),
+("core/store.py","if not isinstance(key, str) or not key.strip() or key == identifier:","if not isinstance(key, str) or not key.strip():","tests.test_core.StoreTests.test_plaintext_identifier_index_function_is_rejected"),
+("core/webhook.py","if not isinstance(payload, bytes) or len(payload) > MAX_WEBHOOK_BYTES:","if False and (not isinstance(payload, bytes) or len(payload) > MAX_WEBHOOK_BYTES):","tests.test_core.WebhookTests.test_oversized_payload_is_rejected_before_normalization"),
 ("core/conversions.py","if not isinstance(clid, str) or not clid.strip():","if False and (not isinstance(clid, str) or not clid.strip()):","tests.test_core.ConversionTests.test_missing_clid_is_rejected"),
 ]
 def execute(cwd,test_name):
