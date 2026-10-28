@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-10-28",
+  "artifact": {
+    "name": "files - 2026-10-28T093522.822.zip",
+    "github_path": "files - 2026-10-28T093522.822.zip",
+    "github_blob_sha": "1228a7b5eec3ee0cb7722f186a790bd4b7157d93",
+    "github_commit_sha": "eccc2c79402983ae99537d6a4e1f17beb4f72f5e",
+    "github_commit_url": "https://github.com/Loofy147/Foundation-meta-bus/commit/eccc2c79402983ae99537d6a4e1f17beb4f72f5e",
+    "bytes": 47569,
+    "central_directory_entries": 10,
+    "dropbox_path": "/files - 2026-10-28T093522.822.zip",
+    "dropbox_modified_at": "2026-10-28T08:39:29Z",
+    "dropbox_content_hash": "4f6935bdb7de5be1dcda84385fd792c36101a1e44716576df879cd381a30d84a",
+    "dropbox_content_hash_note": "Provider-supplied Dropbox content_hash. It has not been independently recomputed and is not labelled as a conventional SHA-256."
+  },
+  "member_integrity": {
+    "algorithm": "ZIP central-directory CRC-32 compared with CRC-32 computed from each decompressed member",
+    "all_members_pass": true,
+    "members": [
+      {
+        "path": "CONTRIBUTING.md",
+        "compressed_bytes": 3066,
+        "uncompressed_bytes": 6778,
+        "crc32": "10e63520",
+        "crc_match": true
+      },
+      {
+        "path": "AGENTS.md",
+        "compressed_bytes": 2534,
+        "uncompressed_bytes": 5173,
+        "crc32": "ab1c64bc",
+        "crc_match": true
+      },
+      {
+        "path": "results_plan.txt",
+        "compressed_bytes": 3060,
+        "uncompressed_bytes": 12642,
+        "crc32": "177ee17e",
+        "crc_match": true
+      },
+      {
+        "path": "assumptions.json",
+        "compressed_bytes": 3382,
+        "uncompressed_bytes": 11463,
+        "crc32": "9a4699a8",
+        "crc_match": true
+      },
+      {
+        "path": "roadmap.json",
+        "compressed_bytes": 3049,
+        "uncompressed_bytes": 12943,
+        "crc32": "308656bb",
+        "crc_match": true
+      },
+      {
+        "path": "meta_docs_map.json",
+        "compressed_bytes": 3488,
+        "uncompressed_bytes": 11778,
+        "crc32": "aa9e2933",
+        "crc_match": true
+      },
+      {
+        "path": "plan.py",
+        "compressed_bytes": 4507,
+        "uncompressed_bytes": 14270,
+        "crc32": "f6253335",
+        "crc_match": true
+      },
+      {
+        "path": "gate.py",
+        "compressed_bytes": 1714,
+        "uncompressed_bytes": 4208,
+        "crc32": "5b48131c",
+        "crc_match": true
+      },
+      {
+        "path": "build_plan.py",
+        "compressed_bytes": 9169,
+        "uncompressed_bytes": 26343,
+        "crc32": "2a440fde",
+        "crc_match": true
+      },
+      {
+        "path": "registry.json",
+        "compressed_bytes": 12406,
+        "uncompressed_bytes": 54211,
+        "crc32": "92bf5494",
+        "crc_match": true
+      }
+    ]
+  },
+  "registry_snapshot": {
+    "generated": "2026-10-18",
+    "capabilities": 43,
+    "evidence_entries": 80,
+    "duplicate_ids": [],
+    "status_counts": {
+      "READY": 14,
+      "CONFIG": 25,
+      "UNVERIFIED": 2,
+      "BLOCKED": 2
+    },
+    "added_ids_vs_main": [
+      "M1",
+      "T1",
+      "C0",
+      "X1",
+      "O1",
+      "TP1"
+    ],
+    "revised_existing_records_vs_main": [
+      "B2",
+      "B4",
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "static_integrity_crosscheck": {
+      "method": "JavaScript reimplementation of check.py rules R1,R2,R3,R5,R6 against parsed registry JSON; not execution of Python check.py",
+      "failures": 0,
+      "warnings": 14,
+      "warnings_are": "READY labels inherited from original artefact A without independent verification"
+    }
+  },
+  "plan_snapshot": {
+    "roadmap_items": 30,
+    "scenarios": 9,
+    "assumptions": 21,
+    "assumptions_open": 21,
+    "assumptions_without_owner": 21,
+    "documentation_entries": 30,
+    "high_priority_not_read_docs": [
+      "N01",
+      "N02",
+      "N03",
+      "N04",
+      "N05",
+      "N06"
+    ],
+    "results_plan_is_replayed_test_output": false,
+    "note": "Counts were parsed from the archive; results_plan.txt records prior command output and was not regenerated in this audit."
+  },
+  "gate_dependency_gaps": {
+    "archive_does_not_contain": [
+      "build_registry.py",
+      "check.py",
+      "build_spec.py",
+      "check_spec.py",
+      "core/",
+      "tests/",
+      "claims.json",
+      "system.json",
+      "results.txt",
+      "results_spec.txt",
+      "results_core.txt"
+    ],
+    "github_expected_paths_not_found": [
+      "build_spec.py",
+      "check_spec.py",
+      "tests/mutate.py",
+      "system.json"
+    ],
+    "effect": "gate.py cannot be considered runnable from the ZIP alone; current main build_registry.py does not yet produce the ZIP's six added IDs and five revised records."
+  },
+  "execution_status": {
+    "python_build_registry": "NOT_RUN",
+    "python_check": "NOT_RUN",
+    "python_build_plan": "NOT_RUN",
+    "python_plan_check": "NOT_RUN",
+    "python_plan_selftest": "NOT_RUN",
+    "gate_full": "NOT_RUN",
+    "gate_verify_results": "NOT_RUN",
+    "unit_tests": "NOT_RUN",
+    "mutation_tests": "NOT_RUN",
+    "local_git_clone": "FAILED: tool container could not resolve github.com",
+    "desktop_commander": "NO_DEVICE_CONNECTED",
+    "github_commit_statuses": "EMPTY",
+    "pr_workflow_runs_lookup": "EMPTY; connector lookup is scoped to PR-triggered runs"
+  },
+  "next_required_actions": [
+    "Port the six added capability records and five evidence revisions into authored build_registry.py source.",
+    "Integrate plan.py and build_plan.py with their generated datasets, rebuilding outputs from source.",
+    "Restore or implement build_spec.py, check_spec.py, core/ and tests/ before enabling the bundled full gate.",
+    "Run validation in CI or a connected execution environment and retain real logs and exit codes.",
+    "Keep the full gate classified as blocked until its entire dependency closure exists and passes."
+  ],
+  "audit_report": "docs/audits/dropbox-reconciliation-2026-10-28.md"
+}
