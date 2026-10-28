@@ -1273,25 +1273,37 @@
    "artefact_origin": "new",
    "status": "CONFIG",
    "checked": true,
-   "desc": "Per-message pricing since 2025-07-01: marketing, utility, authentication, service. Service messages and in-window utility templates are free; a click-to-WhatsApp entry opens a 72-hour window in which all categories are free; rates differ by market.",
-   "notes": "Implication for W2: shipping and delivery notices sent after the 24-hour window are paid utility templates. Algeria's rate was not retrieved (rate-card PDFs came through a BSP and were not parseable). Business Agent messages are priced separately (see B2).",
+   "desc": "Per-delivered-message billing. Current secondary sources list Algeria (+213) under Rest of Africa from 2026-10-01 at USD 0.0225 per marketing message and USD 0.0040 per utility, authentication and service message. Secondary sources also report 1,000 free service messages per business phone number/month and an eligible free Click-to-WhatsApp entry-point window up to 7 days.",
+   "notes": "Use the rates only as a planning estimate until the official Meta rate card and the chosen account's first invoice are checked. Utility templates can be billable inside the 24-hour customer-service window from 2026-10-01. Do not confuse the 24-hour service window with a free entry-point window; eligibility and duration depend on the source/entry point and require account confirmation. Add provider fees, taxes and actual billing currency before committing spend.",
    "depends_on": [],
-   "verified_on": "2026-10-24",
+   "verified_on": "2026-10-28",
    "evidence": [
     {
      "grade": "SUPPORTED",
-     "claim": "Per-message pricing; service and in-window utility free; 72-hour free entry point window for CTWA ads and Page buttons; standard pricing still applies to the ad itself.",
+     "claim": "Secondary pricing pages list +213 under Rest of Africa from 2026-10-01 at USD 0.0225 per delivered marketing message and USD 0.0040 per delivered utility, authentication or service message.",
      "sources": [
-      "https://support.chatarchitect.com/books/whatsapp-business-platform/page/about-billing-for-your-whatsapp-business-account",
-      "https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/PDF/WhatsApp-Business-Messaging-1000.pdf"
+      "https://www.nonito.io/whatsapp-business-api-pricing/algeria",
+      "https://whautomate.com/whatsapp-pricing-updates"
      ],
-     "note": "Mirror of Meta's billing help text and BSP-hosted rate cards; Meta's pricing page not retrieved."
+     "note": "Independent secondary cross-check; official Meta rate card did not load successfully during the 2026-10-28 review."
+    },
+    {
+     "grade": "SUPPORTED",
+     "claim": "Secondary provider documentation reports 1,000 free service messages per business phone number/month and billable utility templates inside the 24-hour service window from 2026-10-01; eligible CTWA entry points may have a free-entry window up to 7 days.",
+     "sources": [
+      "https://www.alibabacloud.com/help/en/chatapp/whatsapp-message-rate-adjustments-and-service-conversation-message-billing",
+      "https://support.wati.io/en/articles/16954666-whatsapp-business-platform-api-pricing-changes-service-messages-and-click-to-message-ads",
+      "https://www.nonito.io/whatsapp-business-api-pricing/algeria"
+     ],
+     "note": "Not an account-level test. Verify the exact Meta entry point, billing currency, service allowance and selected provider's additional fees."
     },
     {
      "grade": "OPEN",
-     "claim": "Algeria market rates and the cost per order they imply.",
-     "sources": [],
-     "note": ""
+     "claim": "Official current Meta rate card, exact account billing, provider surcharges/taxes, eligible free-entry windows, and realized cost per order.",
+     "sources": [
+      "https://developers.facebook.com/docs/whatsapp/pricing#rate-cards"
+     ],
+     "note": "Official pricing URL was attempted but its content could not be retrieved in this run; a current billing account/invoice has not been examined."
     }
    ]
   },
@@ -1303,33 +1315,45 @@
    "status": "CONFIG",
    "checked": true,
    "desc": "Contract constraints on how Business Solution Data may be used, independent of Algerian law.",
-   "notes": "(1) No use of Business Solution Data, including anonymous, aggregate or derived forms, to create, develop, train or improve AI models, except fine-tuning a model for our exclusive use that improves no other model. (2) No sharing with third parties except a Third Party Service Provider. (3) No building or augmenting profiles on individual WhatsApp users, except message-thread content. (4) AI Providers whose primary functionality is AI are barred (effective 2026-01-15, Meta's sole discretion); business customer-service AI is not. The terms were read from a /preview URL; the Third Party Service Provider definition was not read.",
+   "notes": "The earlier Business Solution Terms snapshot describes restrictions on training on Business Solution Data, external sharing and contact profiling, and historical reporting described an AI Providers clause. Current legal structure must not be inferred from the old snapshot alone: official WhatsApp Terms for WhatsApp Business Platform are effective 2026-09-23 and incorporate separate Meta Terms for WhatsApp Business Platform. A secondary review reports the AI-provider rule/provider terminology changed in the current text, but the full incorporated Meta Terms and its exact current definitions must be verified. Keep hosted LLM, external customer-data sharing, cross-message profiling and conversation-training operations disabled; counsel must decide whether our intended use and each vendor are permitted.",
    "depends_on": [
     "K1"
    ],
-   "verified_on": "2026-10-24",
+   "verified_on": "2026-10-28",
    "evidence": [
     {
-     "grade": "PROVEN",
-     "claim": "Clauses (1), (2), (3) as quoted in notes, from the terms page.",
+     "grade": "SUPPORTED",
+     "claim": "A prior official Business Solution Terms preview stated restrictions on use of business data for model training, third-party sharing and user-profile building; applicability of this earlier language to the full post-2026-09-23 contract set needs re-verification.",
      "sources": [
       "https://whatsapp.com/legal/business-solution-terms/preview?amp=&lang=en"
      ],
-     "note": ""
+     "note": "Historical terms snapshot. Do not treat the old terminology as confirmed current wording."
+    },
+    {
+     "grade": "PROVEN",
+     "claim": "Official WhatsApp Terms for WhatsApp Business Platform state an effective date of 2026-09-23 and incorporate separate Meta Terms for WhatsApp Business Platform and the current Business Messaging Policy.",
+     "sources": [
+      "https://www.whatsapp.com/legal/WhatsApp-Terms-for-WhatsApp-Business-Platform?lang=en",
+      "https://whatsappbusiness.com/policy/"
+     ],
+     "note": "Official English page retrieved. This proves the current terms architecture/date, not the exact contents of the incorporated Meta Terms."
     },
     {
      "grade": "SUPPORTED",
-     "claim": "The AI Providers clause and its effective date, quoted by several outlets; Meta said it targets AI model providers rather than businesses using AI for customer service.",
+     "claim": "A current secondary legal review reports the AI Providers clause is located in the Meta Terms for WhatsApp Business Platform and discusses a change from Third Party Service Provider to Solution Provider terminology.",
      "sources": [
-      "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform"
+      "https://mesej.io/guides/whatsapp-ai-providers-clause/"
      ],
-     "note": "Quoted text seen second-hand; the clause itself was not on the retrieved page."
+     "note": "Secondary interpretation only; retrieve and review the actual incorporated Meta Terms and obtain counsel's written applicability assessment."
     },
     {
      "grade": "OPEN",
-     "claim": "Whether couriers and the PSP are Third Party Service Providers; whether lead tagging counts as profile building; whether our agent is incidental or primary; current (non-preview) version of the terms.",
-     "sources": [],
-     "note": ""
+     "claim": "Current exact legal text/definitions and whether our runtime, couriers, payment PSP, or LLM vendor are permitted in this architecture; lawful processing and transfer basis under Algerian law.",
+     "sources": [
+      "https://www.whatsapp.com/legal/WhatsApp-Terms-for-WhatsApp-Business-Platform?lang=en",
+      "https://mesej.io/guides/whatsapp-ai-providers-clause/"
+     ],
+     "note": "Do not enable external data sharing, hosted LLMs or training until current contract text, country/account status and counsel decisions are recorded."
     }
    ]
   },
@@ -1552,6 +1576,14 @@
   "mba_price_sleek": "https://sleekflow.io/en-sg/blog/meta-business-agent-vs-ai-agents.md",
   "ai_terms_techcrunch": "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform",
   "testnumber_pypi": "https://pypi.org/project/whatsappcloud/0.0.4",
+  "wa_terms_current": "https://www.whatsapp.com/legal/WhatsApp-Terms-for-WhatsApp-Business-Platform?lang=en",
+  "wa_business_agent_help": "https://faq.whatsapp.com/1153795669452207/?cms_platform=web",
+  "wa_rate_algeria_nonito": "https://www.nonito.io/whatsapp-business-api-pricing/algeria",
+  "wa_rate_oct2026": "https://whautomate.com/whatsapp-pricing-updates",
+  "wa_rate_service_rules": "https://www.alibabacloud.com/help/en/chatapp/whatsapp-message-rate-adjustments-and-service-conversation-message-billing",
+  "wa_rate_ctwa_rules": "https://support.wati.io/en/articles/16954666-whatsapp-business-platform-api-pricing-changes-service-messages-and-click-to-message-ads",
+  "wa_ai_terms_current": "https://mesej.io/guides/whatsapp-ai-providers-clause/",
+  "wa_pricing_official": "https://developers.facebook.com/docs/whatsapp/pricing#rate-cards",
   "artefact_A": "uploaded:dz_meta_foundation_blueprint.html",
   "artefact_B": "uploaded:meta_advanced_stack_algerian.html"
  }
