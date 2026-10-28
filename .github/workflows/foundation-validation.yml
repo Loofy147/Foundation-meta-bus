@@ -21,15 +21,7 @@ jobs:
         run: python -m compileall -q build_registry.py check.py build_plan.py plan.py build_spec.py check_spec.py gate.py core tests
       - name: Run complete source-level gate and mutation tests
         run: python gate.py --full
-      - name: Generate up-to-date result reports and emit encoded copies for review
-        run: |
-          python gate.py --write-results
-          python - <<'PY'
-          import base64
-          from pathlib import Path
-          for name in ("results.txt", "results_spec.txt", "results_plan.txt", "results_core.txt"):
-              encoded = base64.b64encode(Path(name).read_bytes()).decode("ascii")
-              print(f"REPORT_BASE64:{name}:{encoded}")
-          PY
+      - name: Verify committed result reports against the current source
+        run: python gate.py --verify-results
       - name: Require generated JSON to be reproducible
         run: git diff --exit-code -- registry.json claims.json system.json assumptions.json roadmap.json meta_docs_map.json

@@ -1,0 +1,8 @@
+caught  S5: remove critical conversion policy
+caught  S2: reference unknown capability
+caught  S5: default authorization becomes ALLOW
+caught  S4: ALLOW policy loses accountability/evidence
+caught  S5: critical conversion policy enabled
+caught  S6: acknowledgement moved before persistence
+caught  S9: remove webhook payload size limit
+SPEC: 0 FAIL; self-test 7/7 mutants detected

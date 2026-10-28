@@ -1,0 +1,176 @@
+== plan rules ==
+PLAN CHECK  P1:0f/0w  P2:0f/0w  P3:0f/0w  P4:0f/0w  P5:0f/0w  P6:0f/0w  P7:0f/0w  P8:0f/0w
+PLAN: 0 FAIL, 0 warn
+
+== plan self-test and scenario contracts ==
+  caught  P1  item depends on a missing item
+  caught  P1  assumption depends on a missing registry id
+  caught  P2  dependency cycle
+  caught  P3  OPEN assumption nobody tests
+  caught  P3  OPEN assumption with no test text
+  caught  P4  scenario references a missing assumption
+  caught  P4  scenario without consequences
+  caught  P5  load-bearing assumption loses its failure scenario
+  caught  P6  primary doc entry without facts
+  caught  P6  HIGH unread doc gates nothing
+  caught  P7  unknown resource on an item
+  caught  P8  assumption loses its accountable owner
+
+PLAN SELFTEST: 12/12 behaved as expected
+
+SCENARIO CONTRACTS
+  ok      no outcomes: SC-2 should be INACTIVE, is INACTIVE
+  ok      no outcomes: SC-4 should be INACTIVE, is INACTIVE
+  ok      no outcomes: SC-6 should be INACTIVE, is INACTIVE
+  ok      no outcomes: SC-7 should be INACTIVE, is INACTIVE
+  ok      no outcomes: SC-8 should be INACTIVE, is INACTIVE
+  ok      no outcomes: SC-9 should be INACTIVE, is INACTIVE
+  ok      {'A-01': 'fails'}: X-03 should be MOOT, is MOOT
+  ok      {'A-01': 'fails'}: E-01 should be MOOT, is MOOT
+  ok      {'A-01': 'fails'}: SC-2 should be active, is BLOCKED
+  ok      {'A-05': 'fails'}: X-03 should be MOOT, is MOOT
+  ok      {'A-05': 'fails'}: E-01 should be MOOT, is MOOT
+  ok      {'A-05': 'fails'}: SC-4 should be active, is READY
+  ok      {'A-04': 'fails'}: E-02 should be MOOT, is MOOT
+  ok      {'A-04': 'fails'}: SC-6 should be active, is READY
+  ok      {'A-08': 'fails'}: E-02 should be MOOT, is MOOT
+  ok      {'A-08': 'fails'}: SC-9 should be active, is BLOCKED
+  ok      {'A-21': 'fails'}: SC-7 should be active, is BLOCKED
+  ok      {'A-06': 'fails'}: SC-8 should be active, is NEEDS
+  ok      {'A-03': 'fails'}: X-02 should be MOOT, is MOOT
+  ok      {'A-03': 'fails'}: X-03 should be MOOT, is MOOT
+  ok      {'A-03': 'fails'}: E-01 should be MOOT, is MOOT
+  ok      {'A-03': 'fails'}: SC-10 should be active, is NEEDS
+  ok      {'A-10': 'fails'}: E-02 should be MOOT, is MOOT
+  ok      {'A-10': 'fails'}: SC-11 should be active, is NEEDS
+  ok      {'A-19': 'fails'}: SC-12 should be active, is READY
+  ok      {'A-01': 'holds', 'A-05': 'holds', 'A-04': 'holds'}: X-03 should be active, is BLOCKED
+  ok      {'A-01': 'holds', 'A-05': 'holds', 'A-04': 'holds'}: E-02 should be active, is BLOCKED
+  ok      {'A-01': 'holds', 'A-05': 'holds', 'A-04': 'holds'}: E-01 should be active, is BLOCKED
+
+CONTRACTS: 28/28 hold
+
+== what-if: plan.py --have none ==
+PLAN CHECK  P1:0f/0w  P2:0f/0w  P3:0f/0w  P4:0f/0w  P5:0f/0w  P6:0f/0w  P7:0f/0w  P8:0f/0w
+PLAN: 0 FAIL, 0 warn
+
+PLAN  have=['none']  done=[]  assume={}
+Active scenarios: none (all assumptions still open)
+
+READY now (9), ranked by value of information (assumption dependents plus items unlocked):
+  V-04  voi  9  verify  Read the full current Business Solution Terms, including the Third Party Service Provider definition  [tests A-08, A-10, A-11]
+  V-06  voi  6  verify  Read the documentation backlog: platform terms, limits and quality, Flows, CTWA ads, commerce policy, templates, Graph versioning  [tests A-19, A-12]
+  V-02  voi  3  verify  Read the Business Agent authorized-country list and non-template pricing page  [tests A-04]
+  V-03  voi  3  verify  Read business verification requirements for an Algerian entity  [tests A-07]
+  V-05  voi  2  verify  Read Meta ad payment and WABA billing requirements for Algeria  [tests A-06]
+  B-01  voi  1  build   Spec v0.3: provider requirements, send_template with opt-in guard and cost class, opt-in purposes, window logic
+  B-03  voi  1  build   Build the NLU benchmark harness on synthetic and public Darja data only
+  B-04  voi  1  build   Build the CAPI transport, token handling and stuck-send reconciler behind an injected transport
+  B-06  voi  1  build   Build the Yalidine and Ecotrack adapters against mocks
+
+NEEDS a resource we lack (3):
+  V-01  Retrieve the official rate card, confirm account/recipient billing bas  (needs account)
+  D-01  Decide the operating model: direct developer for owned businesses, or   (needs user)
+  B-05  Deploy the webhook ingress behind public HTTPS for the test number  (needs dev)
+
+BLOCKED by dependencies (12):
+  L-01  Brief Algerian counsel with the flow inventory and the Meta terms cons  (waiting on V-04; also needs counsel)
+  L-02  Record each ruling in the policy table with owner and decided_on; reru  (waiting on L-01; also needs counsel)
+  B-02  Build the template responder and the order workflow on mocks  (waiting on B-01)
+  T-01  Test number smoke test: webhook delivery, signature, statuses, message  (waiting on B-05; also needs dev)
+  X-01  Complete account setup: business verification, WABA, ad account and pa  (waiting on D-01, V-03, V-05; also needs account, entity)
+  X-02  Run a real click-to-WhatsApp entry and confirm ctwa_clid reaches the w  (waiting on X-01, T-01; also needs account, spend)
+  X-03  Send a CAPI test event with DZD from the direct-developer path and aud  (waiting on X-02, B-04, L-02; also needs account, spend)
+  X-04  Open courier accounts and create sandbox parcels  (waiting on B-06; also needs account)
+  X-05  Domestic payment-link rail experiment  (waiting on X-01; also needs account, spend)
+  E-01  Experiment: purchase signal at confirmation versus delivery  (waiting on X-03; also needs account, spend)
+  E-02  Trial Business Agent against our own runtime on a labelled set  (waiting on X-01, V-02, B-03; also needs account, data)
+  G-01  Production gate review: G0 to G5 evidence present, no open HIGH assump  (waiting on X-01, X-02, X-03, L-02, B-02, X-04; also needs user)
+
+INACTIVE scenario-only items: SC-2, SC-4, SC-6, SC-7, SC-8, SC-9, SC-10, SC-11, SC-12
+
+Open assumptions: 21 of 21; load-bearing (3 or more dependents): A-01, A-03, A-05, A-08, A-10, A-19
+Meta documentation not yet read, HIGH priority: 6
+
+== what-if: plan.py --have none,counsel --done V-04 --assume A-05=fails ==
+PLAN  have=['counsel', 'none']  done=['V-04']  assume={'A-05': 'fails'}
+Active scenarios: S4 Counsel restricts the extra flows
+   - No ctwa_clid or personal text leaves Z1 beyond the channel; conversion dispatch off.
+   - Conversation runs on own_templates and own_encoder; attribution falls back to first-party measurement.
+
+READY now (10), ranked by value of information (assumption dependents plus items unlocked):
+  L-01  voi 15  legal   Brief Algerian counsel with the flow inventory and the Meta terms constraints; obtain a written opinion  [tests A-08, A-09, A-10, A-11, A-12, A-18]
+  V-06  voi  6  verify  Read the documentation backlog: platform terms, limits and quality, Flows, CTWA ads, commerce policy, templates, Graph versioning  [tests A-19, A-12]
+  V-02  voi  3  verify  Read the Business Agent authorized-country list and non-template pricing page  [tests A-04]
+  V-03  voi  3  verify  Read business verification requirements for an Algerian entity  [tests A-07]
+  V-05  voi  2  verify  Read Meta ad payment and WABA billing requirements for Algeria  [tests A-06]
+  B-01  voi  1  build   Spec v0.3: provider requirements, send_template with opt-in guard and cost class, opt-in purposes, window logic
+  B-03  voi  1  build   Build the NLU benchmark harness on synthetic and public Darja data only
+  B-04  voi  1  build   Build the CAPI transport, token handling and stuck-send reconciler behind an injected transport
+  B-06  voi  1  build   Build the Yalidine and Ecotrack adapters against mocks
+  SC-4  voi  0  build   Measure without conversion dispatch: first-party funnel and Ads Manager conversation counts
+
+NEEDS a resource we lack (3):
+  V-01  Retrieve the official rate card, confirm account/recipient billing bas  (needs account)
+  D-01  Decide the operating model: direct developer for owned businesses, or   (needs user)
+  B-05  Deploy the webhook ingress behind public HTTPS for the test number  (needs dev)
+
+BLOCKED by dependencies (9):
+  L-02  Record each ruling in the policy table with owner and decided_on; reru  (waiting on L-01)
+  B-02  Build the template responder and the order workflow on mocks  (waiting on B-01)
+  T-01  Test number smoke test: webhook delivery, signature, statuses, message  (waiting on B-05; also needs dev)
+  X-01  Complete account setup: business verification, WABA, ad account and pa  (waiting on D-01, V-03, V-05; also needs account, entity)
+  X-02  Run a real click-to-WhatsApp entry and confirm ctwa_clid reaches the w  (waiting on X-01, T-01; also needs account, spend)
+  X-04  Open courier accounts and create sandbox parcels  (waiting on B-06; also needs account)
+  X-05  Domestic payment-link rail experiment  (waiting on X-01; also needs account, spend)
+  E-02  Trial Business Agent against our own runtime on a labelled set  (waiting on X-01, V-02, B-03; also needs account, data)
+  G-01  Production gate review: G0 to G5 evidence present, no open HIGH assump  (waiting on X-01, X-02, L-02, B-02, X-04; also needs user)
+
+MOOT in this scenario: X-03, E-01
+
+INACTIVE scenario-only items: SC-2, SC-6, SC-7, SC-8, SC-9, SC-10, SC-11, SC-12
+
+DONE: V-04
+
+Open assumptions: 20 of 21; load-bearing (3 or more dependents): A-01, A-03, A-08, A-10, A-19
+Meta documentation not yet read, HIGH priority: 6
+
+== what-if: plan.py --have none,dev,account,spend,entity,counsel,data,user --done V-01,V-02,V-03,V-04,V-05,V-06,D-01 --assume A-01=fails,A-21=fails,A-04=fails ==
+PLAN  have=['account', 'counsel', 'data', 'dev', 'entity', 'none', 'spend', 'user']  done=['D-01', 'V-01', 'V-02', 'V-03', 'V-04', 'V-05', 'V-06']  assume={'A-01': 'fails', 'A-21': 'fails', 'A-04': 'fails'}
+Active scenarios: S2 Partner or BSP route required; S6 Business Agent unavailable or unfit; S7 Multi-merchant platform
+   - TP1 or a BSP becomes the channel; M1 changes.
+   - Policy rows gain the BSP as a provider; the referral must be re-verified through it (A-03).
+   - Own runtime is the only conversation path; B4 and templates carry the load.
+   - TP1 required: business verification, App Review, Embedded Signup v4, business tokens, per-customer payment methods.
+   - Our own positioning is scrutinised under the AI Providers clause (A-08).
+   - Each merchant becomes a data controller relationship to document.
+
+READY now (8), ranked by value of information (assumption dependents plus items unlocked):
+  L-01  voi 19  legal   Brief Algerian counsel with the flow inventory and the Meta terms constraints; obtain a written opinion  [tests A-05, A-08, A-09, A-10, A-11, A-12, A-18]
+  X-01  voi  9  test    Complete account setup: business verification, WABA, ad account and payment methods  [tests A-06, A-07]
+  B-01  voi  1  build   Spec v0.3: provider requirements, send_template with opt-in guard and cost class, opt-in purposes, window logic
+  B-03  voi  1  build   Build the NLU benchmark harness on synthetic and public Darja data only
+  B-04  voi  1  build   Build the CAPI transport, token handling and stuck-send reconciler behind an injected transport
+  B-05  voi  1  build   Deploy the webhook ingress behind public HTTPS for the test number
+  B-06  voi  1  build   Build the Yalidine and Ecotrack adapters against mocks
+  SC-6  voi  0  build   Own runtime only: templates and encoder in Z1; defer hosted LLM until counsel permits
+
+BLOCKED by dependencies (9):
+  L-02  Record each ruling in the policy table with owner and decided_on; reru  (waiting on L-01)
+  B-02  Build the template responder and the order workflow on mocks  (waiting on B-01)
+  T-01  Test number smoke test: webhook delivery, signature, statuses, message  (waiting on B-05)
+  X-02  Run a real click-to-WhatsApp entry and confirm ctwa_clid reaches the w  (waiting on X-01, T-01)
+  X-04  Open courier accounts and create sandbox parcels  (waiting on B-06)
+  X-05  Domestic payment-link rail experiment  (waiting on X-01)
+  G-01  Production gate review: G0 to G5 evidence present, no open HIGH assump  (waiting on X-01, X-02, L-02, B-02, X-04)
+  SC-2  Select a Tech Provider or BSP route and verify it preserves the referr  (waiting on X-01)
+  SC-7  Tech Provider onboarding path: verification, App Review, Embedded Sign  (waiting on X-01)
+
+MOOT in this scenario: X-03, E-01, E-02
+
+INACTIVE scenario-only items: SC-4, SC-8, SC-9, SC-10, SC-11, SC-12
+
+DONE: V-01, V-02, V-03, V-04, V-05, V-06, D-01
+
+Open assumptions: 18 of 21; load-bearing (3 or more dependents): A-03, A-05, A-08, A-10, A-19
+Meta documentation not yet read, HIGH priority: 6

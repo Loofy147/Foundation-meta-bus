@@ -1,0 +1,47 @@
+== unittest (verbose) ==
+test_ambiguous_send_is_not_automatically_retried (tests.test_core.ConversionTests.test_ambiguous_send_is_not_automatically_retried) ... ok
+test_default_deny_blocks_conversion_dispatch (tests.test_core.ConversionTests.test_default_deny_blocks_conversion_dispatch) ... ok
+test_dispatch_once_and_duplicate_is_suppressed (tests.test_core.ConversionTests.test_dispatch_once_and_duplicate_is_suppressed) ... ok
+test_missing_clid_is_rejected (tests.test_core.ConversionTests.test_missing_clid_is_rejected) ... ok
+test_transport_is_disabled_without_explicit_injection (tests.test_core.ConversionTests.test_transport_is_disabled_without_explicit_injection) ... ok
+test_allow_requires_owner_date_and_evidence (tests.test_core.PolicyTests.test_allow_requires_owner_date_and_evidence) ... ok
+test_default_and_approval_required_are_denied (tests.test_core.PolicyTests.test_default_and_approval_required_are_denied) ... ok
+test_freeform_inside_window_still_needs_policy_allow (tests.test_core.PolicyTests.test_freeform_inside_window_still_needs_policy_allow) ... ok
+test_freeform_outside_window_is_rejected (tests.test_core.PolicyTests.test_freeform_outside_window_is_rejected) ... ok
+test_marketing_requires_explicit_opt_in (tests.test_core.PolicyTests.test_marketing_requires_explicit_opt_in) ... ok
+test_database_indexes_identifiers_without_storing_raw_ids (tests.test_core.StoreTests.test_database_indexes_identifiers_without_storing_raw_ids) ... ok
+test_database_persists_sealed_bytes_not_plain_json (tests.test_core.StoreTests.test_database_persists_sealed_bytes_not_plain_json) ... ok
+test_plaintext_identifier_index_function_is_rejected (tests.test_core.StoreTests.test_plaintext_identifier_index_function_is_rejected) ... ok
+test_store_requires_an_injected_payload_codec (tests.test_core.StoreTests.test_store_requires_an_injected_payload_codec) ... ok
+test_bad_signature_is_rejected (tests.test_core.WebhookTests.test_bad_signature_is_rejected) ... ok
+test_duplicate_webhooks_are_idempotent (tests.test_core.WebhookTests.test_duplicate_webhooks_are_idempotent) ... ok
+test_missing_sender_is_rejected_without_guessing (tests.test_core.WebhookTests.test_missing_sender_is_rejected_without_guessing) ... ok
+test_oversized_payload_is_rejected_before_normalization (tests.test_core.WebhookTests.test_oversized_payload_is_rejected_before_normalization) ... ok
+test_storage_failure_prevents_acknowledgement (tests.test_core.WebhookTests.test_storage_failure_prevents_acknowledgement) ... ok
+test_valid_signed_event_is_durably_stored_before_ack (tests.test_core.WebhookTests.test_valid_signed_event_is_durably_stored_before_ack) ... ok
+test_all_assumptions_have_accountable_roles (tests.test_registry_plan.RegistryAndPlanningTests.test_all_assumptions_have_accountable_roles) ... ok
+test_checked_capabilities_have_strong_evidence (tests.test_registry_plan.RegistryAndPlanningTests.test_checked_capabilities_have_strong_evidence) ... ok
+test_inherited_ready_labels_are_not_effective_readiness_claims (tests.test_registry_plan.RegistryAndPlanningTests.test_inherited_ready_labels_are_not_effective_readiness_claims) ... ok
+test_load_bearing_assumptions_have_failure_scenarios (tests.test_registry_plan.RegistryAndPlanningTests.test_load_bearing_assumptions_have_failure_scenarios) ... ok
+test_plan_mutations_are_detected (tests.test_registry_plan.RegistryAndPlanningTests.test_plan_mutations_are_detected) ... ok
+test_plan_rules_have_no_failures (tests.test_registry_plan.RegistryAndPlanningTests.test_plan_rules_have_no_failures) ... ok
+test_registry_dependencies_resolve (tests.test_registry_plan.RegistryAndPlanningTests.test_registry_dependencies_resolve) ... ok
+test_registry_ids_are_unique (tests.test_registry_plan.RegistryAndPlanningTests.test_registry_ids_are_unique) ... ok
+test_scenario_contracts_hold (tests.test_registry_plan.RegistryAndPlanningTests.test_scenario_contracts_hold) ... ok
+test_all_spec_mutants_are_detected (tests.test_spec.SystemSpecTests.test_all_spec_mutants_are_detected) ... ok
+test_default_and_conversion_policy_are_fail_closed (tests.test_spec.SystemSpecTests.test_default_and_conversion_policy_are_fail_closed) ... ok
+test_generator_matches_committed_system_json (tests.test_spec.SystemSpecTests.test_generator_matches_committed_system_json) ... ok
+test_spec_passes_all_rules (tests.test_spec.SystemSpecTests.test_spec_passes_all_rules) ... ok
+Ran 33 tests
+OK
+
+== mutation ==
+KILLED   core/webhook.py :: tests.test_core.WebhookTests.test_bad_signature_is_rejected
+KILLED   core/webhook.py :: tests.test_core.WebhookTests.test_missing_sender_is_rejected_without_guessing
+KILLED   core/consent.py :: tests.test_core.PolicyTests.test_marketing_requires_explicit_opt_in
+KILLED   core/policy.py :: tests.test_core.ConversionTests.test_default_deny_blocks_conversion_dispatch
+KILLED   core/store.py :: tests.test_core.WebhookTests.test_duplicate_webhooks_are_idempotent
+KILLED   core/store.py :: tests.test_core.StoreTests.test_plaintext_identifier_index_function_is_rejected
+KILLED   core/webhook.py :: tests.test_core.WebhookTests.test_oversized_payload_is_rejected_before_normalization
+KILLED   core/conversions.py :: tests.test_core.ConversionTests.test_missing_clid_is_rejected
+MUTATION: 8/8 killed
