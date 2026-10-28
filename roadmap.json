@@ -1,0 +1,776 @@
+{
+ "items": [
+  {
+   "id": "V-01",
+   "title": "Retrieve the official rate card, confirm account/recipient billing basis, and model per-order message cost",
+   "kind": "verify",
+   "needs": [
+    "none",
+    "account"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-13"
+   ],
+   "unlocks": "cost model for W2 notifications",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "V-02",
+   "title": "Read the Business Agent authorized-country list and non-template pricing page",
+   "kind": "verify",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-04"
+   ],
+   "unlocks": "go or no-go on the agent",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "V-03",
+   "title": "Read business verification requirements for an Algerian entity",
+   "kind": "verify",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-07"
+   ],
+   "unlocks": "account setup plan",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "V-04",
+   "title": "Read the full current Business Solution Terms, including the Third Party Service Provider definition",
+   "kind": "verify",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-08",
+    "A-10",
+    "A-11"
+   ],
+   "unlocks": "counsel brief",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "V-05",
+   "title": "Read Meta ad payment and WABA billing requirements for Algeria",
+   "kind": "verify",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-06"
+   ],
+   "unlocks": "funding plan",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "V-06",
+   "title": "Read the documentation backlog: platform terms, limits and quality, Flows, CTWA ads, commerce policy, templates, Graph versioning",
+   "kind": "verify",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-19",
+    "A-12"
+   ],
+   "unlocks": "coverage map to zero HIGH items",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "D-01",
+   "title": "Decide the operating model: direct developer for owned businesses, or multi-merchant platform",
+   "kind": "decide",
+   "needs": [
+    "user"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-21"
+   ],
+   "unlocks": "scenario S7 on or off",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "L-01",
+   "title": "Brief Algerian counsel with the flow inventory and the Meta terms constraints; obtain a written opinion",
+   "kind": "legal",
+   "needs": [
+    "counsel"
+   ],
+   "depends_on": [
+    "V-04"
+   ],
+   "tests": [
+    "A-05",
+    "A-08",
+    "A-09",
+    "A-10",
+    "A-11",
+    "A-12",
+    "A-18"
+   ],
+   "unlocks": "policy table decisions",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "L-02",
+   "title": "Record each ruling in the policy table with owner and decided_on; rerun the gate",
+   "kind": "decide",
+   "needs": [
+    "counsel"
+   ],
+   "depends_on": [
+    "L-01"
+   ],
+   "tests": [],
+   "unlocks": "gate G2",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "B-01",
+   "title": "Spec v0.3: provider requirements, send_template with opt-in guard and cost class, opt-in purposes, window logic",
+   "kind": "build",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "spec matches Meta's rules",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "B-02",
+   "title": "Build the template responder and the order workflow on mocks",
+   "kind": "build",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [
+    "B-01"
+   ],
+   "tests": [],
+   "unlocks": "a working Z1-only conversation path",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "B-03",
+   "title": "Build the NLU benchmark harness on synthetic and public Darja data only",
+   "kind": "build",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "agent comparison",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "B-04",
+   "title": "Build the CAPI transport, token handling and stuck-send reconciler behind an injected transport",
+   "kind": "build",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "live CAPI test",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "B-05",
+   "title": "Deploy the webhook ingress behind public HTTPS for the test number",
+   "kind": "build",
+   "needs": [
+    "dev"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "live plumbing test",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "B-06",
+   "title": "Build the Yalidine and Ecotrack adapters against mocks",
+   "kind": "build",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "courier sandbox test",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "T-01",
+   "title": "Test number smoke test: webhook delivery, signature, statuses, message flow into the store",
+   "kind": "test",
+   "needs": [
+    "dev"
+   ],
+   "depends_on": [
+    "B-05"
+   ],
+   "tests": [
+    "A-20"
+   ],
+   "unlocks": "plumbing proven live",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "X-01",
+   "title": "Complete account setup: business verification, WABA, ad account and payment methods",
+   "kind": "test",
+   "needs": [
+    "entity",
+    "account"
+   ],
+   "depends_on": [
+    "D-01",
+    "V-03",
+    "V-05"
+   ],
+   "tests": [
+    "A-06",
+    "A-07"
+   ],
+   "unlocks": "every live test",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "X-02",
+   "title": "Run a real click-to-WhatsApp entry and confirm ctwa_clid reaches the webhook through the chosen channel",
+   "kind": "test",
+   "needs": [
+    "account",
+    "spend"
+   ],
+   "depends_on": [
+    "X-01",
+    "T-01"
+   ],
+   "tests": [
+    "A-03"
+   ],
+   "unlocks": "attribution proven",
+   "scenario_only": [],
+   "moot_when": [
+    {
+     "A-03": "fails"
+    }
+   ]
+  },
+  {
+   "id": "X-03",
+   "title": "Send a CAPI test event with DZD from the direct-developer path and audit clid selection",
+   "kind": "test",
+   "needs": [
+    "account",
+    "spend"
+   ],
+   "depends_on": [
+    "X-02",
+    "B-04",
+    "L-02"
+   ],
+   "tests": [
+    "A-01",
+    "A-02",
+    "A-15"
+   ],
+   "unlocks": "conversion signal proven",
+   "scenario_only": [],
+   "moot_when": [
+    {
+     "A-01": "fails"
+    },
+    {
+     "A-05": "fails"
+    },
+    {
+     "A-03": "fails"
+    }
+   ]
+  },
+  {
+   "id": "X-04",
+   "title": "Open courier accounts and create sandbox parcels",
+   "kind": "test",
+   "needs": [
+    "account"
+   ],
+   "depends_on": [
+    "B-06"
+   ],
+   "tests": [
+    "A-16"
+   ],
+   "unlocks": "logistics proven",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "X-05",
+   "title": "Domestic payment-link rail experiment",
+   "kind": "test",
+   "needs": [
+    "account",
+    "spend"
+   ],
+   "depends_on": [
+    "X-01"
+   ],
+   "tests": [
+    "A-17"
+   ],
+   "unlocks": "payment decision",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "E-01",
+   "title": "Experiment: purchase signal at confirmation versus delivery",
+   "kind": "test",
+   "needs": [
+    "account",
+    "spend"
+   ],
+   "depends_on": [
+    "X-03"
+   ],
+   "tests": [
+    "A-14"
+   ],
+   "unlocks": "signal timing decision",
+   "scenario_only": [],
+   "moot_when": [
+    {
+     "A-01": "fails"
+    },
+    {
+     "A-05": "fails"
+    },
+    {
+     "A-03": "fails"
+    }
+   ]
+  },
+  {
+   "id": "E-02",
+   "title": "Trial Business Agent against our own runtime on a labelled set",
+   "kind": "test",
+   "needs": [
+    "account",
+    "data"
+   ],
+   "depends_on": [
+    "X-01",
+    "V-02",
+    "B-03"
+   ],
+   "tests": [
+    "A-04"
+   ],
+   "unlocks": "agent decision",
+   "scenario_only": [],
+   "moot_when": [
+    {
+     "A-08": "fails"
+    },
+    {
+     "A-04": "fails"
+    },
+    {
+     "A-10": "fails"
+    }
+   ]
+  },
+  {
+   "id": "G-01",
+   "title": "Production gate review: G0 to G5 evidence present, no open HIGH assumption on the critical path",
+   "kind": "decide",
+   "needs": [
+    "user"
+   ],
+   "depends_on": [
+    "X-01",
+    "X-02",
+    "X-03",
+    "L-02",
+    "B-02",
+    "X-04"
+   ],
+   "tests": [],
+   "unlocks": "first production traffic",
+   "scenario_only": [],
+   "moot_when": []
+  },
+  {
+   "id": "SC-2",
+   "title": "Select a Tech Provider or BSP route and verify it preserves the referral",
+   "kind": "decide",
+   "needs": [
+    "account"
+   ],
+   "depends_on": [
+    "X-01"
+   ],
+   "tests": [
+    "A-03"
+   ],
+   "unlocks": "channel choice",
+   "scenario_only": [
+    "S2"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-4",
+   "title": "Measure without conversion dispatch: first-party funnel and Ads Manager conversation counts",
+   "kind": "build",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "attribution fallback",
+   "scenario_only": [
+    "S4"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-6",
+   "title": "Own runtime only: templates and encoder in Z1; defer hosted LLM until counsel permits",
+   "kind": "build",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "conversation path without Meta's agent",
+   "scenario_only": [
+    "S6"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-7",
+   "title": "Tech Provider onboarding path: verification, App Review, Embedded Signup v4, per-customer billing",
+   "kind": "build",
+   "needs": [
+    "entity",
+    "account"
+   ],
+   "depends_on": [
+    "X-01"
+   ],
+   "tests": [],
+   "unlocks": "multi-merchant capability",
+   "scenario_only": [
+    "S7"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-8",
+   "title": "Alternative ad funding route through an agency or partner account",
+   "kind": "decide",
+   "needs": [
+    "entity"
+   ],
+   "depends_on": [],
+   "tests": [],
+   "unlocks": "ads without own billing",
+   "scenario_only": [
+    "S8"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-9",
+   "title": "Narrow to Meta's own agent and stop building a separate LLM conversation layer",
+   "kind": "decide",
+   "needs": [
+    "counsel"
+   ],
+   "depends_on": [
+    "L-01"
+   ],
+   "tests": [],
+   "unlocks": "policy-safe agent",
+   "scenario_only": [
+    "S9"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-10",
+   "title": "Switch channel and repeat the attribution guard; otherwise stay first-party-only",
+   "kind": "decide",
+   "needs": [
+    "account"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-03"
+   ],
+   "unlocks": "referral-preserving channel",
+   "scenario_only": [
+    "S11"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-11",
+   "title": "Redesign external data flows as local-only or manual until provider status is cleared",
+   "kind": "build",
+   "needs": [
+    "counsel"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-10"
+   ],
+   "unlocks": "controlled provider data boundary",
+   "scenario_only": [
+    "S12"
+   ],
+   "moot_when": []
+  },
+  {
+   "id": "SC-12",
+   "title": "Recalibrate policy re-verification interval from observed change history",
+   "kind": "verify",
+   "needs": [
+    "none"
+   ],
+   "depends_on": [],
+   "tests": [
+    "A-19"
+   ],
+   "unlocks": "evidence-based review cadence",
+   "scenario_only": [
+    "S10"
+   ],
+   "moot_when": []
+  }
+ ],
+ "scenarios": [
+  {
+   "id": "S1",
+   "title": "Direct path works",
+   "when": {
+    "A-01": "holds"
+   },
+   "consequences": [
+    "M1 can be the direct Cloud API; no BSP is required for conversion events.",
+    "F1 and F3 proceed as specified."
+   ],
+   "watch": [
+    "A-02",
+    "A-03"
+   ]
+  },
+  {
+   "id": "S2",
+   "title": "Partner or BSP route required",
+   "when": {
+    "A-01": "fails"
+   },
+   "consequences": [
+    "TP1 or a BSP becomes the channel; M1 changes.",
+    "Policy rows gain the BSP as a provider; the referral must be re-verified through it (A-03)."
+   ],
+   "watch": [
+    "A-03",
+    "A-10"
+   ]
+  },
+  {
+   "id": "S3",
+   "title": "Counsel permits the extra flows",
+   "when": {
+    "A-05": "holds"
+   },
+   "consequences": [
+    "capi_meta, meta_business_agent and llm_hosted can be enabled once rows are decided.",
+    "Hosted LLM still needs written no-training terms (A-09, A-10)."
+   ],
+   "watch": [
+    "A-09",
+    "A-10"
+   ]
+  },
+  {
+   "id": "S4",
+   "title": "Counsel restricts the extra flows",
+   "when": {
+    "A-05": "fails"
+   },
+   "consequences": [
+    "No ctwa_clid or personal text leaves Z1 beyond the channel; conversion dispatch off.",
+    "Conversation runs on own_templates and own_encoder; attribution falls back to first-party measurement."
+   ],
+   "watch": [
+    "A-18"
+   ]
+  },
+  {
+   "id": "S5",
+   "title": "Business Agent usable",
+   "when": {
+    "A-04": "holds"
+   },
+   "consequences": [
+    "B2 becomes an adapter behind the conversation port, per-intent by benchmark.",
+    "Token pricing enters the cost model (C0)."
+   ],
+   "watch": [
+    "A-08",
+    "A-13"
+   ]
+  },
+  {
+   "id": "S6",
+   "title": "Business Agent unavailable or unfit",
+   "when": {
+    "A-04": "fails"
+   },
+   "consequences": [
+    "Own runtime is the only conversation path; B4 and templates carry the load."
+   ],
+   "watch": [
+    "A-09"
+   ]
+  },
+  {
+   "id": "S7",
+   "title": "Multi-merchant platform",
+   "when": {
+    "A-21": "fails"
+   },
+   "consequences": [
+    "TP1 required: business verification, App Review, Embedded Signup v4, business tokens, per-customer payment methods.",
+    "Our own positioning is scrutinised under the AI Providers clause (A-08).",
+    "Each merchant becomes a data controller relationship to document."
+   ],
+   "watch": [
+    "A-08",
+    "A-07"
+   ]
+  },
+  {
+   "id": "S8",
+   "title": "Ad funding blocked",
+   "when": {
+    "A-06": "fails"
+   },
+   "consequences": [
+    "No own ad billing; ads run through an agency or partner account, which changes who owns the dataset and the clid."
+   ],
+   "watch": [
+    "A-01",
+    "A-07"
+   ]
+  },
+  {
+   "id": "S9",
+   "title": "Our agent counts as an AI Provider",
+   "when": {
+    "A-08": "fails"
+   },
+   "consequences": [
+    "Use Meta's own agent only; stop shipping a separate LLM conversation layer on WhatsApp."
+   ],
+   "watch": [
+    "A-04",
+    "A-09"
+   ]
+  },
+  {
+   "id": "S10",
+   "title": "Observed policy-change cadence differs from the 30 to 90 day assumption",
+   "when": {
+    "A-19": "fails"
+   },
+   "consequences": [
+    "Treat the 30 to 90 day interval as uncalibrated; choose a new interval from the recorded diff history.",
+    "Keep change-triggered re-verification for any decision affected by a policy or API change."
+   ],
+   "watch": [
+    "A-12",
+    "A-19"
+   ]
+  },
+  {
+   "id": "S11",
+   "title": "Chosen channel does not preserve the referral identifier",
+   "when": {
+    "A-03": "fails"
+   },
+   "consequences": [
+    "Do not dispatch attribution-dependent conversion events on this channel.",
+    "Switch providers only after a real click-to-WhatsApp trace proves ctwa_clid preservation; otherwise use first-party measurement."
+   ],
+   "watch": [
+    "A-01",
+    "A-15"
+   ]
+  },
+  {
+   "id": "S12",
+   "title": "Couriers, PSP or LLM vendor cannot be treated as an approved third-party service provider",
+   "when": {
+    "A-10": "fails"
+   },
+   "consequences": [
+    "Keep customer-data sharing denied; use synthetic-only provider tests and design local/manual handling pending counsel review.",
+    "Do not send business-message data to hosted LLMs or provider APIs until the applicable terms and contract are cleared."
+   ],
+   "watch": [
+    "A-05",
+    "A-08",
+    "A-11"
+   ]
+  }
+ ],
+ "needs": [
+  "none",
+  "dev",
+  "account",
+  "spend",
+  "entity",
+  "counsel",
+  "data",
+  "user"
+ ]
+}

@@ -1,5 +1,5 @@
 ========================================================================
-REGISTRY REPORT  generated 2026-10-18
+REGISTRY REPORT  generated 2026-10-28
 ========================================================================
 
 [1] COVERAGE (artefact A: 29 capabilities)
@@ -8,29 +8,37 @@ REGISTRY REPORT  generated 2026-10-18
   not examined (inherited label)    : 22/29
   of examined, label changed        : 3 -> B4 BLOCKED->CONFIG, E5 READY->UNVERIFIED, F3 BLOCKED->CONFIG
   of examined, label held           : 4 -> B2, D4, F1, F2
-  READY labels with NO verification : 14 -> A1, A2, A4, A5, B3, C1, C2, C3, C5, D1, D3, E1, E4, F4
+  READY labels with NO verification : 0 -> 
   READY labels with verification    : 0 -> none
-  capabilities added (not in A)     : 8 -> P1, P2, L1, K1, K2, S1, P3, D6
+  capabilities added (not in A)     : 14 -> P1, P2, L1, K1, K2, S1, P3, M1, T1, C0, X1, O1, TP1, D6
 
-[2] EVIDENCE ENTRIES on examined items: {'SUPPORTED': 14, 'OPEN': 8, 'PROVEN': 6}
-    primary-source (PROVEN) items      : ['B4', 'E5', 'F1', 'F2', 'F3', 'S1']
+[2] EVIDENCE ENTRIES on examined items: {'PROVEN': 20, 'SUPPORTED': 17, 'OPEN': 17}
+    primary-source (PROVEN) items      : ['B2', 'B4', 'E5', 'F1', 'F2', 'F3', 'M1', 'O1', 'S1', 'T1', 'TP1', 'X1']
 
 [3] ARTEFACT B SHAPES vs REGISTRY  (requirement lists are design judgement; see build_registry.py)
 
-  Shape A 'Darja AI Sales Factory'  ->  NO KNOWN BLOCKER - but 6/11 unexamined, 3 open question(s)
+  Shape A 'Darja AI Sales Factory'  ->  GATED (unverified dependency)
     requires 11: B2, B4, A1, D3, D2, C2, D1, L1, F1, D6, P1
+    gated (unverified)   : A1 (Advantage+ Shopping); D3 (Catalogs); C2 (Image-to-Video); D1 (Click-to-WhatsApp Ads)
     config-dependent     : B2, B4, D2, L1, F1, D6, P1
     deps never examined  : 6/11 -> A1, D3, D2, C2, D1, D6
-    OPEN on B2          : Algeria eligibility and Darja/Arabizi quality: 'local languages' is the only statement found; no dia
+    OPEN on B2          : Whether Algeria is an authorized country: the press says global, the overview requires an authorized
+    OPEN on B2          : Darja/Arabizi quality: 'local languages' is the only statement found.
     OPEN on B4          : No evidence on how general-purpose LLMs perform on Algerian Darja intent parsing for our domain.
+    OPEN on F1          : Neither version states that a direct advertiser can send CAPI-BM events under Standard Access for it
+    OPEN on F1          : Whether Meta accepts DZD as custom_data.currency, or requires conversion.
     OPEN on P1          : Legal/FX position on funding a foreign ad account from Algeria.
 
   Shape B 'Community-to-Cash Flywheel'  ->  BLOCKED AS WRITTEN (blocker label INHERITED from A, unverified: E3)
     requires 7: E3, E2, B2, A2, F5, F1, P1
     hard blockers        : E3 (Groups API)
+    gated (unverified)   : A2 (Advantage+ Audience)
     config-dependent     : E2, B2, F5, F1, P1
     deps never examined  : 4/7 -> E3, E2, A2, F5
-    OPEN on B2          : Algeria eligibility and Darja/Arabizi quality: 'local languages' is the only statement found; no dia
+    OPEN on B2          : Whether Algeria is an authorized country: the press says global, the overview requires an authorized
+    OPEN on B2          : Darja/Arabizi quality: 'local languages' is the only statement found.
+    OPEN on F1          : Neither version states that a direct advertiser can send CAPI-BM events under Standard Access for it
+    OPEN on F1          : Whether Meta accepts DZD as custom_data.currency, or requires conversion.
     OPEN on P1          : Legal/FX position on funding a foreign ad account from Algeria.
 
   Shape C 'Diaspora Bridge'  ->  REDESIGN REQUIRED - replacement P3 is itself UNVERIFIED
@@ -42,11 +50,11 @@ REGISTRY REPORT  generated 2026-10-18
 
 [4] ARTEFACT B 'OLD vs NEW' ROWS
   R1 Boost post -> Advantage+ incl. Threads + WA as conversion
-      -> NO KNOWN BLOCKER - but 2/4 unexamined, 1 open question(s)
+      -> GATED (unverified dependency)
   R2 Night replies -> AI Business Agent 24/7
-      -> NO KNOWN BLOCKER - but 0/2 unexamined, 2 open question(s)
+      -> NO KNOWN BLOCKER - but 0/2 unexamined, 3 open question(s)
   R3 Product photo -> generative video
-      -> NO KNOWN BLOCKER - but 3/3 unexamined, 0 open question(s)
+      -> GATED (unverified dependency)
   R4 COD chaos -> Flow with wilaya + live courier estimate + OTP
       -> NO KNOWN BLOCKER - but 2/3 unexamined, 0 open question(s)
 
@@ -57,13 +65,18 @@ REGISTRY REPORT  generated 2026-10-18
   E5  Shops                                          UNVERIFIED
   F1  Conversions API (CAPI)                         CONFIG    
   F2  Advanced Matching                              CONFIG    
-  F3  Delivery-outcome -> CAPI purchase pipeline     CONFIG    
+  F3  Delivery-outcome -> CAPI pipeline              CONFIG    
   P1  Ad billing instrument                          CONFIG    
   P2  Local payment rails (CIB/Edahabia via PSP link CONFIG    
   L1  Courier adapter layer                          CONFIG    
   K1  Data-transfer & residency gate                 CONFIG    
   K2  Consent & purpose ledger                       CONFIG    
   S1  Canonical event backbone                       CONFIG    
+  T1  Cloud API test environment (test WABA and test CONFIG    
+  C0  Messaging cost model                           CONFIG    
+  X1  WhatsApp Business Solution Terms constraints   CONFIG    
+  O1  Messaging policy and opt-in                    CONFIG    
+  TP1 Tech Provider multi-tenant onboarding          CONFIG    
 
 [6] CLAIM LEDGER (numeric claims; source links found in either artefact: 0)
   A: total 11 | outcome claims 3 | design thresholds 7 | hardcoded display 1
@@ -72,6 +85,6 @@ REGISTRY REPORT  generated 2026-10-18
   thresholds are parameters with an owner and a calibration date.
 
 ========================================================================
-INTEGRITY: rules R1,R2,R3,R5,R6 pass | 14 warning(s): R4 inherited-READY labels with no verification
-  A1, A2, A4, A5, B3, C1, C2, C3, C5, D1, D3, E1, E4, F4
+INTEGRITY: rules R1,R2,R3,R5,R6 pass | 0 warning(s): R4 inherited-READY labels with no verification
+  
 ========================================================================

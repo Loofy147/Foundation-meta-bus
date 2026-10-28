@@ -1,0 +1,536 @@
+[
+ {
+  "id": "D01",
+  "area": "WhatsApp solution providers overview",
+  "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview/",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Partner types: Solution Partners, Tech Providers, Tech Partners.",
+   "Solution Partners can extend a credit line; becoming one is lengthy; Tech Providers have Direct Support.",
+   "Providers use business tokens exclusively."
+  ],
+  "affects": [
+   "TP1"
+  ],
+  "note": ""
+ },
+ {
+  "id": "D02",
+  "area": "Become a Tech Provider",
+  "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/get-started-for-tech-providers",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Requires business verification and Advanced access through App Review.",
+   "Independent Tech Provider or via a Solution Partner (only Solution Partner app ids are accepted)."
+  ],
+  "affects": [
+   "TP1"
+  ],
+  "note": ""
+ },
+ {
+  "id": "D03",
+  "area": "Embedded Signup overview and onboarding as a Tech Provider",
+  "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/overview/",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Embedded Signup v2 was deprecated on 2026-10-15; v4 is required.",
+   "Tech Provider customers must attach a payment method to their WABA unless a Solution Partner shares credit.",
+   "A sandbox test account can simulate a customer completing the flow."
+  ],
+  "affects": [
+   "TP1",
+   "T1"
+  ],
+  "note": ""
+ },
+ {
+  "id": "D04",
+  "area": "App Review and permissions (WhatsApp)",
+  "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/app-review",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Business apps are auto-approved for Standard Access.",
+   "A direct developer using only its own business assets needs neither Advanced access nor App Review.",
+   "whatsapp_business_manage_events logs events such as purchase and leads; auto-approved if Advanced access to whatsapp_business_messaging exists."
+  ],
+  "affects": [
+   "F1",
+   "TP1"
+  ],
+  "note": ""
+ },
+ {
+  "id": "D05",
+  "area": "Conversions API for Business Messaging (newer version)",
+  "url": "https://developers.facebook.com/documentation/ads-commerce/conversions-api/business-messaging",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Graph v26.0 samples; ctwa_clid is a personal identifier, unique per click, stored with the conversation.",
+   "Fourteen supported event names; Meta does not deduplicate; the 7-day limit and subset-of-countries limit apply to the hashed fallback only."
+  ],
+  "affects": [
+   "F1",
+   "F2",
+   "F3"
+  ],
+  "note": "Fetched with a redirect; this is the version to cite."
+ },
+ {
+  "id": "D06",
+  "area": "Conversions API for Business Messaging (older snapshot)",
+  "url": "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging/",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Graph v16.0 samples; partner-addressed; Ads Management Standard Access prerequisite (1,500 calls in 15 days).",
+   "Same event list and the same deduplication note."
+  ],
+  "affects": [
+   "F1"
+  ],
+  "note": "Served at the old URL; differs from D05. Always record the final URL."
+ },
+ {
+  "id": "D07",
+  "area": "Webhooks: create endpoint and overview",
+  "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/create-webhook-endpoint",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "GET handshake returns 200 with hub.challenge; POST carries X-Hub-Signature-256.",
+   "Non-200 deliveries retried with decreasing frequency for up to 7 days; payloads up to 3 MB; one endpoint per Meta app; mTLS supported."
+  ],
+  "affects": [
+   "M1"
+  ],
+  "note": ""
+ },
+ {
+  "id": "D08",
+  "area": "Cloud API get started",
+  "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Setup creates a test WABA and a test business number that can message up to 5 verified recipients."
+  ],
+  "affects": [
+   "T1"
+  ],
+  "note": ""
+ },
+ {
+  "id": "D09",
+  "area": "WhatsApp Business Solution Terms (preview URL)",
+  "url": "https://whatsapp.com/legal/business-solution-terms/preview?amp=&lang=en",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "No use of Business Solution Data, including derived forms, to train or improve AI models, except fine-tuning a model for exclusive use.",
+   "No sharing with third parties except Third Party Service Providers; no building or augmenting profiles on individual users except message-thread content."
+  ],
+  "affects": [
+   "X1",
+   "B4"
+  ],
+  "note": "Preview URL; the AI Providers clause was not on the retrieved page and is SUPPORTED by quotation only."
+ },
+ {
+  "id": "D10",
+  "area": "WhatsApp Business Messaging Policy and opt-in guidance",
+  "url": "https://whatsappbusiness.com/policy/",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-28",
+  "facts": [
+   "Policy page is dated 2026-09-23; messaging compliance, referenced policies and enforcement apply to WhatsApp Business services.",
+   "Opt-in and opt-outs remain implementation requirements, but specific consent scope must be checked against the full current policy and Algerian law."
+  ],
+  "affects": [
+   "O1",
+   "X1"
+  ],
+  "note": "Current page is indexed and the page date was retrieved; this does not replace counsel review."
+ },
+ {
+  "id": "D11",
+  "area": "Meta Business Agent overview",
+  "url": "https://developers.facebook.com/documentation/meta-business-agent/overview",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Primary responder managed through Business Agent Platform APIs; can call our APIs and subscribe to webhooks.",
+   "Excluded verticals; the business must be based in an authorized country; priced separately from other messages."
+  ],
+  "affects": [
+   "B2"
+  ],
+  "note": ""
+ },
+ {
+  "id": "D12",
+  "area": "Historical WhatsApp pricing mirror (pre-October 2026; superseded)",
+  "url": "https://support.chatarchitect.com/books/whatsapp-business-platform/page/about-billing-for-your-whatsapp-business-account",
+  "grade": "SECONDARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Historical page described the 2025 pricing model, including free service conversations and free utility templates inside the 24-hour window."
+  ],
+  "affects": [
+   "C0"
+  ],
+  "note": "The retrieved page still presents historical pricing and conflicts with the reported 2026-10-01 changes; do not use it as the current rate card."
+ },
+ {
+  "id": "D13",
+  "area": "Historical reporting on the WhatsApp AI Providers clause",
+  "url": "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform",
+  "grade": "SECONDARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Earlier reporting described a primary-versus-incidental functionality test and a stated effective date of 2026-01-15."
+  ],
+  "affects": [
+   "X1"
+  ],
+  "note": "Historical reporting only: the official Platform Terms page now identifies a new effective date of 2026-09-23 and incorporates separate Meta Terms. The current clause wording and scope must be checked against the current documents."
+ },
+ {
+  "id": "D14",
+  "area": "Business Agent announcement and pricing reports",
+  "url": "https://itdaily.com/news/software/meta-business-agent-available-worldwide/",
+  "grade": "SECONDARY",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Reported announcement and token pricing do not establish access for an Algerian business or phone number."
+  ],
+  "affects": [
+   "B2"
+  ],
+  "note": "Do not use the global-launch headline as proof of Algeria availability; distinguish the API/platform offering from the consumer-facing WhatsApp Business App feature."
+ },
+ {
+  "id": "D15",
+  "area": "Meta ad payment methods for Algeria",
+  "url": "https://help.instagram.com/1522953744580283",
+  "grade": "ATTEMPTED",
+  "read_on": "2026-10-24",
+  "facts": [
+   "Meta's page is a country selector; the Algeria list could not be retrieved and results were unrelated third parties."
+  ],
+  "affects": [
+   "P1"
+  ],
+  "note": "Inconclusive; not used as evidence."
+ },
+ {
+  "id": "D16",
+  "area": "Meta Business Agent availability guidance for the WhatsApp Business App",
+  "url": "https://faq.whatsapp.com/1153795669452207/?cms_platform=web",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-28",
+  "facts": [
+   "Official Help Center says the feature is limited to selected businesses in limited countries, rolls out gradually, and may not be available even while on a waitlist.",
+   "It also warns that not all languages are supported and availability is linked to the business phone number."
+  ],
+  "affects": [
+   "B2"
+  ],
+  "note": "This is the customer-facing Business App feature, not proof that the separate Business Agent Platform API is available to this account. The page search result was available, but full page text did not render in the browser."
+ },
+ {
+  "id": "D17",
+  "area": "Current WhatsApp Terms for the Business Platform",
+  "url": "https://www.whatsapp.com/legal/WhatsApp-Terms-for-WhatsApp-Business-Platform?lang=en",
+  "grade": "PRIMARY",
+  "read_on": "2026-10-28",
+  "facts": [
+   "Official English terms state an effective date of 2026-09-23 and incorporate both the WhatsApp Business Messaging Policy and separate Meta Terms for WhatsApp Business Platform.",
+   "The terms describe WhatsApp's own global processing/transfer of Platform Services data and place legal compliance, required notices and opt-outs on the business."
+  ],
+  "affects": [
+   "X1",
+   "K1"
+  ],
+  "note": "This is the current Platform Terms document, not the separate incorporated Meta Terms. The platform's own data practices do not itself decide our separate legal basis to transfer customer data."
+ },
+ {
+  "id": "D18",
+  "area": "Algeria WhatsApp Business API message rates (secondary)",
+  "url": "https://www.nonito.io/whatsapp-business-api-pricing/algeria",
+  "grade": "SECONDARY",
+  "read_on": "2026-10-28",
+  "facts": [
+   "Reports Algeria (+213) is billed under Rest of Africa from 2026-10-01: USD 0.0225 per delivered marketing message and USD 0.0040 per utility, authentication or service message.",
+   "Reports 1,000 free service messages per business phone number per month and an eligible free Click-to-WhatsApp entry-point window up to 7 days."
+  ],
+  "affects": [
+   "C0"
+  ],
+  "note": "Secondary rate aggregation, not an official invoice or direct successful retrieval of Meta's rate-card page. Provider surcharges and the account billing currency are separate."
+ },
+ {
+  "id": "D19",
+  "area": "October 2026 WhatsApp pricing change and Algeria rate cross-check",
+  "url": "https://whautomate.com/whatsapp-pricing-updates",
+  "grade": "SECONDARY",
+  "read_on": "2026-10-28",
+  "facts": [
+   "Its October 2026 table independently lists Algeria in Rest of Africa at USD 0.0225 marketing and USD 0.0040 utility, authentication and service per delivered message.",
+   "It describes the service-message price as newly billable from 2026-10-01."
+  ],
+  "affects": [
+   "C0"
+  ],
+  "note": "Secondary cross-check. The current Meta pricing page could not be fetched successfully in this review, so the account-level bill remains OPEN."
+ },
+ {
+  "id": "D20",
+  "area": "October 2026 Meta WhatsApp message billing rules",
+  "url": "https://www.alibabacloud.com/help/en/chatapp/whatsapp-message-rate-adjustments-and-service-conversation-message-billing",
+  "grade": "SECONDARY",
+  "read_on": "2026-10-28",
+  "facts": [
+   "Describes 2026-10-01 changes: per-message service billing with 1,000 free service messages per business phone number/month and utility templates chargeable within the 24-hour service window."
+  ],
+  "affects": [
+   "C0"
+  ],
+  "note": "Secondary implementation documentation; confirm the exact current Meta rate card and the selected provider/account terms before budgeting."
+ },
+ {
+  "id": "D21",
+  "area": "Current Click-to-WhatsApp window and service-message allowance (secondary)",
+  "url": "https://support.wati.io/en/articles/16954666-whatsapp-business-platform-api-pricing-changes-service-messages-and-click-to-message-ads",
+  "grade": "SECONDARY",
+  "read_on": "2026-10-28",
+  "facts": [
+   "Reports 1,000 free service messages/month/number from 2026-10-01 and up to a 7-day free-entry window for eligible Click-to-Message/WhatsApp entry points.",
+   "Utility templates may be billed even inside the 24-hour customer-service window since 2026-10-01."
+  ],
+  "affects": [
+   "C0"
+  ],
+  "note": "Secondary provider documentation; eligibility and the exact entry-point window must be confirmed against current Meta documentation/account settings."
+ },
+ {
+  "id": "N01",
+  "area": "Official WhatsApp pricing page, Algeria rate card and account billing confirmation",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "HIGH",
+  "why": "Two secondary sources agree on the October 2026 Rest-of-Africa headline rates, but the official card could not be retrieved directly (HTTP 429), the exact account billing currency/provider fees are unverified, and no first invoice has been measured.",
+  "affects": [
+   "C0"
+  ],
+  "tests": [
+   "A-13"
+  ]
+ },
+ {
+  "id": "N02",
+  "area": "Business Agent Platform API country eligibility and account-specific availability",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "HIGH",
+  "why": "The customer-facing Help Center feature is limited to selected countries/businesses and languages, but that does not settle developer-platform API eligibility or this Algerian account's access.",
+  "affects": [
+   "B2"
+  ],
+  "tests": [
+   "A-04"
+  ]
+ },
+ {
+  "id": "N03",
+  "area": "Business verification requirements and accepted documents for an Algerian entity",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "HIGH",
+  "why": "Gates every account-level step.",
+  "affects": [
+   "TP1",
+   "M1"
+  ],
+  "tests": [
+   "A-07"
+  ]
+ },
+ {
+  "id": "N04",
+  "area": "Full current Meta Terms for WhatsApp Business Platform and provider/AI clauses",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "HIGH",
+  "why": "The official Platform Terms effective 2026-09-23 incorporate separate Meta Terms; exact current AI-provider/solution-provider wording and applicability to our runtime, couriers, PSP and LLM vendor still requires the actual incorporated text and counsel review.",
+  "affects": [
+   "X1"
+  ],
+  "tests": [
+   "A-08",
+   "A-10",
+   "A-11"
+  ]
+ },
+ {
+  "id": "N05",
+  "area": "Meta ad payment methods and WABA billing requirements for Algeria",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "HIGH",
+  "why": "Decides whether ads and messaging can be funded.",
+  "affects": [
+   "P1"
+  ],
+  "tests": [
+   "A-06"
+  ]
+ },
+ {
+  "id": "N06",
+  "area": "Platform Terms and Developer Policies (data deletion, retention)",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "HIGH",
+  "why": "Meta-side obligations for data we receive through the platform.",
+  "affects": [
+   "K1",
+   "X1"
+  ],
+  "tests": [
+   "A-19"
+  ]
+ },
+ {
+  "id": "N07",
+  "area": "Messaging limits, quality rating and phone number registration",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "MEDIUM",
+  "why": "Operational ceilings and number health.",
+  "affects": [
+   "M1"
+  ],
+  "tests": [
+   "A-19"
+  ]
+ },
+ {
+  "id": "N08",
+  "area": "WhatsApp Flows documentation",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "MEDIUM",
+  "why": "Flows carry address and wilaya capture in the order path.",
+  "affects": [
+   "D2"
+  ],
+  "tests": [
+   "A-19"
+  ]
+ },
+ {
+  "id": "N09",
+  "area": "Click-to-WhatsApp ad creation (Marketing API) and ad policies",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "MEDIUM",
+  "why": "Source of every ctwa_clid.",
+  "affects": [
+   "D1",
+   "A1"
+  ],
+  "tests": [
+   "A-19"
+  ]
+ },
+ {
+  "id": "N10",
+  "area": "Commerce Policy prohibited list and catalogue or Shops availability for Algeria",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "MEDIUM",
+  "why": "Product categories and the E5 label.",
+  "affects": [
+   "E5",
+   "D3",
+   "O1"
+  ],
+  "tests": [
+   "A-19"
+  ]
+ },
+ {
+  "id": "N11",
+  "area": "Template categories, approval rules and marketing restrictions",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "MEDIUM",
+  "why": "Order-update templates and their cost.",
+  "affects": [
+   "O1",
+   "C0"
+  ],
+  "tests": [
+   "A-12"
+  ]
+ },
+ {
+  "id": "N12",
+  "area": "Graph API versioning, deprecation and rate limits",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "MEDIUM",
+  "why": "Maintenance burden and the v26.0 pin.",
+  "affects": [
+   "F1",
+   "M1"
+  ],
+  "tests": [
+   "A-19"
+  ]
+ },
+ {
+  "id": "N13",
+  "area": "Business Agent Platform API reference",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "MEDIUM",
+  "why": "Needed before any adapter for B2.",
+  "affects": [
+   "B2"
+  ],
+  "tests": [
+   "A-04"
+  ]
+ },
+ {
+  "id": "N14",
+  "area": "Instagram and Messenger messaging APIs",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "LOW",
+  "why": "No adapter specified for them yet.",
+  "affects": [
+   "B1"
+  ],
+  "tests": []
+ },
+ {
+  "id": "N15",
+  "area": "Meta Verified and badge programmes",
+  "url": null,
+  "grade": "NOT_READ",
+  "priority": "LOW",
+  "why": "Not on the critical path.",
+  "affects": [
+   "F4"
+  ],
+  "tests": []
+ }
+]

@@ -1,0 +1,27 @@
+name: Foundation full source gate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile authored Python
+        run: python -m compileall -q build_registry.py check.py build_plan.py plan.py build_spec.py check_spec.py gate.py core tests
+      - name: Run complete source-level gate and mutation tests
+        run: python gate.py --full
+      - name: Verify committed result reports against the current source
+        run: python gate.py --verify-results
+      - name: Require generated JSON to be reproducible
+        run: git diff --exit-code -- registry.json claims.json system.json assumptions.json roadmap.json meta_docs_map.json

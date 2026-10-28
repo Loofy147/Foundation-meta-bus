@@ -19,6 +19,7 @@ import json, sys, pathlib
 
 HERE = pathlib.Path(__file__).parent
 A = json.load(open(sys.argv[1] if len(sys.argv) > 1 else HERE / "A_data.json"))
+GENERATED_ON = "2026-10-28"
 VERIFIED_ON = "2026-10-18"
 
 LAYER = {"A": "acquisition", "B": "conversation", "C": "creative",
@@ -50,6 +51,48 @@ S = {
  "artefact_A": "uploaded:dz_meta_foundation_blueprint.html",
  "artefact_B": "uploaded:meta_advanced_stack_algerian.html",
 }
+# Sources added by the 2026-10-24 documentation review. The source URLs are retained
+# separately from claims so the evidence ledger remains reviewable.
+# Keep artefact references last, matching the registry source-map ordering.
+_ARTIFACT_SOURCES = {
+ "artefact_A": "uploaded:dz_meta_foundation_blueprint.html",
+ "artefact_B": "uploaded:meta_advanced_stack_algerian.html",
+}
+S.pop("artefact_A", None)
+S.pop("artefact_B", None)
+S.update(json.loads(r'''{
+ "meta_webhook_text": "https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/reference/messages/text",
+ "hookdeck_wa": "https://hookdeck.com/webhooks/platforms/guide-to-whatsapp-webhooks-features-and-best-practices",
+ "devto_wa_webhooks": "https://dev.to/wapgrowai_org/handling-whatsapp-cloud-api-webhooks-in-nodejs-signatures-retries-and-duplicate-events-4dci",
+ "evolution_issue": "https://github.com/evolution-foundation/evolution-api/issues/2645",
+ "whapi_ctwa": "https://whapi.cloud/blog/tr/track-click-to-whatsapp-ctwa-clid",
+ "wa_solution_overview": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview/",
+ "wa_tech_provider": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/get-started-for-tech-providers",
+ "wa_embedded_overview": "https://developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/overview/",
+ "wa_app_review": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/app-review",
+ "wa_terms": "https://whatsapp.com/legal/business-solution-terms/preview?amp=&lang=en",
+ "wa_policy": "https://business.whatsapp.com/policy",
+ "wa_optin": "https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in.md",
+ "wa_webhooks_create": "https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/create-webhook-endpoint",
+ "wa_webhooks_overview": "https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks",
+ "wa_get_started": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/",
+ "mba_overview": "https://developers.facebook.com/documentation/meta-business-agent/overview",
+ "wa_billing_help": "https://support.chatarchitect.com/books/whatsapp-business-platform/page/about-billing-for-your-whatsapp-business-account",
+ "rate_card_2026": "https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/PDF/WhatsApp-Business-Messaging-1000.pdf",
+ "mba_price_sleek": "https://sleekflow.io/en-sg/blog/meta-business-agent-vs-ai-agents.md",
+ "ai_terms_techcrunch": "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform",
+ "testnumber_pypi": "https://pypi.org/project/whatsappcloud/0.0.4",
+ "wa_terms_current": "https://www.whatsapp.com/legal/WhatsApp-Terms-for-WhatsApp-Business-Platform?lang=en",
+ "wa_business_agent_help": "https://faq.whatsapp.com/1153795669452207/?cms_platform=web",
+ "wa_rate_algeria_nonito": "https://www.nonito.io/whatsapp-business-api-pricing/algeria",
+ "wa_rate_oct2026": "https://whautomate.com/whatsapp-pricing-updates",
+ "wa_rate_service_rules": "https://www.alibabacloud.com/help/en/chatapp/whatsapp-message-rate-adjustments-and-service-conversation-message-billing",
+ "wa_rate_ctwa_rules": "https://support.wati.io/en/articles/16954666-whatsapp-business-platform-api-pricing-changes-service-messages-and-click-to-message-ads",
+ "wa_ai_terms_current": "https://mesej.io/guides/whatsapp-ai-providers-clause/",
+ "wa_pricing_official": "https://developers.facebook.com/docs/whatsapp/pricing#rate-cards"
+}'''))
+S.update(_ARTIFACT_SOURCES)
+
 def ev(grade, claim, *srcs, note=""):
     return {"grade": grade, "claim": claim, "sources": [S[s] for s in srcs], "note": note}
 
@@ -164,6 +207,460 @@ NEW = [
       evidence=[ev("OPEN", "Mechanism, availability and cost not examined.", "artefact_B")]),
 ]
 
+# Reconciliation from the 2026-10-28 Dropbox snapshot:
+# The ZIP contains generated registry records but omits their original authoring block.
+# These six records and five record revisions are therefore retained here as explicit
+# source definitions (with provenance in their evidence entries), not patched into output JSON.
+REVISED_FIELDS = json.loads(r'''{
+ "B2": {
+  "notes": "Primary overview read 2026-10-24: acts as primary responder, managed through Business Agent Platform APIs, can call our own APIs and subscribe to webhooks, excluded for Finance, Government, Health, Alcohol, Gambling, OTC drugs and matrimony, and requires the business to be based in a country authorized for it. Priced separately from other messages (reported US$2.00 per million tokens since 2026-08-01, secondary). Algeria authorization and Darja quality are NOT confirmed.",
+  "evidence": [
+   {
+    "grade": "PROVEN",
+    "claim": "Business Agent acts as the primary responder on WhatsApp, is managed through the Business Agent Platform APIs, can connect our own APIs and webhooks, and hands off to our app.",
+    "sources": [
+     "https://developers.facebook.com/documentation/meta-business-agent/overview"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Excluded verticals; the business must be based in a country authorized for Meta Business Agent; the phone number must be eligible.",
+    "sources": [
+     "https://developers.facebook.com/documentation/meta-business-agent/overview"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "SUPPORTED",
+    "claim": "Announced as globally available (2026-06-03) on WhatsApp, Messenger and Instagram.",
+    "sources": [
+     "https://www.techwyse.com/news/platform-updates/meta-business-agent-global-launch-whatsapp-instagram",
+     "https://itdaily.com/news/software/meta-business-agent-available-worldwide/"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "SUPPORTED",
+    "claim": "Priced per token for non-template messages (reported US$2.00 per million tokens from 2026-08-01).",
+    "sources": [
+     "https://sleekflow.io/en-sg/blog/meta-business-agent-vs-ai-agents.md",
+     "https://www.techwyse.com/news/platform-updates/meta-business-agent-global-launch-whatsapp-instagram"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Whether Algeria is an authorized country: the press says global, the overview requires an authorized country.",
+    "sources": [
+     "https://developers.facebook.com/documentation/meta-business-agent/overview"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Darja/Arabizi quality: 'local languages' is the only statement found.",
+    "sources": [],
+    "note": ""
+   }
+  ],
+  "verified_on": "2026-10-24"
+ },
+ "B4": {
+  "notes": "Accuracy on our intents is OPEN until benchmarked. This sandbox cannot reach Hugging Face, so no model was executed. CONSTRAINT (see X1): WhatsApp Business Solution Data may not be used to train or improve AI models, except fine-tuning a model for our exclusive use; datasets derived from WhatsApp conversations may not be shared, and a vendor may not train on them."
+ },
+ "F1": {
+  "notes": "Primary source read in full 2026-10-18. Attribution key is ctwa_clid (a personal identifier, unique PER CLICK) from the messages-webhook referral object; store it with the conversation. Meta does not deduplicate these events: the sender must. The guide is addressed to Business Messaging Partners, but the App Review page says direct developers need no Advanced access for their own assets; explicit confirmation for this endpoint needs a test event.",
+  "evidence": [
+   {
+    "grade": "PROVEN",
+    "claim": "Endpoint POST /{dataset_id}/events (Graph v26.0 in the page); event carries event_name, event_time, action_source=business_messaging, messaging_channel=whatsapp, user_data{whatsapp_business_account_id, ctwa_clid}, custom_data{currency,value}, partner_agent.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "ctwa_clid is a personal identifier, unique per click, exposed in the messages-webhook referral object; store it with the conversation and send the corresponding clid when a conversion happens.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "ctwa_clid is omitted entirely for messages from WhatsApp Status ad placements (referral present, no clid).",
+    "sources": [
+     "https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/reference/messages/text"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Supported messaging event names: Purchase, LeadSubmitted, InitiateCheckout, AddToCart, ViewContent, OrderCreated, OrderShipped, OrderDelivered, OrderCanceled, OrderReturned, CartAbandoned, QualifiedLead, RatingProvided, ReviewProvided.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Meta does not assist with deduplication for CAPI business messaging; senders should deduplicate first.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "The 7-day attribution limit and the 'subset of countries' limit are stated for the hashed-customer-info path; the ctwa_clid path is stated as not subject to them. (Corrects an earlier note taken from a third-party doc.)",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Business apps get Standard Access automatically; a direct developer using only its own business assets needs neither Advanced access nor App Review. Advanced access is for apps used by other businesses.",
+    "sources": [
+     "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/app-review"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Meta serves two versions of the CAPI-BM guide: an older one (Graph v16.0 samples, partner-addressed, 1,500-call Ads Management Standard Access prerequisite) at /docs/marketing-api/... and a newer one (v26.0, hashed fallback) at /documentation/ads-commerce/... Cite the final URL and fetch date.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Neither version states that a direct advertiser can send CAPI-BM events under Standard Access for its own WABA and dataset; that follows from the App Review page and needs a test event visible in Events Manager.",
+    "sources": [],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Whether Meta accepts DZD as custom_data.currency, or requires conversion.",
+    "sources": [],
+    "note": ""
+   }
+  ],
+  "verified_on": "2026-10-24"
+ },
+ "F2": {
+  "notes": "A's '+15-25% match lift' is unsourced. In business messaging there are two routes: ctwa_clid (direct, preferred) and hashed customer info (em, ph, fn, ln, ct, st, zp, country, ge, db; needs page_id; external_id is not used). The hashed route is the fallback for conversations without a clid; it is limited to 7-day attribution and a subset of countries, and it sends hashed PII abroad (see K1).",
+  "evidence": [
+   {
+    "grade": "PROVEN",
+    "claim": "Hashed-customer-info fallback exists for business messaging: needs page_id and at least one customer parameter, SHA-256 normalised; attribution limited to the past 7 days; available in a subset of countries.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Whether Algeria is in the 'subset of countries' for the hashed path.",
+    "sources": [],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "'+15-25%' lift: no source in the artefact, none found.",
+    "sources": [],
+    "note": ""
+   }
+  ]
+ },
+ "F3": {
+  "name": "Delivery-outcome -> CAPI pipeline",
+  "meta_ref": "CAPI business_messaging (replaces offline_dataset)",
+  "desc": "A's 'Offline Conversions' product was discontinued May 2025; events now go through the unified Conversions API. Re-scoped: courier status (delivered, returned, cancelled) -> messaging events carrying the stored ctwa_clid.",
+  "notes": "Lifecycle events OrderCreated/OrderShipped/OrderDelivered/OrderCanceled/OrderReturned exist beside Purchase, and purchase optimisation is available for ads that click to WhatsApp (both PROVEN). Whether lifecycle events influence optimisation is OPEN. The clid path is documented as not subject to the 7-day limit, so courier lag is not documented to cause non-attribution; measure it anyway. Which event marks a COD 'purchase' (confirmed vs delivered) is an experiment, not a fact.",
+  "evidence": [
+   {
+    "grade": "SUPPORTED",
+    "claim": "Offline Conversions API discontinued May 2025; replaced by Conversions API.",
+    "sources": [
+     "https://adadvisor.ai/docs/learn/offline-conversions",
+     "https://dev.to/simul_sarker_51af2d373b1b/the-ghost-in-the-machine-why-your-offline-conversion-uploads-are-failing-and-what-to-do-about-it-b47"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Messaging lifecycle event names exist (OrderCreated, OrderShipped, OrderDelivered, OrderCanceled, OrderReturned) in addition to Purchase.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Conversions API enables purchase optimisation for ads that click to WhatsApp (and Messenger), not Instagram.",
+    "sources": [
+     "https://developers.facebook.com/docs/marketing-api/conversions-api/business-messaging"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Optimisation uplift from late COD-delivered signals; effect of lifecycle events on optimisation.",
+    "sources": [],
+    "note": ""
+   }
+  ]
+ }
+}''')
+EXTENDED_CAPABILITIES = json.loads(r'''[
+ {
+  "id": "M1",
+  "name": "WhatsApp messaging channel (Cloud API or BSP)",
+  "layer": "conversation",
+  "artefact_origin": "A-checklist",
+  "status": "CONFIG",
+  "checked": false,
+  "desc": "The WhatsApp Business API account itself: send/receive, templates, webhooks. Listed in A's identity checklist under 'Assets Matrix' (IN_PROGRESS) but absent from A's capability array; every messaging operation depends on it.",
+  "notes": "Onboarding, availability for an Algerian business and BSP-versus-direct are NOT examined (hence checked=False). Webhook behaviour is PROVEN from Meta documentation; wrappers can strip the referral, so clid propagation must be tested per provider. One endpoint per app means separate apps per environment.",
+  "depends_on": [
+   "K2"
+  ],
+  "verified_on": "2026-10-24",
+  "evidence": [
+   {
+    "grade": "PROVEN",
+    "claim": "GET handshake must answer 200 with hub.challenge; POSTs carry X-Hub-Signature-256 (sha256 of the payload, compared after the prefix); non-200 deliveries are retried with decreasing frequency for up to 7 days; payloads up to 3 MB; one webhook endpoint per Meta app; unsupported message types arrive as an unknown-message webhook; mTLS is supported.",
+    "sources": [
+     "https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/create-webhook-endpoint",
+     "https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "SUPPORTED",
+    "claim": "Signature is HMAC-SHA256 keyed with the app secret over the raw body; the scheme has no timestamp, so replays validate forever; wamid is the per-message id.",
+    "sources": [
+     "https://hookdeck.com/webhooks/platforms/guide-to-whatsapp-webhooks-features-and-best-practices",
+     "https://dev.to/wapgrowai_org/handling-whatsapp-cloud-api-webhooks-in-nodejs-signatures-retries-and-duplicate-events-4dci"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "SUPPORTED",
+    "claim": "Some wrappers and BSP layers drop or relocate the referral object (an unofficial API dropped it entirely; another vendor exposes the clid at context.ad.ctwa), so clid propagation must be tested per provider.",
+    "sources": [
+     "https://github.com/evolution-foundation/evolution-api/issues/2645",
+     "https://whapi.cloud/blog/tr/track-click-to-whatsapp-ctwa-clid"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Channel availability, onboarding requirements and BSP choice for an Algerian business not examined.",
+    "sources": [
+     "uploaded:dz_meta_foundation_blueprint.html"
+    ],
+    "note": ""
+   }
+  ]
+ },
+ {
+  "id": "T1",
+  "name": "Cloud API test environment (test WABA and test number)",
+  "layer": "conversation",
+  "artefact_origin": "new",
+  "status": "CONFIG",
+  "checked": true,
+  "desc": "The developer-app test setup: Meta creates a test WhatsApp Business Account and a test business number that can message up to 5 verified recipient numbers.",
+  "notes": "Lets webhook delivery, signatures, message flow and status webhooks be tested without a business WhatsApp account. It cannot receive click-to-WhatsApp referrals (no ad), so ctwa_clid and CAPI stay untestable. Test-account tokens reportedly expire daily (secondary). Needs a Meta developer account, a public HTTPS endpoint and personal phone numbers as recipients.",
+  "depends_on": [],
+  "verified_on": "2026-10-24",
+  "evidence": [
+   {
+    "grade": "PROVEN",
+    "claim": "Cloud API setup creates a test WABA and a test business number; free messages to up to 5 recipient numbers, each verified by a code.",
+    "sources": [
+     "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "SUPPORTED",
+    "claim": "Test business account tokens expire every 24 hours.",
+    "sources": [
+     "https://pypi.org/project/whatsappcloud/0.0.4"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Whether a developer account in Algeria needs a business portfolio or verification just to reach the test setup.",
+    "sources": [],
+    "note": ""
+   }
+  ]
+ },
+ {
+  "id": "C0",
+  "name": "Messaging cost model",
+  "layer": "commerce",
+  "artefact_origin": "new",
+  "status": "CONFIG",
+  "checked": true,
+  "desc": "Per-delivered-message billing. Current secondary sources list Algeria (+213) under Rest of Africa from 2026-10-01 at USD 0.0225 per marketing message and USD 0.0040 per utility, authentication and service message. Secondary sources also report 1,000 free service messages per business phone number/month and an eligible free Click-to-WhatsApp entry-point window up to 7 days.",
+  "notes": "Use the rates only as a planning estimate until the official Meta rate card and the chosen account's first invoice are checked. Utility templates can be billable inside the 24-hour customer-service window from 2026-10-01. Do not confuse the 24-hour service window with a free entry-point window; eligibility and duration depend on the source/entry point and require account confirmation. Add provider fees, taxes and actual billing currency before committing spend.",
+  "depends_on": [],
+  "verified_on": "2026-10-28",
+  "evidence": [
+   {
+    "grade": "SUPPORTED",
+    "claim": "Secondary pricing pages list +213 under Rest of Africa from 2026-10-01 at USD 0.0225 per delivered marketing message and USD 0.0040 per delivered utility, authentication or service message.",
+    "sources": [
+     "https://www.nonito.io/whatsapp-business-api-pricing/algeria",
+     "https://whautomate.com/whatsapp-pricing-updates"
+    ],
+    "note": "Independent secondary cross-check; official Meta rate card did not load successfully during the 2026-10-28 review."
+   },
+   {
+    "grade": "SUPPORTED",
+    "claim": "Secondary provider documentation reports 1,000 free service messages per business phone number/month and billable utility templates inside the 24-hour service window from 2026-10-01; eligible CTWA entry points may have a free-entry window up to 7 days.",
+    "sources": [
+     "https://www.alibabacloud.com/help/en/chatapp/whatsapp-message-rate-adjustments-and-service-conversation-message-billing",
+     "https://support.wati.io/en/articles/16954666-whatsapp-business-platform-api-pricing-changes-service-messages-and-click-to-message-ads",
+     "https://www.nonito.io/whatsapp-business-api-pricing/algeria"
+    ],
+    "note": "Not an account-level test. Verify the exact Meta entry point, billing currency, service allowance and selected provider's additional fees."
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Official current Meta rate card, exact account billing, provider surcharges/taxes, eligible free-entry windows, and realized cost per order.",
+    "sources": [
+     "https://developers.facebook.com/docs/whatsapp/pricing#rate-cards"
+    ],
+    "note": "Official pricing URL was attempted but its content could not be retrieved in this run; a current billing account/invoice has not been examined."
+   }
+  ]
+ },
+ {
+  "id": "X1",
+  "name": "WhatsApp Business Solution Terms constraints",
+  "layer": "compliance",
+  "artefact_origin": "new",
+  "status": "CONFIG",
+  "checked": true,
+  "desc": "Contract constraints on how Business Solution Data may be used, independent of Algerian law.",
+  "notes": "The earlier Business Solution Terms snapshot describes restrictions on training on Business Solution Data, external sharing and contact profiling, and historical reporting described an AI Providers clause. Current legal structure must not be inferred from the old snapshot alone: official WhatsApp Terms for WhatsApp Business Platform are effective 2026-09-23 and incorporate separate Meta Terms for WhatsApp Business Platform. A secondary review reports the AI-provider rule/provider terminology changed in the current text, but the full incorporated Meta Terms and its exact current definitions must be verified. Keep hosted LLM, external customer-data sharing, cross-message profiling and conversation-training operations disabled; counsel must decide whether our intended use and each vendor are permitted.",
+  "depends_on": [
+   "K1"
+  ],
+  "verified_on": "2026-10-28",
+  "evidence": [
+   {
+    "grade": "SUPPORTED",
+    "claim": "A prior official Business Solution Terms preview stated restrictions on use of business data for model training, third-party sharing and user-profile building; applicability of this earlier language to the full post-2026-09-23 contract set needs re-verification.",
+    "sources": [
+     "https://whatsapp.com/legal/business-solution-terms/preview?amp=&lang=en"
+    ],
+    "note": "Historical terms snapshot. Do not treat the old terminology as confirmed current wording."
+   },
+   {
+    "grade": "PROVEN",
+    "claim": "Official WhatsApp Terms for WhatsApp Business Platform state an effective date of 2026-09-23 and incorporate separate Meta Terms for WhatsApp Business Platform and the current Business Messaging Policy.",
+    "sources": [
+     "https://www.whatsapp.com/legal/WhatsApp-Terms-for-WhatsApp-Business-Platform?lang=en",
+     "https://whatsappbusiness.com/policy/"
+    ],
+    "note": "Official English page retrieved. This proves the current terms architecture/date, not the exact contents of the incorporated Meta Terms."
+   },
+   {
+    "grade": "SUPPORTED",
+    "claim": "A current secondary legal review reports the AI Providers clause is located in the Meta Terms for WhatsApp Business Platform and discusses a change from Third Party Service Provider to Solution Provider terminology.",
+    "sources": [
+     "https://mesej.io/guides/whatsapp-ai-providers-clause/"
+    ],
+    "note": "Secondary interpretation only; retrieve and review the actual incorporated Meta Terms and obtain counsel's written applicability assessment."
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Current exact legal text/definitions and whether our runtime, couriers, payment PSP, or LLM vendor are permitted in this architecture; lawful processing and transfer basis under Algerian law.",
+    "sources": [
+     "https://www.whatsapp.com/legal/WhatsApp-Terms-for-WhatsApp-Business-Platform?lang=en",
+     "https://mesej.io/guides/whatsapp-ai-providers-clause/"
+    ],
+    "note": "Do not enable external data sharing, hosted LLMs or training until current contract text, country/account status and counsel decisions are recorded."
+   }
+  ]
+ },
+ {
+  "id": "O1",
+  "name": "Messaging policy and opt-in",
+  "layer": "compliance",
+  "artefact_origin": "new",
+  "status": "CONFIG",
+  "checked": true,
+  "desc": "Opt-in is required before messaging; it may be general rather than WhatsApp-specific if local law is met; opt-in should be separable by message category; opt-outs must be honoured; businesses must secure all notices and consents and keep a published privacy policy; commerce experiences must follow the Commerce Policy.",
+  "notes": "Meta may change the policy without notice, so registry entries about policy need a re-verification cycle. Whether a user-initiated click-to-WhatsApp conversation satisfies opt-in for service replies and utility updates is OPEN.",
+  "depends_on": [
+   "K2"
+  ],
+  "verified_on": "2026-10-24",
+  "evidence": [
+   {
+    "grade": "PROVEN",
+    "claim": "Opt-in required (may be general, per local law), recommended per category; opt-out must be honoured; user may stop marketing messages; businesses secure consents and publish a privacy policy; Commerce Policy governs catalogues and commerce; policy may change without notice.",
+    "sources": [
+     "https://business.whatsapp.com/policy",
+     "https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in.md"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Sufficiency of a user-initiated conversation as opt-in for utility updates outside the 24-hour window.",
+    "sources": [],
+    "note": ""
+   }
+  ]
+ },
+ {
+  "id": "TP1",
+  "name": "Tech Provider multi-tenant onboarding",
+  "layer": "conversation",
+  "artefact_origin": "new",
+  "status": "CONFIG",
+  "checked": true,
+  "desc": "Only if the system will onboard other businesses: Tech Provider status requires business verification and Advanced access through App Review, Embedded Signup (v2 was deprecated 2026-10-15; v4 required), business tokens, and each customer attaches a payment method unless a Solution Partner extends credit.",
+  "notes": "Not needed while we operate only our own business assets as a direct developer. A multi-merchant product would also draw scrutiny under the AI Providers clause (see X1).",
+  "depends_on": [
+   "X1",
+   "O1"
+  ],
+  "verified_on": "2026-10-24",
+  "evidence": [
+   {
+    "grade": "PROVEN",
+    "claim": "Partner types and requirements; Tech Provider needs business verification and Advanced access; Embedded Signup mandatory unless partnered with a Solution Partner; business tokens; customers add a payment method unless a Solution Partner shares credit; Embedded Signup v2 deprecation on 2026-10-15.",
+    "sources": [
+     "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview/",
+     "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/get-started-for-tech-providers",
+     "https://developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/overview/"
+    ],
+    "note": ""
+   },
+   {
+    "grade": "OPEN",
+    "claim": "Eligibility and timeline for an Algerian entity.",
+    "sources": [],
+    "note": ""
+   }
+  ]
+ }
+]''')
+
 # ---- dependencies between capabilities (design judgement, auditable) ---------
 DEPS = {
  "F1": ["S1", "K2"], "F2": ["K1"], "F3": ["S1", "L1", "K2"],
@@ -195,21 +692,37 @@ ROWS = [
 caps = []
 for g in A["Tl"]:
     for c in g["capabilities"]:
+        # An inherited READY label without verification is not an effective readiness claim.
+        effective_status = "UNVERIFIED" if c["status"] == "READY" else c["status"]
+        inherited_notes = ("Original READY label downgraded to UNVERIFIED pending independent evidence."
+                           if c["status"] == "READY" else "Inherited from artefact A; not examined in this study.")
         rec = {"id": c["id"], "name": c["name"], "code": c["code"], "layer": LAYER[g["id"]],
-               "group": g["id"], "artefact_origin": "A", "a_status": c["status"], "status": c["status"],
+               "group": g["id"], "artefact_origin": "A", "a_status": c["status"], "status": effective_status,
                "complexity": c["complexity"], "meta_ref": c["meta_ref"], "desc": c["desc"],
-               "checked": False, "notes": "Inherited from artefact A; not examined in this study.",
+               "checked": False, "notes": inherited_notes,
                "depends_on": DEPS.get(c["id"], []),
                "evidence": [ev("OPEN", "Taken from artefact A without independent verification.", "artefact_A")],
                "verified_on": None}
         if c["id"] in OVERRIDE:
             rec.update(OVERRIDE[c["id"]]); rec["verified_on"] = VERIFIED_ON
         caps.append(rec)
+# Keep the original registry order from the reconciled snapshot: D6 follows
+# the six capabilities first added in the 2026-10-24 review.
 for n in NEW:
+    if n["id"] == "D6":
+        continue
     n.setdefault("verified_on", VERIFIED_ON if n.get("checked") else None)
     caps.append(n)
+for n in EXTENDED_CAPABILITIES:
+    caps.append(n)
+_d6 = next(n for n in NEW if n["id"] == "D6")
+_d6.setdefault("verified_on", VERIFIED_ON if _d6.get("checked") else None)
+caps.append(_d6)
+for c in caps:
+    if c["id"] in REVISED_FIELDS:
+        c.update(REVISED_FIELDS[c["id"]])
 
-out = {"generated": VERIFIED_ON, "grades": ["PROVEN", "SUPPORTED", "OPEN", "CONTRADICTED"],
+out = {"generated": GENERATED_ON, "grades": ["PROVEN", "SUPPORTED", "OPEN", "CONTRADICTED"],
        "capabilities": caps, "shapes": SHAPES, "rows": ROWS, "sources": S}
 json.dump(out, open(HERE / "registry.json", "w"), indent=1, ensure_ascii=False)
 print(f"registry.json written: {len(caps)} capabilities "

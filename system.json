@@ -1,0 +1,448 @@
+{
+  "schema_version": "0.3.0",
+  "generated": "2026-10-28",
+  "default_authorization": "DENY",
+  "authorization_states": [
+    "DENY",
+    "APPROVAL_REQUIRED",
+    "ALLOW"
+  ],
+  "transport_policy": {
+    "default": "DISABLED",
+    "network_calls_from_core": false,
+    "external_effects_require_injected_transport": true,
+    "retries_after_ambiguous_send": "PROHIBITED_UNTIL_RECONCILED"
+  },
+  "data_classes": [
+    {
+      "id": "Z0_SYNTHETIC",
+      "personal_data": false,
+      "allowed_destinations": [
+        "test_fixture",
+        "local_runtime"
+      ],
+      "description": "Synthetic test fixtures and non-personal design records."
+    },
+    {
+      "id": "Z1_BUSINESS_MESSAGE",
+      "personal_data": true,
+      "allowed_destinations": [
+        "encrypted_local_store",
+        "whatsapp_business_platform"
+      ],
+      "description": "Business messaging payloads, sender identifiers, referrals and order details. Persist only with an injected audited sealing codec."
+    },
+    {
+      "id": "Z2_HOSTED_PROCESSING",
+      "personal_data": true,
+      "allowed_destinations": [],
+      "description": "Business-message data proposed for hosted processing. No destination is permitted by default."
+    }
+  ],
+  "providers": [
+    {
+      "id": "whatsapp_cloud_api",
+      "kind": "messaging",
+      "external": true,
+      "capabilities": [
+        "M1",
+        "T1"
+      ]
+    },
+    {
+      "id": "meta_capi",
+      "kind": "conversion_api",
+      "external": true,
+      "capabilities": [
+        "F1",
+        "F3",
+        "S1"
+      ]
+    },
+    {
+      "id": "meta_business_agent",
+      "kind": "agent",
+      "external": true,
+      "capabilities": [
+        "B2"
+      ]
+    },
+    {
+      "id": "hosted_llm",
+      "kind": "model",
+      "external": true,
+      "capabilities": [
+        "B4"
+      ]
+    },
+    {
+      "id": "courier",
+      "kind": "logistics",
+      "external": true,
+      "capabilities": [
+        "L1"
+      ]
+    },
+    {
+      "id": "payment_psp",
+      "kind": "payments",
+      "external": true,
+      "capabilities": [
+        "P2"
+      ]
+    },
+    {
+      "id": "meta_commerce",
+      "kind": "commerce",
+      "external": true,
+      "capabilities": [
+        "D3",
+        "E5"
+      ]
+    },
+    {
+      "id": "local_runtime",
+      "kind": "internal",
+      "external": false,
+      "capabilities": [
+        "B4",
+        "K1",
+        "K2",
+        "S1"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "P-WEBHOOK-INGEST",
+      "operation": "webhook.ingest",
+      "state": "ALLOW",
+      "owner": "role:engineering",
+      "decided_on": "2026-10-28",
+      "evidence": [
+        {
+          "kind": "implementation-contract",
+          "ref": "core/webhook.py"
+        }
+      ],
+      "reason": "Local ingress returns an acknowledgement only after signature verification, canonicalization, identity validation and idempotent durable storage."
+    },
+    {
+      "id": "P-FREEFORM-MESSAGE",
+      "operation": "message.send_freeform",
+      "state": "APPROVAL_REQUIRED",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Outbound-message consent, service-window and account conditions require an explicit reviewed policy before sending."
+    },
+    {
+      "id": "P-TEMPLATE-MESSAGE",
+      "operation": "message.send_template",
+      "state": "APPROVAL_REQUIRED",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Template category, approval, purpose opt-in and account pricing remain unverified."
+    },
+    {
+      "id": "P-CAPI-DISPATCH",
+      "operation": "conversion.dispatch",
+      "state": "DENY",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Conversion dispatch remains disabled pending documented legal, data and account approval."
+    },
+    {
+      "id": "P-DATA-EXTERNAL",
+      "operation": "data.share_external",
+      "state": "DENY",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Customer-data sharing with external providers is denied until provider classification, contracts and permitted data scope are established."
+    },
+    {
+      "id": "P-LLM-HOSTED",
+      "operation": "llm.process_business_data",
+      "state": "DENY",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Hosted model processing remains disabled pending explicit data-transfer and no-training approval."
+    },
+    {
+      "id": "P-PROFILE-BUILD",
+      "operation": "profile.build_contact",
+      "state": "DENY",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Cross-message contact profiling is not enabled by this foundation."
+    },
+    {
+      "id": "P-MODEL-TRAIN",
+      "operation": "model.train_conversations",
+      "state": "DENY",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Training on business conversations is disabled by default."
+    },
+    {
+      "id": "P-COURIER-CREATE",
+      "operation": "courier.create_parcel",
+      "state": "APPROVAL_REQUIRED",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Courier account eligibility, data minimization and provider contract remain unverified."
+    },
+    {
+      "id": "P-PAYMENT-LINK",
+      "operation": "payment.create_link",
+      "state": "APPROVAL_REQUIRED",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Payment-provider eligibility, checkout terms, data sharing and cost require verification."
+    },
+    {
+      "id": "P-COMMERCE-CATALOG",
+      "operation": "commerce.catalog_write",
+      "state": "APPROVAL_REQUIRED",
+      "owner": null,
+      "decided_on": null,
+      "evidence": [],
+      "reason": "Commerce policy and catalogue availability for the actual account and country are unverified."
+    }
+  ],
+  "operations": [
+    {
+      "id": "webhook.ingest",
+      "provider": "whatsapp_cloud_api",
+      "policy": "P-WEBHOOK-INGEST",
+      "direction": "inbound",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": false,
+      "transport": "none"
+    },
+    {
+      "id": "message.send_freeform",
+      "provider": "whatsapp_cloud_api",
+      "policy": "P-FREEFORM-MESSAGE",
+      "direction": "outbound",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    },
+    {
+      "id": "message.send_template",
+      "provider": "whatsapp_cloud_api",
+      "policy": "P-TEMPLATE-MESSAGE",
+      "direction": "outbound",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    },
+    {
+      "id": "conversion.dispatch",
+      "provider": "meta_capi",
+      "policy": "P-CAPI-DISPATCH",
+      "direction": "outbound",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    },
+    {
+      "id": "data.share_external",
+      "provider": "courier",
+      "policy": "P-DATA-EXTERNAL",
+      "direction": "outbound",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    },
+    {
+      "id": "llm.process_business_data",
+      "provider": "hosted_llm",
+      "policy": "P-LLM-HOSTED",
+      "direction": "outbound",
+      "data_classes": [
+        "Z2_HOSTED_PROCESSING"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    },
+    {
+      "id": "profile.build_contact",
+      "provider": "local_runtime",
+      "policy": "P-PROFILE-BUILD",
+      "direction": "internal",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": false,
+      "transport": "none"
+    },
+    {
+      "id": "model.train_conversations",
+      "provider": "local_runtime",
+      "policy": "P-MODEL-TRAIN",
+      "direction": "internal",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": false,
+      "transport": "none"
+    },
+    {
+      "id": "courier.create_parcel",
+      "provider": "courier",
+      "policy": "P-COURIER-CREATE",
+      "direction": "outbound",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    },
+    {
+      "id": "payment.create_link",
+      "provider": "payment_psp",
+      "policy": "P-PAYMENT-LINK",
+      "direction": "outbound",
+      "data_classes": [
+        "Z1_BUSINESS_MESSAGE"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    },
+    {
+      "id": "commerce.catalog_write",
+      "provider": "meta_commerce",
+      "policy": "P-COMMERCE-CATALOG",
+      "direction": "outbound",
+      "data_classes": [
+        "Z0_SYNTHETIC"
+      ],
+      "external_effect": true,
+      "transport": "injected"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "inbound_webhook",
+      "operation": "webhook.ingest",
+      "requires_order": true,
+      "steps": [
+        "verify_signature",
+        "normalize_payload",
+        "require_sender_id",
+        "persist_idempotently",
+        "acknowledge_200"
+      ]
+    },
+    {
+      "id": "conversion_dispatch",
+      "operation": "conversion.dispatch",
+      "requires_order": true,
+      "steps": [
+        "authorize_policy",
+        "require_stable_event_id",
+        "require_ctwa_clid",
+        "reserve_outbox",
+        "send_injected_transport",
+        "record_outcome"
+      ]
+    },
+    {
+      "id": "outbound_message",
+      "operation": "message.send_template",
+      "requires_order": true,
+      "steps": [
+        "authorize_policy",
+        "check_window",
+        "check_opt_in",
+        "send_injected_transport",
+        "record_outcome"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-001",
+      "name": "default-deny",
+      "rule": "Missing policies and unknown authorization states deny by default."
+    },
+    {
+      "id": "INV-002",
+      "name": "verified-ingress",
+      "rule": "Verify the raw webhook signature before parsing or storing its payload."
+    },
+    {
+      "id": "INV-003",
+      "name": "durable-before-ack",
+      "rule": "Do not acknowledge an event until its canonical form has been durably stored."
+    },
+    {
+      "id": "INV-004",
+      "name": "no-identity-guessing",
+      "rule": "Reject a missing sender identifier; never infer a sender from another contact."
+    },
+    {
+      "id": "INV-005",
+      "name": "referral-preservation",
+      "rule": "Conversion preparation requires the event's own referral.ctwa_clid; fallback identifiers are prohibited."
+    },
+    {
+      "id": "INV-006",
+      "name": "deduplicated-dispatch",
+      "rule": "Reserve a stable event ID before dispatch and do not send duplicate reservations."
+    },
+    {
+      "id": "INV-007",
+      "name": "ambiguous-send-reconciliation",
+      "rule": "An uncertain external send is recorded UNKNOWN and is not automatically retried."
+    },
+    {
+      "id": "INV-008",
+      "name": "injected-network",
+      "rule": "Core code has no default network transport; side effects require an explicitly injected adapter."
+    },
+    {
+      "id": "INV-009",
+      "name": "purpose-and-window",
+      "rule": "Outbound messages require an explicit allowed policy; template messages require purpose opt-in and freeform messages require a valid service window."
+    },
+    {
+      "id": "INV-010",
+      "name": "privacy-first",
+      "rule": "Payload storage requires an injected sealing/opening codec and keyed identifier indexing; production key management, retention/deletion, access controls and recovery remain deployment requirements."
+    },
+    {
+      "id": "INV-011",
+      "name": "bounded-ingress",
+      "rule": "Reject webhook payloads larger than 3,000,000 bytes before signature parsing, JSON decoding or normalization."
+    },
+    {
+      "id": "INV-012",
+      "name": "pseudonymous-indexes",
+      "rule": "Do not persist raw sender or event identifiers in database index columns; use opaque keyed identifiers and seal the payload."
+    }
+  ],
+  "limits": {
+    "max_webhook_payload_bytes": 3000000
+  }
+}

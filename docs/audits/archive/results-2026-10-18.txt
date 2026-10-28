@@ -1,0 +1,77 @@
+========================================================================
+REGISTRY REPORT  generated 2026-10-18
+========================================================================
+
+[1] COVERAGE (artefact A: 29 capabilities)
+  A's displayed coverage            : 15/29 READY = 52%  (computed from its own labels)
+  examined in this study            : 7/29
+  not examined (inherited label)    : 22/29
+  of examined, label changed        : 3 -> B4 BLOCKED->CONFIG, E5 READY->UNVERIFIED, F3 BLOCKED->CONFIG
+  of examined, label held           : 4 -> B2, D4, F1, F2
+  READY labels with NO verification : 14 -> A1, A2, A4, A5, B3, C1, C2, C3, C5, D1, D3, E1, E4, F4
+  READY labels with verification    : 0 -> none
+  capabilities added (not in A)     : 8 -> P1, P2, L1, K1, K2, S1, P3, D6
+
+[2] EVIDENCE ENTRIES on examined items: {'SUPPORTED': 14, 'OPEN': 8, 'PROVEN': 6}
+    primary-source (PROVEN) items      : ['B4', 'E5', 'F1', 'F2', 'F3', 'S1']
+
+[3] ARTEFACT B SHAPES vs REGISTRY  (requirement lists are design judgement; see build_registry.py)
+
+  Shape A 'Darja AI Sales Factory'  ->  NO KNOWN BLOCKER - but 6/11 unexamined, 3 open question(s)
+    requires 11: B2, B4, A1, D3, D2, C2, D1, L1, F1, D6, P1
+    config-dependent     : B2, B4, D2, L1, F1, D6, P1
+    deps never examined  : 6/11 -> A1, D3, D2, C2, D1, D6
+    OPEN on B2          : Algeria eligibility and Darja/Arabizi quality: 'local languages' is the only statement found; no dia
+    OPEN on B4          : No evidence on how general-purpose LLMs perform on Algerian Darja intent parsing for our domain.
+    OPEN on P1          : Legal/FX position on funding a foreign ad account from Algeria.
+
+  Shape B 'Community-to-Cash Flywheel'  ->  BLOCKED AS WRITTEN (blocker label INHERITED from A, unverified: E3)
+    requires 7: E3, E2, B2, A2, F5, F1, P1
+    hard blockers        : E3 (Groups API)
+    config-dependent     : E2, B2, F5, F1, P1
+    deps never examined  : 4/7 -> E3, E2, A2, F5
+    OPEN on B2          : Algeria eligibility and Darja/Arabizi quality: 'local languages' is the only statement found; no dia
+    OPEN on P1          : Legal/FX position on funding a foreign ad account from Algeria.
+
+  Shape C 'Diaspora Bridge'  ->  REDESIGN REQUIRED - replacement P3 is itself UNVERIFIED
+    requires 5: C4, D4, A3, L1, P1
+    needs redesign       : D4 (Payments) -> use P3 (Cross-border collection rail)
+    config-dependent     : C4, A3, L1, P1
+    deps never examined  : 2/5 -> C4, A3
+    OPEN on P1          : Legal/FX position on funding a foreign ad account from Algeria.
+
+[4] ARTEFACT B 'OLD vs NEW' ROWS
+  R1 Boost post -> Advantage+ incl. Threads + WA as conversion
+      -> NO KNOWN BLOCKER - but 2/4 unexamined, 1 open question(s)
+  R2 Night replies -> AI Business Agent 24/7
+      -> NO KNOWN BLOCKER - but 0/2 unexamined, 2 open question(s)
+  R3 Product photo -> generative video
+      -> NO KNOWN BLOCKER - but 3/3 unexamined, 0 open question(s)
+  R4 COD chaos -> Flow with wilaya + live courier estimate + OTP
+      -> NO KNOWN BLOCKER - but 2/3 unexamined, 0 open question(s)
+
+[5] PROPAGATED STATUS (own status worst-of dependencies) -- examined items only
+  B2  Business Agent                                 CONFIG    
+  B4  Darja NLU layer (provider-neutral)             CONFIG    
+  D4  Payments                                       BLOCKED   
+  E5  Shops                                          UNVERIFIED
+  F1  Conversions API (CAPI)                         CONFIG    
+  F2  Advanced Matching                              CONFIG    
+  F3  Delivery-outcome -> CAPI purchase pipeline     CONFIG    
+  P1  Ad billing instrument                          CONFIG    
+  P2  Local payment rails (CIB/Edahabia via PSP link CONFIG    
+  L1  Courier adapter layer                          CONFIG    
+  K1  Data-transfer & residency gate                 CONFIG    
+  K2  Consent & purpose ledger                       CONFIG    
+  S1  Canonical event backbone                       CONFIG    
+
+[6] CLAIM LEDGER (numeric claims; source links found in either artefact: 0)
+  A: total 11 | outcome claims 3 | design thresholds 7 | hardcoded display 1
+  B: total 15 | outcome claims 14 | design thresholds 1 | hardcoded display 0
+  Handling rule adopted: outcome claims are hypotheses with a measurement plan, never inputs to a decision;
+  thresholds are parameters with an owner and a calibration date.
+
+========================================================================
+INTEGRITY: rules R1,R2,R3,R5,R6 pass | 14 warning(s): R4 inherited-READY labels with no verification
+  A1, A2, A4, A5, B3, C1, C2, C3, C5, D1, D3, E1, E4, F4
+========================================================================

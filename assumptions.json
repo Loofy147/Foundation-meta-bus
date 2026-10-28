@@ -1,0 +1,435 @@
+[
+ {
+  "id": "A-01",
+  "statement": "A direct developer can send business-messaging conversion events for its own WABA and dataset under Standard Access.",
+  "category": "platform",
+  "depends": [
+   "F1",
+   "F3",
+   "S1"
+  ],
+  "if_false": "CAPI cannot be used directly; a Tech Provider or Solution Partner route (TP1) or no conversion signal.",
+  "test": "Send a test event for a real ctwa_clid to our own dataset and see it in Events Manager.",
+  "needs": [
+   "account",
+   "spend"
+  ],
+  "grade": "SUPPORTED",
+  "basis": "App Review page says direct developers need no Advanced access; neither CAPI guide says so for this endpoint.",
+  "status": "OPEN",
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-02",
+  "statement": "Meta accepts DZD as the event currency.",
+  "category": "platform",
+  "depends": [
+   "F1",
+   "F3"
+  ],
+  "if_false": "Convert to USD or EUR before sending, adding a rate source and rounding policy.",
+  "test": "Send a DZD test event; check Events Manager.",
+  "needs": [
+   "account",
+   "spend"
+  ],
+  "grade": "OPEN",
+  "basis": "Not stated in the pages read.",
+  "status": "OPEN",
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-03",
+  "statement": "The WhatsApp channel we use (direct or BSP) preserves the referral object and ctwa_clid.",
+  "category": "platform",
+  "depends": [
+   "M1",
+   "S1",
+   "F1"
+  ],
+  "if_false": "Attribution is lost silently; the provider choice must change.",
+  "test": "Real click-to-WhatsApp entry through the chosen channel; confirm clid in our webhook.",
+  "needs": [
+   "account",
+   "spend"
+  ],
+  "grade": "SUPPORTED",
+  "basis": "Wrappers are reported to drop or relocate the referral.",
+  "status": "OPEN",
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-04",
+  "statement": "Meta Business Agent is authorized for businesses based in Algeria and handles Darja and Arabizi acceptably.",
+  "category": "platform",
+  "depends": [
+   "B2",
+   "B4"
+  ],
+  "if_false": "Use our own conversation runtime (own_templates, own_encoder) and keep the agent out of the plan.",
+  "test": "Read the authorized-country list; try enabling; score it on a labelled set.",
+  "needs": [
+   "none",
+   "account",
+   "data"
+  ],
+  "grade": "OPEN",
+  "basis": "Overview requires an authorized country; press says global; no dialect evidence.",
+  "status": "OPEN",
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-05",
+  "statement": "Algerian counsel permits the additional flows to foreign providers: conversion dispatch, hosted LLM on redacted text, Meta's agent, and Z2 hosting location.",
+  "category": "legal",
+  "depends": [
+   "K1",
+   "F1",
+   "B2",
+   "B4"
+  ],
+  "if_false": "No personal data leaves Algeria beyond the channel itself; CAPI with ctwa_clid and any hosted LLM are off.",
+  "test": "Written opinion on the flows in section 14.1.",
+  "needs": [
+   "counsel"
+  ],
+  "grade": "OPEN",
+  "basis": "Law summary read; specifics conflict across sources.",
+  "status": "OPEN",
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-06",
+  "statement": "An Algerian business can fund Meta ads and WhatsApp billing with an instrument Meta accepts.",
+  "category": "economic",
+  "depends": [
+   "P1"
+  ],
+  "if_false": "No ads and no paid messaging from our own account; an agency or partner billing route is needed.",
+  "test": "Add a payment method in Ads Manager and WhatsApp Manager; reconcile a small charge.",
+  "needs": [
+   "account",
+   "entity"
+  ],
+  "grade": "OPEN",
+  "basis": "Meta's country list was not retrievable; trade sources report CIB and Edahabia are generally rejected.",
+  "status": "OPEN",
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-07",
+  "statement": "An Algerian entity can complete Meta business verification.",
+  "category": "platform",
+  "depends": [
+   "TP1",
+   "M1"
+  ],
+  "if_false": "All account-level steps stall.",
+  "test": "Start verification with the entity's documents.",
+  "needs": [
+   "entity"
+  ],
+  "grade": "OPEN",
+  "basis": "Requirements not read.",
+  "status": "OPEN",
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-08",
+  "statement": "Our conversational agent is incidental to a business service, not an AI Provider under the Business Solution Terms.",
+  "category": "legal",
+  "depends": [
+   "B2",
+   "B4",
+   "X1"
+  ],
+  "if_false": "WhatsApp access could be refused or removed in Meta's sole discretion; positioning and scope must change.",
+  "test": "Counsel review of the terms and our positioning; ask Meta Direct Support in writing if available.",
+  "needs": [
+   "counsel"
+  ],
+  "grade": "OPEN",
+  "basis": "Clause text seen second-hand; the test is Meta's own discretion.",
+  "status": "OPEN",
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-09",
+  "statement": "Training or fine-tuning our NLU on our WhatsApp conversations stays inside the exclusive-use exception.",
+  "category": "legal",
+  "depends": [
+   "B4",
+   "X1"
+  ],
+  "if_false": "Training data must come from synthetic and public Darja corpora only; no vendor may touch conversation-derived data.",
+  "test": "Counsel review plus architecture check: model private, dataset unshared, no vendor training.",
+  "needs": [
+   "counsel"
+  ],
+  "grade": "SUPPORTED",
+  "basis": "Exception text read on the terms page; its application to a classifier head is unreviewed.",
+  "status": "OPEN",
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-10",
+  "statement": "Couriers, the payment PSP and an LLM vendor are Third Party Service Providers under the terms.",
+  "category": "legal",
+  "depends": [
+   "L1",
+   "P2",
+   "X1"
+  ],
+  "if_false": "Sharing customer data with them breaches the terms.",
+  "test": "Read the definition; sign written terms with each.",
+  "needs": [
+   "none",
+   "counsel"
+  ],
+  "grade": "OPEN",
+  "basis": "Definition not read.",
+  "status": "OPEN",
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-11",
+  "statement": "Lead tagging (HOT, WARM, COLD) and per-contact attribution are not profile building on individual WhatsApp users.",
+  "category": "legal",
+  "depends": [
+   "S1",
+   "X1"
+  ],
+  "if_false": "Remove scoring or confine it to message-thread content.",
+  "test": "Counsel review against the profile-building clause and its message-thread exception.",
+  "needs": [
+   "counsel"
+  ],
+  "grade": "OPEN",
+  "basis": "Clause read; application unreviewed.",
+  "status": "OPEN",
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-12",
+  "statement": "A user-initiated click-to-WhatsApp conversation is sufficient opt-in for service replies and utility updates; marketing needs separate opt-in.",
+  "category": "legal",
+  "depends": [
+   "O1",
+   "K2"
+  ],
+  "if_false": "Add explicit opt-in capture before order updates outside the 24-hour window.",
+  "test": "Counsel review of the policy and local law.",
+  "needs": [
+   "counsel"
+  ],
+  "grade": "OPEN",
+  "basis": "Opt-in may be general per policy; sufficiency unreviewed.",
+  "status": "OPEN",
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-13",
+  "statement": "Per-message costs in Algeria are acceptable under the current reported October 2026 rate card and our actual message mix.",
+  "category": "economic",
+  "depends": [
+   "C0"
+  ],
+  "if_false": "Reduce notification count, favor necessary utility templates, compare provider fees and retain COD/first-party alternatives until the invoice-level model is acceptable.",
+  "test": "Model delivered messages per order by category, service-message free allowance, eligible entry-point window, provider fee and billing currency; reconcile with the first actual invoice.",
+  "needs": [
+   "none",
+   "account"
+  ],
+  "grade": "OPEN",
+  "basis": "Multiple secondary sources report +213 at USD 0.0225 marketing and USD 0.0040 utility/authentication/service from 2026-10-01. Official card/account invoice, entry-point eligibility and realized cost per order are not yet verified.",
+  "status": "OPEN",
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-14",
+  "statement": "Sending the purchase signal at delivery improves optimisation versus sending it at confirmation.",
+  "category": "economic",
+  "depends": [
+   "F3"
+  ],
+  "if_false": "Send earlier, accepting returns in the signal.",
+  "test": "A/B the trigger on live campaigns.",
+  "needs": [
+   "account",
+   "spend"
+  ],
+  "grade": "OPEN",
+  "basis": "Meta says purchase optimisation exists; says nothing about COD timing.",
+  "status": "OPEN",
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-15",
+  "statement": "Last click before order creation selects the right ctwa_clid.",
+  "category": "technical",
+  "depends": [
+   "S1",
+   "F1"
+  ],
+  "if_false": "Audit mismatches and change the rule.",
+  "test": "Compare chosen clids with Meta-reported conversions on a sample.",
+  "needs": [
+   "account",
+   "spend"
+  ],
+  "grade": "OPEN",
+  "basis": "Judgment.",
+  "status": "OPEN",
+  "owner": "role:engineering",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-16",
+  "statement": "Algerian courier APIs are available to us with verified accounts, and commune-name mismatches are manageable.",
+  "category": "technical",
+  "depends": [
+   "L1"
+  ],
+  "if_false": "Manual parcel creation or a unified wrapper.",
+  "test": "Open courier accounts and create sandbox parcels.",
+  "needs": [
+   "account"
+  ],
+  "grade": "SUPPORTED",
+  "basis": "Vendor docs and plugin pages.",
+  "status": "OPEN",
+  "owner": "role:engineering",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-17",
+  "statement": "A domestic payment-link rail does not cost more conversion than it gains in cash certainty.",
+  "category": "economic",
+  "depends": [
+   "P2"
+  ],
+  "if_false": "Stay COD-only.",
+  "test": "A/B test.",
+  "needs": [
+   "account",
+   "spend"
+  ],
+  "grade": "OPEN",
+  "basis": "Single vendor claim.",
+  "status": "OPEN",
+  "owner": "role:business-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-18",
+  "statement": "Records keyed by an opaque id with a Z1 identity map are not personal data.",
+  "category": "legal",
+  "depends": [
+   "K1"
+  ],
+  "if_false": "Treat the event log as personal data everywhere.",
+  "test": "Counsel opinion.",
+  "needs": [
+   "counsel"
+  ],
+  "grade": "OPEN",
+  "basis": "Conservative default already treats them as personal.",
+  "status": "OPEN",
+  "owner": "role:algerian-counsel",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-19",
+  "statement": "Meta policies, terms, pricing and API versions change often enough to need a 30 to 90 day re-verification cycle.",
+  "category": "operational",
+  "depends": [
+   "O1",
+   "C0",
+   "X1",
+   "F1"
+  ],
+  "if_false": "Shorten or lengthen the cycle.",
+  "test": "Track diffs of the key pages over two or three cycles.",
+  "needs": [
+   "none"
+  ],
+  "grade": "SUPPORTED",
+  "basis": "Policy says changes may occur without notice; two CAPI guide versions coexist.",
+  "status": "OPEN",
+  "owner": "role:platform-operations",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-20",
+  "statement": "The Cloud API test number is enough to test webhooks, signatures, message flow and status events without a business WhatsApp account.",
+  "category": "technical",
+  "depends": [
+   "T1",
+   "M1"
+  ],
+  "if_false": "A real WABA is needed even for plumbing tests.",
+  "test": "Set up the test number, point the webhook at our endpoint, send a message.",
+  "needs": [
+   "dev"
+  ],
+  "grade": "SUPPORTED",
+  "basis": "Get Started page; limits on referrals known.",
+  "status": "OPEN",
+  "owner": "role:engineering",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ },
+ {
+  "id": "A-21",
+  "statement": "Phase 1 operates for businesses we own or control, as a direct developer, not as a multi-merchant platform.",
+  "category": "scope",
+  "depends": [
+   "TP1",
+   "X1"
+  ],
+  "if_false": "Tech Provider onboarding, App Review, per-customer billing and heavier scrutiny under the AI Providers clause become required.",
+  "test": "Decision by the project owner.",
+  "needs": [
+   "user"
+  ],
+  "grade": "OPEN",
+  "basis": "Not stated by the owner; assumed from the single-business framing.",
+  "status": "OPEN",
+  "owner": "role:project-owner",
+  "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",
+  "review_by": null
+ }
+]
