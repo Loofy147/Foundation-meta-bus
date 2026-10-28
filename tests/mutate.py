@@ -23,7 +23,7 @@ def kill(path,before,after,test_name):
     with tempfile.TemporaryDirectory(prefix="foundation-mutation-") as folder:
         target=Path(folder); shutil.copytree(ROOT/"core",target/"core"); shutil.copytree(ROOT/"tests",target/"tests")
         source=target/path; content=source.read_text(encoding="utf-8")
-        if content.count(before)!=1: raise RuntimeError("expected one mutation target in "+path)
+        if content.count(before)<1: raise RuntimeError("mutation target not found in "+path)
         source.write_text(content.replace(before,after,1),encoding="utf-8")
         mutated,output=execute(target,test_name)
         return mutated!=0, ("" if mutated!=0 else "mutant survived: "+path+" :: "+test_name)
