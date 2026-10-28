@@ -660,10 +660,14 @@ ROWS = [
 caps = []
 for g in A["Tl"]:
     for c in g["capabilities"]:
+        # An inherited READY label without verification is not an effective readiness claim.
+        effective_status = "UNVERIFIED" if c["status"] == "READY" else c["status"]
+        inherited_notes = ("Original READY label downgraded to UNVERIFIED pending independent evidence."
+                           if c["status"] == "READY" else "Inherited from artefact A; not examined in this study.")
         rec = {"id": c["id"], "name": c["name"], "code": c["code"], "layer": LAYER[g["id"]],
-               "group": g["id"], "artefact_origin": "A", "a_status": c["status"], "status": c["status"],
+               "group": g["id"], "artefact_origin": "A", "a_status": c["status"], "status": effective_status,
                "complexity": c["complexity"], "meta_ref": c["meta_ref"], "desc": c["desc"],
-               "checked": False, "notes": "Inherited from artefact A; not examined in this study.",
+               "checked": False, "notes": inherited_notes,
                "depends_on": DEPS.get(c["id"], []),
                "evidence": [ev("OPEN", "Taken from artefact A without independent verification.", "artefact_A")],
                "verified_on": None}

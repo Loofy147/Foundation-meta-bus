@@ -22,6 +22,12 @@ class RegistryAndPlanningTests(unittest.TestCase):
         ]
         self.assertEqual(missing, [])
 
+    def test_inherited_ready_labels_are_not_effective_readiness_claims(self):
+        self.assertFalse([item["id"] for item in self.capabilities if item["status"] == "READY" and not item.get("checked")])
+        downgraded = [item for item in self.capabilities if item.get("a_status") == "READY" and not item.get("checked")]
+        self.assertTrue(downgraded)
+        self.assertTrue(all(item["status"] == "UNVERIFIED" for item in downgraded))
+
     def test_checked_capabilities_have_strong_evidence(self):
         strong = {"PROVEN", "SUPPORTED"}
         invalid = [

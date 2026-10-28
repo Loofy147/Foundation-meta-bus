@@ -15,12 +15,12 @@
    "group": "A",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "campaign_type=ASC",
    "desc": "End-to-end automation for commerce. Auto audience + placement + creative.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [
     "D3",
     "F1"
@@ -45,12 +45,12 @@
    "group": "A",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "audience_expansion=1",
    "desc": "Broad targeting with AI expansion. Removes manual interest stacking.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -101,12 +101,12 @@
    "group": "A",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 3,
    "meta_ref": "ranking_model=v2",
    "desc": "Next-gen retrieval. Personalization for product discovery.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -128,12 +128,12 @@
    "group": "A",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "cbo=enabled",
    "desc": "AI-driven budget fluidity. Minimum ROAS guardrails.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -251,12 +251,12 @@
    "group": "B",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 2,
    "meta_ref": "ai_catalog_connect",
    "desc": "Catalog-aware product recommendations in chat.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -321,12 +321,12 @@
    "group": "C",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "dynamic_creative=ON",
    "desc": "Auto variations: crop, brightness, text overlay optimization.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -348,12 +348,12 @@
    "group": "C",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 2,
    "meta_ref": "gen_video_model",
    "desc": "Animate static product. 6s Reels from single SKU image.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -375,12 +375,12 @@
    "group": "C",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "bg_gen_api",
    "desc": "Scene expansion. Lifestyle context without photoshoot.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -429,12 +429,12 @@
    "group": "C",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "llama_text_gen",
    "desc": "Ad copy in 3 languages. Hook + angle variations.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -456,12 +456,12 @@
    "group": "D",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "cta=WHATSAPP",
    "desc": "Primary conversion path. Deep link with pre-filled intent.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [
     "F1"
    ],
@@ -514,12 +514,12 @@
    "group": "D",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "wa_catalog_id",
    "desc": "In-chat product carousel. Sync from Commerce Manager.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [
     "F4"
    ],
@@ -609,12 +609,12 @@
    "group": "E",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "reels_api",
    "desc": "Discovery-first format. Hook rate >3s = distribution.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -690,12 +690,12 @@
    "group": "E",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 2,
    "meta_ref": "collab_ads",
    "desc": "Brand x Retailer. Shared catalog + audience.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
@@ -943,12 +943,12 @@
    "group": "F",
    "artefact_origin": "A",
    "a_status": "READY",
-   "status": "READY",
+   "status": "UNVERIFIED",
    "complexity": 1,
    "meta_ref": "verified_badge",
    "desc": "Meta Verified business. Trust signal in chat.",
    "checked": false,
-   "notes": "Inherited from artefact A; not examined in this study.",
+   "notes": "Original READY label downgraded to UNVERIFIED pending independent evidence.",
    "depends_on": [],
    "evidence": [
     {
