@@ -38,3 +38,7 @@ Accountability values such as `role:engineering` and `role:algerian-counsel` ide
 - [Integration pull request](https://github.com/Loofy147/Foundation-meta-bus/pull/1)
 - [Gate reconstruction record](docs/audits/gate-reconstruction-2026-10-28.md)
 - [Original Dropbox guidance](docs/reference/dropbox-archive/AGENTS.md)
+
+## Current external research
+
+- [Meta / WhatsApp research checkpoint, evidence and unresolved gates](docs/research/meta-platform-check-2026-10-28.md)

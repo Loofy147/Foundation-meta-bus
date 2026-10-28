@@ -253,18 +253,18 @@
  },
  {
   "id": "A-13",
-  "statement": "Per-message costs in Algeria are acceptable: the sales conversation fits the 72-hour free window and post-window updates are cheap enough.",
+  "statement": "Per-message costs in Algeria are acceptable under the current reported October 2026 rate card and our actual message mix.",
   "category": "economic",
   "depends": [
    "C0"
   ],
-  "if_false": "Cut notification count or move updates to another channel.",
-  "test": "Read Algeria's rate card and model cost per order.",
+  "if_false": "Reduce notification count, favor necessary utility templates, compare provider fees and retain COD/first-party alternatives until the invoice-level model is acceptable.",
+  "test": "Model delivered messages per order by category, service-message free allowance, eligible entry-point window, provider fee and billing currency; reconcile with the first actual invoice.",
   "needs": [
    "none"
   ],
   "grade": "OPEN",
-  "basis": "Rate not retrieved.",
+  "basis": "Multiple secondary sources report +213 at USD 0.0225 marketing and USD 0.0040 utility/authentication/service from 2026-10-01. Official card/account invoice, entry-point eligibility and realized cost per order are not yet verified.",
   "status": "OPEN",
   "owner": "role:business-owner",
   "owner_basis": "Accountable role inferred from assumption category; named individual still unassigned.",

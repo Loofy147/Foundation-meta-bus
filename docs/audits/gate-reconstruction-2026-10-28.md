@@ -28,6 +28,15 @@ Conversion dispatch, third-party customer-data sharing, hosted LLM processing, c
 
 Account eligibility, current Meta terms/pricing, Algeria-specific billing, business verification, legal interpretations, live referral preservation, provider contracts, live webhook delivery, courier/PSP operations and business outcomes remain OPEN. Account-specific and legal outcomes must not be inferred from a green code gate.
 
-## Validation state
+## Validation evidence
 
-The commit containing this record must be evaluated by GitHub Actions. The exact run ID, tested commit, job outcome and any residual failures should be appended only after the remote run is observed. Do not call this production-ready before that evidence and external prerequisites are closed.
+- **Commit tested:** `604f7fa9b1202f011df23db5b42f26f072f9997a`.
+- **GitHub Actions run:** [40665385967](https://github.com/Loofy147/Foundation-meta-bus/actions/runs/40665385967), job `122738440417`, completed successfully.
+- Observed output: registry integrity checks pass with **0 warnings**; system specification **0 failures and 6/6 mutation tests caught**; plan **0 failures, 0 warnings, 28/28 scenario contracts**; unit suite passed; core source mutation suite **6/6 killed**; generated JSON reproducibility check passed.
+- The exact commit above was green before the external-research update in this commit; GitHub Actions must validate this research update as well.
+
+## Latest research update
+
+The updated plan records the current Platform Terms effective 2026-09-23, the distinction between the customer-facing Business App agent and the developer platform API, and secondary October 2026 Algeria pricing. The current official rate card and actual Algerian account billing remain OPEN; the repository does not treat secondary rates as official proof. See `docs/research/meta-platform-check-2026-10-28.md` for sources and actions.
+
+Do not call this production-ready before the new commit's CI and all external legal, account, billing and cryptographic prerequisites are closed.

@@ -2,10 +2,11 @@
  "items": [
   {
    "id": "V-01",
-   "title": "Read Algeria's rate card on Meta's pricing page and model cost per order",
+   "title": "Retrieve the official rate card, confirm account/recipient billing basis, and model per-order message cost",
    "kind": "verify",
    "needs": [
-    "none"
+    "none",
+    "account"
    ],
    "depends_on": [],
    "tests": [
