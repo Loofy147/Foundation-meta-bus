@@ -24,7 +24,9 @@ Full reconciliation record: [Dropbox / GitHub reconciliation report](https://git
 - Run ID: 40661373817
 - Result: **completed / success**
 - Job: `validate`, job ID `122724951209`
+- Tested code head: `10bc6347586a3de81ce9b441caec0227f5c39f4c`
 - Run link: https://github.com/Loofy147/Foundation-meta-bus/actions/runs/40661373817
+- After that successful run, documentation-only commit `88ed8a36e270a126330dc9b15cc0e0f1c3b1c716` added this evidence record. That commit did not change source code, tests, workflow, or generated data; no separate workflow run was returned for that documentation-only commit.
 
 Observed completed steps:
 1. Checkout and Python setup
