@@ -10,7 +10,7 @@ from core.consent import authorize_outbound_message
 from core.conversions import DispatchOutcomeUnknown, TransportNotConfigured, dispatch_conversion, prepare_conversion
 from core.policy import PolicyDenied, authorize
 from core.store import SQLiteStore
-from core.webhook import InvalidWebhook, PersistenceFailure, MAX_WEBHOOK_BYTES, ingest_signed_payload
+from core.webhook import InvalidWebhook, PersistenceFailure, MAX_WEBHOOK_BYTES, ingest_signed_payload, verify_subscription
 
 class FakeTransport:
     def __init__(self, error=None): self.calls, self.error = [], error
@@ -44,6 +44,19 @@ class CoreTestCase(unittest.TestCase):
     @staticmethod
     def signed(payload, secret=b"synthetic-secret"):
         return "sha256=" + hmac.new(secret, payload, hashlib.sha256).hexdigest()
+
+class SubscriptionHandshakeTests(CoreTestCase):
+    def test_subscription_handshake_returns_original_challenge_for_valid_token(self):
+        challenge = "synthetic-challenge-123"
+        self.assertEqual(verify_subscription("subscribe", "test-token", "test-token", challenge), challenge)
+
+    def test_subscription_handshake_denies_wrong_token_and_mode(self):
+        with self.assertRaises(InvalidWebhook):
+            verify_subscription("subscribe", "wrong-token", "test-token", "challenge")
+        with self.assertRaises(InvalidWebhook):
+            verify_subscription("unsubscribe", "test-token", "test-token", "challenge")
+        with self.assertRaises(InvalidWebhook):
+            verify_subscription("subscribe", "test-token", "", "challenge")
 
 class PolicyTests(CoreTestCase):
     def test_default_and_approval_required_are_denied(self):
@@ -83,6 +96,35 @@ class WebhookTests(CoreTestCase):
         first = ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",normalize=lambda d:d,store=self.store)
         second = ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",normalize=lambda d:d,store=self.store)
         self.assertFalse(first["duplicate"]); self.assertTrue(second["duplicate"]); self.assertEqual(self.store.count_webhook_events(),1)
+    def test_batch_webhook_persists_every_event_and_retry_is_idempotent(self):
+        events = [
+            {"event_id":"evt-batch-001","sender_id":"synthetic-sender-1"},
+            {"event_id":"evt-batch-002","sender_id":"synthetic-sender-2"},
+        ]
+        payload = b'{"synthetic":"batch"}'
+        first = ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",
+            normalize=lambda _document: events,store=self.store)
+        retry = ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",
+            normalize=lambda _document: events,store=self.store)
+        self.assertEqual(first["events_accepted"],2)
+        self.assertEqual(first["duplicates"],0)
+        self.assertFalse(first["duplicate"])
+        self.assertEqual(retry["duplicates"],2)
+        self.assertTrue(retry["duplicate"])
+        self.assertEqual(self.store.count_webhook_events(),2)
+        self.assertEqual(self.store.get_webhook_event("evt-batch-002"),events[1])
+
+    def test_invalid_event_in_batch_prevents_all_writes(self):
+        events = [
+            {"event_id":"evt-batch-valid","sender_id":"synthetic-sender"},
+            {"event_id":"evt-batch-invalid","sender_id":""},
+        ]
+        payload = b'{"synthetic":"batch"}'
+        with self.assertRaises(InvalidWebhook):
+            ingest_signed_payload(payload,self.signed(payload),b"synthetic-secret",
+                normalize=lambda _document: events,store=self.store)
+        self.assertEqual(self.store.count_webhook_events(),0)
+
     def test_oversized_payload_is_rejected_before_normalization(self):
         payload = b" " * (MAX_WEBHOOK_BYTES + 1) + b'{"event_id":"evt-large","sender_id":"synthetic-sender"}'
         called = []
